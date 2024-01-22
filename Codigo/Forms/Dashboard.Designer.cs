@@ -179,6 +179,12 @@
             this.rjButton1.Text = "Cargar resultados";
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            this.rjButton1.MouseEnter += new System.EventHandler(this.rjButton1_MouseEnter);
+            this.rjButton1.MouseLeave += new System.EventHandler(this.rjButton1_MouseLeave);
+            this.rjButton1.MouseHover += new System.EventHandler(this.rjButton1_MouseHover_1);
+            this.rjButton1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.rjButton1_MouseMove);
+            this.rjButton1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.rjButton1_MouseUp);
             // 
             // panel3
             // 

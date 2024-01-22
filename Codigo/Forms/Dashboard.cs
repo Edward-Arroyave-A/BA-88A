@@ -471,7 +471,7 @@ namespace AnnarComMICROSESV60.Forms
             {
                 // Pantalla grande: ajusta el diseño para una pantalla grande
            
-                panel4.Width = 490;
+                panel4.Width = 420;
                 panel3.Width = 231;
                 panel1.Padding = new Padding(30, 30, 15, 7);
                 panelDashContenedor.Padding = new Padding(30, 30, 30, 7);
@@ -504,8 +504,6 @@ namespace AnnarComMICROSESV60.Forms
           
         }
 
-
-
-
+   
     }
 }
