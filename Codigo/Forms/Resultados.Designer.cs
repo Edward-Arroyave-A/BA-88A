@@ -65,11 +65,10 @@
             this.flpContenedorResul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpContenedorResul.BackColor = System.Drawing.Color.White;
             this.flpContenedorResul.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpContenedorResul.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpContenedorResul.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
-            this.flpContenedorResul.Location = new System.Drawing.Point(0, 0);
+            this.flpContenedorResul.Location = new System.Drawing.Point(15, 0);
             this.flpContenedorResul.Name = "flpContenedorResul";
-            this.flpContenedorResul.Size = new System.Drawing.Size(797, 606);
+            this.flpContenedorResul.Size = new System.Drawing.Size(970, 985);
             this.flpContenedorResul.TabIndex = 16;
             this.flpContenedorResul.WrapContents = false;
             this.flpContenedorResul.Paint += new System.Windows.Forms.PaintEventHandler(this.flpContenedorResul_Paint);
@@ -78,7 +77,7 @@
             // 
             this.chkDSR.AutoSize = true;
             this.chkDSR.Enabled = false;
-            this.chkDSR.Location = new System.Drawing.Point(464, 295);
+            this.chkDSR.Location = new System.Drawing.Point(479, 295);
             this.chkDSR.Name = "chkDSR";
             this.chkDSR.Size = new System.Drawing.Size(47, 19);
             this.chkDSR.TabIndex = 29;
@@ -90,7 +89,7 @@
             // 
             this.chkCD.AutoSize = true;
             this.chkCD.Enabled = false;
-            this.chkCD.Location = new System.Drawing.Point(410, 295);
+            this.chkCD.Location = new System.Drawing.Point(425, 295);
             this.chkCD.Name = "chkCD";
             this.chkCD.Size = new System.Drawing.Size(42, 19);
             this.chkCD.TabIndex = 30;
@@ -102,7 +101,7 @@
             // 
             this.chkCTS.AutoSize = true;
             this.chkCTS.Enabled = false;
-            this.chkCTS.Location = new System.Drawing.Point(514, 245);
+            this.chkCTS.Location = new System.Drawing.Point(529, 245);
             this.chkCTS.Name = "chkCTS";
             this.chkCTS.Size = new System.Drawing.Size(45, 19);
             this.chkCTS.TabIndex = 28;
@@ -113,7 +112,7 @@
             // rbText
             // 
             this.rbText.AutoSize = true;
-            this.rbText.Location = new System.Drawing.Point(464, 270);
+            this.rbText.Location = new System.Drawing.Point(479, 270);
             this.rbText.Name = "rbText";
             this.rbText.Size = new System.Drawing.Size(46, 19);
             this.rbText.TabIndex = 31;
@@ -123,7 +122,7 @@
             // rbHex
             // 
             this.rbHex.AutoSize = true;
-            this.rbHex.Location = new System.Drawing.Point(410, 270);
+            this.rbHex.Location = new System.Drawing.Point(425, 270);
             this.rbHex.Name = "rbHex";
             this.rbHex.Size = new System.Drawing.Size(46, 19);
             this.rbHex.TabIndex = 32;
@@ -134,7 +133,7 @@
             // 
             this.chkClearWithDTR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClearWithDTR.AutoSize = true;
-            this.chkClearWithDTR.Location = new System.Drawing.Point(170, 267);
+            this.chkClearWithDTR.Location = new System.Drawing.Point(185, 646);
             this.chkClearWithDTR.Name = "chkClearWithDTR";
             this.chkClearWithDTR.Size = new System.Drawing.Size(103, 19);
             this.chkClearWithDTR.TabIndex = 34;
@@ -146,7 +145,7 @@
             // 
             this.chkClearOnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClearOnOpen.AutoSize = true;
-            this.chkClearOnOpen.Location = new System.Drawing.Point(55, 267);
+            this.chkClearOnOpen.Location = new System.Drawing.Point(70, 646);
             this.chkClearOnOpen.Name = "chkClearOnOpen";
             this.chkClearOnOpen.Size = new System.Drawing.Size(105, 19);
             this.chkClearOnOpen.TabIndex = 33;
@@ -157,7 +156,7 @@
             // chkRTS
             // 
             this.chkRTS.AutoSize = true;
-            this.chkRTS.Location = new System.Drawing.Point(464, 245);
+            this.chkRTS.Location = new System.Drawing.Point(479, 245);
             this.chkRTS.Name = "chkRTS";
             this.chkRTS.Size = new System.Drawing.Size(44, 19);
             this.chkRTS.TabIndex = 36;
@@ -168,7 +167,7 @@
             // chkDTR
             // 
             this.chkDTR.AutoSize = true;
-            this.chkDTR.Location = new System.Drawing.Point(410, 245);
+            this.chkDTR.Location = new System.Drawing.Point(425, 245);
             this.chkDTR.Name = "chkDTR";
             this.chkDTR.Size = new System.Drawing.Size(46, 19);
             this.chkDTR.TabIndex = 35;
@@ -183,10 +182,10 @@
             // 
             // Resultados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.ClientSize = new System.Drawing.Size(797, 606);
+            this.ClientSize = new System.Drawing.Size(1000, 1000);
             this.Controls.Add(this.chkRTS);
             this.Controls.Add(this.chkDTR);
             this.Controls.Add(this.chkClearWithDTR);
@@ -202,6 +201,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Resultados";
+            this.Padding = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Terminal";
             this.Load += new System.EventHandler(this.Terminal_Load);

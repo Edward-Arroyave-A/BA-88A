@@ -11,9 +11,9 @@ namespace AnnarComMICROSESV60.Forms
         Resultados terminal = new Resultados();
         Config config = new Config();
         Color primaryColor = Color.FromArgb(46, 189, 255);
-        Color EfectoColorHoverCargar = Color.FromArgb(172,206,247);
+        Color EfectoColorHoverCargar = Color.FromArgb(172, 206, 247);
         Color colorDesconectar = Color.FromArgb(198, 198, 198);
-        Color colorConectar = Color.FromArgb(121,224, 213);
+        Color colorConectar = Color.FromArgb(121, 224, 213);
         public Dashboard()
         {
             InitializeComponent();
@@ -113,7 +113,7 @@ namespace AnnarComMICROSESV60.Forms
 
             if (!VariablesGlobal.Resultados)
             {
-              
+
 
                 Config frm = new Config();
 
@@ -304,7 +304,7 @@ namespace AnnarComMICROSESV60.Forms
             this.Invalidate();
         }
 
-      
+
 
         private void rjButton1_MouseHover_1(object sender, EventArgs e)
         {
@@ -335,7 +335,7 @@ namespace AnnarComMICROSESV60.Forms
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
-         {
+        {
 
         }
 
@@ -394,7 +394,7 @@ namespace AnnarComMICROSESV60.Forms
             {
                 pictureBox2.BackColor = colorDesconectar;
                 rjButton2.MouseOverBackColor = colorDesconectar;
-               
+
             }
             this.Invalidate();
         }
@@ -439,7 +439,7 @@ namespace AnnarComMICROSESV60.Forms
             {
                 rjButton2.BackgroundColor = colorDesconectar;
                 pictureBox2.BackColor = colorDesconectar;
-                
+
             }
             this.Invalidate();
         }
@@ -453,58 +453,77 @@ namespace AnnarComMICROSESV60.Forms
         {
             int medio = this.Width / 2;
 
+            int panel4Width = 490;
+            int panel3Width = 231;
+            int panelDashPaddingLeft = 30;
+            int panelDashPaddingRight = 30;
+            int panelDashPaddingTop = 7;
+            int panelDashPaddingBottom = 7;
+            Size panelDashSize = new Size(700, 600);
 
-            if (medio >= 586 && medio <= 800)
+            if (medio >= 768 && medio <= 1024)
             {
                 // Pantalla grande: ajusta el diseño para una pantalla grande
-
-                panel4.Width = 490;
-                panel3.Width = 231;
-                panelDashContenedor.Padding = new Padding(60, 30, 60, 7);
-                panelDashContenedor.Size = new Size(700, 600);
-                panel1.Padding = new Padding(30, 30, 30, 7);
-                panel1.Padding = new Padding(30, 30, 30, 7);
-                // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
-
+                panelDashPaddingLeft = 80;
+                panelDashPaddingRight = 80;
+                panelDashSize = new Size(900, 600);
+                this.Invalidate();
             }
 
-            if (medio >= 511  && medio <= 586)
+            if (medio >= 511 && medio <= 655)
             {
-                // Pantalla grande: ajusta el diseño para una pantalla grande
-           
-                panel4.Width = 420;
-                panel3.Width = 231;
-                panel1.Padding = new Padding(30, 30, 15, 7);
-                panelDashContenedor.Padding = new Padding(30, 30, 30, 7);
-                // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
-
+                // Ajustes específicos para este rango
+                panel4Width = 420;
+                panelDashPaddingLeft = 15;
+                this.Invalidate();
             }
 
             if (medio >= 500 && medio <= 510)
             {
-                // Pantalla grande: ajusta el diseño para una pantalla grande
-
-                panel4.Width = 390;
-                panel3.Width = 224;
-
-                // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
-
+                // Ajustes específicos para este rango
+                panel4Width = 390;
+                panel3Width = 224;
+                this.Invalidate();
             }
 
-            if ( medio <= 467)
+            if (medio <= 467)
             {
-                // Pantalla grande: ajusta el diseño para una pantalla grande
-
-                panel4.Width = 350;
-                panel3.Width = 200;
-                
-
-                // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
-
+                // Ajustes específicos para este rango
+                panel4Width = 350;
+                panel3Width = 200;
+                this.Invalidate();
             }
-          
+
+            // Aplicar configuraciones comunes
+            panel4.Width = panel4Width;
+            panel3.Width = panel3Width;
+            panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
+            panelDashContenedor.Size = panelDashSize;
+            panel1.Padding = new Padding(30, 30, 30, 7); // Siempre se aplica este valor
+
+            // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
+            double proporcionAltura = 0.7; // Ajusta esta proporción según tus necesidades
+
+            panel3.Height = Convert.ToInt32(panel4.Width * proporcionAltura);
+            panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
+
+            // Forzar la actualización del panelDashContenedor
+            panelDashContenedor.Invalidate();
+
+            // Ajustar automáticamente el tamaño y la posición de los controles según el modo de escala automática
+            ScaleControls();
         }
 
-   
+        private void ScaleControls()
+        {
+            // Utilizar el modo de escala automática proporcionado por WinForms
+            this.AutoScaleMode = AutoScaleMode.Dpi; // O AutoScaleMode.Font según tus preferencias
+
+            // Forzar el rediseño y el repintado de los controles
+            this.PerformLayout();
+            this.Refresh();
+        }
+
+
     }
 }
