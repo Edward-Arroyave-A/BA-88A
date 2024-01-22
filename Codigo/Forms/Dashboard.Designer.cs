@@ -109,12 +109,11 @@
             // 
             this.panelDashContenedor.AutoScroll = true;
             this.panelDashContenedor.AutoSize = true;
-            this.panelDashContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.panelDashContenedor.BackColor = System.Drawing.Color.Transparent;
             this.panelDashContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDashContenedor.Location = new System.Drawing.Point(275, 293);
             this.panelDashContenedor.Margin = new System.Windows.Forms.Padding(0);
             this.panelDashContenedor.Name = "panelDashContenedor";
-            this.panelDashContenedor.Padding = new System.Windows.Forms.Padding(30, 30, 30, 7);
             this.panelDashContenedor.Size = new System.Drawing.Size(817, 372);
             this.panelDashContenedor.TabIndex = 9;
             this.panelDashContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDashContenedor_Paint);

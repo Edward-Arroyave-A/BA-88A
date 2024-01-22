@@ -156,8 +156,11 @@ namespace AnnarComMICROSESV60.Forms
             // Enable/disable controls based on the current state
             EnableControls();
 
+            this.SizeChanged += Resultados_SizeChanged;
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
+            this.Dock = DockStyle.Fill;
+            
 
         }
 
@@ -194,9 +197,9 @@ namespace AnnarComMICROSESV60.Forms
 
             MensajesFlowLP($"Interfaz iniciada", EnumEstados.Ok);
 
-            RedondearBordes(flpContenedorResul, 17);
+            //RedondearEsquinas(flpContenedorResul, 17);
             //RedondearBordes(pnlSubMenu, 17);
-           
+
 
             //RedondearBordes(cmbPortName, 10); 
             //RedondearBordes(pbPuerto, 10);
@@ -264,8 +267,8 @@ namespace AnnarComMICROSESV60.Forms
         private void EsconderSubmenu()
         {
             //if (pnlSubMenu.Visible == true) pnlSubMenu.Visible = false;
-            flpContenedorResul.Location = new Point(24, 100);
-            flpContenedorResul.Size = new Size(748, 500);
+            //flpContenedorResul.Location = new Point(24, 100);
+            //flpContenedorResul.Size = new Size(748, 500);
 
         }
 
@@ -463,17 +466,21 @@ namespace AnnarComMICROSESV60.Forms
         {
 
         }
-        private void RedondearBordes(Control control, int radio)
+        private void RedondearEsquinas(Control control, int radio)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, radio * 2, radio * 2, 180, 90); // Esquina superior izquierda
             path.AddArc(control.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90); // Esquina superior derecha
             path.AddArc(control.Width - radio * 2, control.Height - radio * 2, radio * 2, radio * 2, 0, 90); // Esquina inferior derecha
             path.AddArc(0, control.Height - radio * 2, radio * 2, radio * 2, 90, 90); // Esquina inferior izquierda
+
+            // Cerrar el path para asegurar que el borde sea cerrado completamente
+            path.CloseFigure();
+
             control.Region = new Region(path);
         }
 
-      
+
 
         void comport_PinChanged(object sender, SerialPinChangedEventArgs e)
         {
@@ -1137,6 +1144,18 @@ namespace AnnarComMICROSESV60.Forms
                 //mostrarSubmenu(pnlSubMenu);
             
         }
+
+        private void Resultados_SizeChanged(object sender, EventArgs e)
+        {
+            // Obtener el tamaño actual del formulario
+            int nuevoAncho = this.Size.Width;
+            int nuevoAlto = this.Size.Height;
+
+            // Establecer el nuevo tamaño para el panel
+            flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
+            RedondearEsquinas(flpContenedorResul, 10);
+        }
+
     }
 
 
