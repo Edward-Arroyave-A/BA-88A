@@ -461,6 +461,7 @@ namespace AnnarComMICROSESV60.Forms
                 panel4.Width = 490;
                 panel3.Width = 231;
                 panelDashContenedor.Padding = new Padding(60, 30, 60, 7);
+                panelDashContenedor.Size = new Size(700, 600);
                 panel1.Padding = new Padding(30, 30, 30, 7);
                 panel1.Padding = new Padding(30, 30, 30, 7);
                 // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
