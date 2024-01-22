@@ -24,11 +24,10 @@ D:\learning\estilos\Codigo\obj\Debug\AnnarComMICROSESV60.application
 D:\learning\estilos\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.CopyComplete
 D:\learning\estilos\Codigo\obj\Debug\AnnarComMICROSESV60.exe
 D:\learning\estilos\Codigo\obj\Debug\AnnarComMICROSESV60.pdb
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe
 D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe.config
 D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe.manifest
 D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.application
-D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe
-D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.pdb
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.AssemblyReference.cache
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.SuggestedBindingRedirects.cache
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.RJControls.RJConnectionButton.resources
@@ -50,3 +49,4 @@ D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.application
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.CopyComplete
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.exe
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.pdb
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.pdb

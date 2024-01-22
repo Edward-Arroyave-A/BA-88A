@@ -62,7 +62,7 @@
             // flpContenedorResul
             // 
             this.flpContenedorResul.AutoScroll = true;
-            this.flpContenedorResul.AutoSize = true;
+            this.flpContenedorResul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpContenedorResul.BackColor = System.Drawing.Color.White;
             this.flpContenedorResul.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpContenedorResul.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -185,7 +185,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(797, 606);
             this.Controls.Add(this.chkRTS);
