@@ -273,6 +273,7 @@ namespace AnnarComMICROSESV60.Forms
 
 
             }
+            btnResultados_Click(sender,e);
             this.Invalidate();
         }
 
