@@ -89,10 +89,11 @@
             this.panelConexion2.Controls.Add(this.rjInputsFormulariosControl13);
             this.panelConexion2.Controls.Add(this.rjInputsFormulariosControl14);
             this.panelConexion2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelConexion2.Location = new System.Drawing.Point(4, 10);
+            this.panelConexion2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelConexion2.Location = new System.Drawing.Point(0, 0);
             this.panelConexion2.Name = "panelConexion2";
             this.panelConexion2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelConexion2.Size = new System.Drawing.Size(1029, 360);
+            this.panelConexion2.Size = new System.Drawing.Size(797, 568);
             this.panelConexion2.TabIndex = 6;
             this.panelConexion2.Visible = false;
             // 
@@ -106,10 +107,11 @@
             this.panelRuta2.Controls.Add(this.pictureBox1);
             this.panelRuta2.Controls.Add(this.panel1);
             this.panelRuta2.Controls.Add(this.rjInputsFormulariosControl5);
-            this.panelRuta2.Location = new System.Drawing.Point(11, 10);
+            this.panelRuta2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRuta2.Location = new System.Drawing.Point(0, 0);
             this.panelRuta2.Name = "panelRuta2";
             this.panelRuta2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelRuta2.Size = new System.Drawing.Size(740, 357);
+            this.panelRuta2.Size = new System.Drawing.Size(797, 568);
             this.panelRuta2.TabIndex = 8;
             this.panelRuta2.Visible = false;
             // 
@@ -250,12 +252,13 @@
             this.panelParametrizacion2.Controls.Add(this.pictureBox2);
             this.panelParametrizacion2.Controls.Add(this.rjInputsFormulariosControl3);
             this.panelParametrizacion2.Controls.Add(this.rjInputsFormulariosControl4);
+            this.panelParametrizacion2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelParametrizacion2.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold);
             this.panelParametrizacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
-            this.panelParametrizacion2.Location = new System.Drawing.Point(8, 10);
+            this.panelParametrizacion2.Location = new System.Drawing.Point(0, 0);
             this.panelParametrizacion2.Name = "panelParametrizacion2";
             this.panelParametrizacion2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelParametrizacion2.Size = new System.Drawing.Size(748, 345);
+            this.panelParametrizacion2.Size = new System.Drawing.Size(797, 568);
             this.panelParametrizacion2.TabIndex = 7;
             this.panelParametrizacion2.Visible = false;
             // 
@@ -389,9 +392,9 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.panelConexion2);
             this.panelContenedor.Controls.Add(this.panelParametrizacion2);
             this.panelContenedor.Controls.Add(this.panelRuta2);
-            this.panelContenedor.Controls.Add(this.panelConexion2);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 38);
             this.panelContenedor.Name = "panelContenedor";
