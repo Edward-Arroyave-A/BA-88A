@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            CustomControls.RJControls.RJButton rjButton2;
+            AnnarComMICROSESV60.RJControls.RJButton rjButton2;
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rjConnectionButton1 = new AnnarComMICROSESV60.RJControls.RJConnectionButton();
-            rjButton2 = new CustomControls.RJControls.RJButton();
+            rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Carga_2;
+            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(60, 23);
             this.pictureBox1.Name = "pictureBox1";

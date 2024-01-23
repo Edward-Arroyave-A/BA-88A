@@ -1,22 +1,20 @@
-using AnnarComMICROSESV60.Forms;
 using AnnarComMICROSESV60.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SerialPortTerminal
+namespace AnnarComMICROSESV60
 {
-  static class Program
-  {
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    static class Program
     {
-      Application.EnableVisualStyles();
-      InterfaceConfig.InitializeConfig();
-      Application.Run(new Dashboard());
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            InterfaceConfig.InitializeConfig();
+            Application.Run(new Dashboard());
+        }
     }
-  }
 }
