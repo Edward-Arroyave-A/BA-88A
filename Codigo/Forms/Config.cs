@@ -463,8 +463,7 @@ namespace AnnarComMICROSESV60.Forms
                 int nuevoAlto = this.Size.Height;
 
             // Establecer el nuevo tamaño para el panel
-            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);
-            rjInputsFormulariosControl5.Size = new Size(nuevoAncho, nuevoAlto);
+            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);;
             RedondearEsquinas(panelContenedor, 10);
 
             int medio = this.Width / 2;
@@ -545,7 +544,7 @@ namespace AnnarComMICROSESV60.Forms
             //panelDashContenedor.Invalidate();
 
             //// Ajustar automáticamente el tamaño y la posición de los controles según el modo de escala automática
-            //ScaleControls();
+            ScaleControls();
 
 
         }
