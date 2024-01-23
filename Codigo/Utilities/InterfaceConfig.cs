@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AnnarComMICROSESV60.Utilities
 {
@@ -36,6 +37,16 @@ namespace AnnarComMICROSESV60.Utilities
         static internal string clearOnOpen;
         static internal string clearWithDTR;
 
+
+        static internal string medicalDevice;
+        static internal string reactive;
+        static internal string client;
+        static internal string userName;
+        static internal string password;
+        static internal string endPointBase;
+        static internal string endPointResultados;
+        static internal string endPointToken;
+
         static internal void InitializeConfig()
         {
 
@@ -68,6 +79,15 @@ namespace AnnarComMICROSESV60.Utilities
             stopBits = ConfigurationManager.AppSettings["stopBits"];
             clearOnOpen = ConfigurationManager.AppSettings["clearOnOpen"];
             clearWithDTR = ConfigurationManager.AppSettings["clearWithDTR"];
+
+            medicalDevice = ConfigurationManager.AppSettings["medicalDevice"].ToString();
+            reactive = ConfigurationManager.AppSettings["reactive"].ToString();
+            client = ConfigurationManager.AppSettings["client"].ToString();
+            userName = ConfigurationManager.AppSettings["userName"].ToString();
+            password = ConfigurationManager.AppSettings["password"].ToString();
+            endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
+            endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
+            endPointToken = ConfigurationManager.AppSettings["endPointToken"].ToString();
 
         }
     }
