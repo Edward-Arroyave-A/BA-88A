@@ -94,7 +94,7 @@
             this.panelConexion2.Location = new System.Drawing.Point(15, 15);
             this.panelConexion2.Name = "panelConexion2";
             this.panelConexion2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelConexion2.Size = new System.Drawing.Size(767, 538);
+            this.panelConexion2.Size = new System.Drawing.Size(737, 508);
             this.panelConexion2.TabIndex = 6;
             this.panelConexion2.Visible = false;
             // 
@@ -250,7 +250,7 @@
             this.panelRuta2.Location = new System.Drawing.Point(15, 15);
             this.panelRuta2.Name = "panelRuta2";
             this.panelRuta2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelRuta2.Size = new System.Drawing.Size(767, 538);
+            this.panelRuta2.Size = new System.Drawing.Size(737, 508);
             this.panelRuta2.TabIndex = 8;
             this.panelRuta2.Visible = false;
             // 
@@ -336,11 +336,12 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.rjToggleButton2);
-            this.panel1.Location = new System.Drawing.Point(41, 493);
+            this.panel1.Location = new System.Drawing.Point(54, 409);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(7);
             this.panel1.Size = new System.Drawing.Size(133, 42);
             this.panel1.TabIndex = 21;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -398,7 +399,7 @@
             this.panelParametrizacion2.Location = new System.Drawing.Point(15, 15);
             this.panelParametrizacion2.Name = "panelParametrizacion2";
             this.panelParametrizacion2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.panelParametrizacion2.Size = new System.Drawing.Size(767, 538);
+            this.panelParametrizacion2.Size = new System.Drawing.Size(737, 508);
             this.panelParametrizacion2.TabIndex = 7;
             this.panelParametrizacion2.Visible = false;
             // 
@@ -538,10 +539,10 @@
             this.panelContenedor.Controls.Add(this.panelConexion2);
             this.panelContenedor.Controls.Add(this.panelParametrizacion2);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 38);
+            this.panelContenedor.Location = new System.Drawing.Point(15, 53);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Padding = new System.Windows.Forms.Padding(15);
-            this.panelContenedor.Size = new System.Drawing.Size(797, 568);
+            this.panelContenedor.Size = new System.Drawing.Size(767, 538);
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
@@ -602,9 +603,9 @@
             this.panel2.Controls.Add(this.btnRuta);
             this.panel2.Controls.Add(this.btnParametrizacion);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(15, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(797, 38);
+            this.panel2.Size = new System.Drawing.Size(767, 38);
             this.panel2.TabIndex = 14;
             // 
             // Config
@@ -619,9 +620,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Config";
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config";
             this.Load += new System.EventHandler(this.Config_Load);
+            this.SizeChanged += new System.EventHandler(this.Config_SizeChanged);
             this.panelConexion2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelRuta2.ResumeLayout(false);

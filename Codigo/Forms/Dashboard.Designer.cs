@@ -126,9 +126,10 @@
             this.panel1.Location = new System.Drawing.Point(275, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(15, 30, 15, 7);
+            this.panel1.Padding = new System.Windows.Forms.Padding(20, 30, 15, 7);
             this.panel1.Size = new System.Drawing.Size(817, 96);
             this.panel1.TabIndex = 10;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // panel4
@@ -136,7 +137,7 @@
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.rjButton1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(15, 30);
+            this.panel4.Location = new System.Drawing.Point(20, 30);
             this.panel4.Margin = new System.Windows.Forms.Padding(15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(389, 59);
@@ -172,7 +173,7 @@
             this.rjButton1.Location = new System.Drawing.Point(0, 0);
             this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.rjButton1.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
             this.rjButton1.Size = new System.Drawing.Size(389, 59);
             this.rjButton1.TabIndex = 3;
             this.rjButton1.Text = "Cargar resultados";
@@ -246,7 +247,7 @@
             this.panel2.Location = new System.Drawing.Point(275, 96);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(7);
+            this.panel2.Padding = new System.Windows.Forms.Padding(20, 7, 15, 7);
             this.panel2.Size = new System.Drawing.Size(817, 197);
             this.panel2.TabIndex = 30;
             this.panel2.Visible = false;
@@ -263,11 +264,13 @@
             this.pnlSubMenu.Controls.Add(rjInputComboBoxControl5);
             this.pnlSubMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSubMenu.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSubMenu.Location = new System.Drawing.Point(7, 7);
+            this.pnlSubMenu.Location = new System.Drawing.Point(20, 7);
             this.pnlSubMenu.Name = "pnlSubMenu";
-            this.pnlSubMenu.Size = new System.Drawing.Size(803, 183);
+            this.pnlSubMenu.Padding = new System.Windows.Forms.Padding(30, 0, 15, 0);
+            this.pnlSubMenu.Size = new System.Drawing.Size(782, 183);
             this.pnlSubMenu.TabIndex = 29;
             this.pnlSubMenu.Visible = false;
+            this.pnlSubMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSubMenu_Paint);
             // 
             // rjInputComboBoxControl3
             // 

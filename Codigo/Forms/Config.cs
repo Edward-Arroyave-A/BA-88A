@@ -82,6 +82,7 @@ namespace AnnarComMICROSESV60.Forms
                 RedondearBordesSuperior(btnParametrizacion, 5);
             RedondearBordesSuperior(btnConexion, 5);
             RedondearBordesSuperior(btnRuta, 5);
+            RedondearEsquinas(panelContenedor, 10);
         }
         private void RedondearBordesSuperior(Control control, int radio)
         {
@@ -448,7 +449,36 @@ namespace AnnarComMICROSESV60.Forms
             rjButton1.BackColor = Color.FromArgb(25, 183, 175);
         }
 
-        
-    
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Config_SizeChanged(object sender, EventArgs e)
+        {
+           
+                // Obtener el tamaño actual del formulario
+                int nuevoAncho = this.Size.Width;
+                int nuevoAlto = this.Size.Height;
+
+            // Establecer el nuevo tamaño para el panel
+            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);
+                RedondearEsquinas(panelContenedor, 10);
+            
+        }
+
+        private void RedondearEsquinas(Control control, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90); // Esquina superior izquierda
+            path.AddArc(control.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90); // Esquina superior derecha
+            path.AddArc(control.Width - radio * 2, control.Height - radio * 2, radio * 2, radio * 2, 0, 90); // Esquina inferior derecha
+            path.AddArc(0, control.Height - radio * 2, radio * 2, radio * 2, 90, 90); // Esquina inferior izquierda
+
+            // Cerrar el path para asegurar que el borde sea cerrado completamente
+            path.CloseFigure();
+
+            control.Region = new Region(path);
+        }
     }
 }

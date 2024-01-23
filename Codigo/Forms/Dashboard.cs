@@ -1,6 +1,7 @@
 ﻿using AnnarComMICROSESV60.Utilities;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 
@@ -29,6 +30,7 @@ namespace AnnarComMICROSESV60.Forms
                 Dock = DockStyle.Fill
             };
 
+            RedondearEsquinas(pnlSubMenu, 10);
             //Se establece el panel contenedor como padre del formulario secundario
             panelDashContenedor.Controls.Add(terminal);
             //Se muestra el formulario
@@ -460,14 +462,14 @@ namespace AnnarComMICROSESV60.Forms
             int panelDashPaddingRight = 30;
             int panelDashPaddingTop = 7;
             int panelDashPaddingBottom = 7;
-            Size panelDashSize = new Size(700, 600);
+           
 
             if (medio >= 768 && medio <= 1024)
             {
                 // Pantalla grande: ajusta el diseño para una pantalla grande
                 panelDashPaddingLeft = 80;
                 panelDashPaddingRight = 80;
-                panelDashSize = new Size(900, 600);
+              
                 this.Invalidate();
             }
 
@@ -499,16 +501,18 @@ namespace AnnarComMICROSESV60.Forms
             panel4.Width = panel4Width;
             panel3.Width = panel3Width;
             panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
-            panelDashContenedor.Size = panelDashSize;
+          
             terminal.Size = new Size(1000,1000);
-            panel1.Padding = new Padding(30, 30, 30, 7); // Siempre se aplica este valor
+            panel1.Padding = new Padding(panelDashPaddingLeft, 30, panelDashPaddingRight, 3);
+            panel2.Padding  = new Padding(panelDashPaddingLeft, 3, panelDashPaddingRight, 3); // Siempre se aplica este valor
 
             // Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
             double proporcionAltura = 0.7; // Ajusta esta proporción según tus necesidades
 
             panel3.Height = Convert.ToInt32(panel4.Width * proporcionAltura);
+            
             panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
-
+            
             // Forzar la actualización del panelDashContenedor
             panelDashContenedor.Invalidate();
 
@@ -526,6 +530,28 @@ namespace AnnarComMICROSESV60.Forms
             this.Refresh();
         }
 
+        private void RedondearEsquinas(Control control, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90); // Esquina superior izquierda
+            path.AddArc(control.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90); // Esquina superior derecha
+            path.AddArc(control.Width - radio * 2, control.Height - radio * 2, radio * 2, radio * 2, 0, 90); // Esquina inferior derecha
+            path.AddArc(0, control.Height - radio * 2, radio * 2, radio * 2, 90, 90); // Esquina inferior izquierda
 
+            // Cerrar el path para asegurar que el borde sea cerrado completamente
+            path.CloseFigure();
+
+            control.Region = new Region(path);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlSubMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
