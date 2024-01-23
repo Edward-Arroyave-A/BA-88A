@@ -123,5 +123,10 @@ namespace AnnarComMICROSESV60
 
             OpenChildForm(new Config());
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

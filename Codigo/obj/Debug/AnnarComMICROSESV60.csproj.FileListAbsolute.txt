@@ -8,7 +8,6 @@ D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.RJControls.RJInputsFormu
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.RJControls.RJStickynavbar.resources
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.RJControls.RJTextBoxControl.resources
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Forms.Config.resources
-D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Forms.Dashboard.resources
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Forms.FormMessageBox.resources
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Forms.Resultados.resources
 D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Forms.RJTextBox.resources
@@ -42,3 +41,14 @@ D:\INTERFACES\DM\2024\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.application
 D:\INTERFACES\DM\2024\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.CopyComplete
 D:\INTERFACES\DM\2024\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.exe
 D:\INTERFACES\DM\2024\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.pdb
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe.config
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe.manifest
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.application
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.exe
+D:\learning\BA-88A\PUBLICACION\AnnarComMICROSESV60.pdb
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.Dashboard.resources
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.exe.manifest
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.application
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.csproj.CopyComplete
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.exe
+D:\learning\BA-88A\Codigo\obj\Debug\AnnarComMICROSESV60.pdb
