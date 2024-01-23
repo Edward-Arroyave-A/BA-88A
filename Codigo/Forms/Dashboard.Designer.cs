@@ -111,6 +111,7 @@
             this.panelDashContenedor.AutoSize = true;
             this.panelDashContenedor.BackColor = System.Drawing.Color.Transparent;
             this.panelDashContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDashContenedor.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDashContenedor.Location = new System.Drawing.Point(275, 293);
             this.panelDashContenedor.Margin = new System.Windows.Forms.Padding(0);
             this.panelDashContenedor.Name = "panelDashContenedor";
@@ -140,7 +141,7 @@
             this.panel4.Location = new System.Drawing.Point(20, 30);
             this.panel4.Margin = new System.Windows.Forms.Padding(15);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(389, 59);
+            this.panel4.Size = new System.Drawing.Size(439, 59);
             this.panel4.TabIndex = 4;
             // 
             // pictureBox1
@@ -174,7 +175,7 @@
             this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.rjButton1.Size = new System.Drawing.Size(389, 59);
+            this.rjButton1.Size = new System.Drawing.Size(439, 59);
             this.rjButton1.TabIndex = 3;
             this.rjButton1.Text = "Cargar resultados";
             this.rjButton1.TextColor = System.Drawing.Color.White;
@@ -191,24 +192,22 @@
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.rjButton2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(571, 30);
+            this.panel3.Location = new System.Drawing.Point(507, 30);
             this.panel3.Margin = new System.Windows.Forms.Padding(15);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.panel3.Size = new System.Drawing.Size(231, 59);
+            this.panel3.Size = new System.Drawing.Size(295, 59);
             this.panel3.TabIndex = 3;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(27, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(21, 9);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.pictureBox2.Size = new System.Drawing.Size(57, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(43, 45);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
@@ -231,14 +230,16 @@
             this.rjButton2.Margin = new System.Windows.Forms.Padding(0);
             this.rjButton2.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.rjButton2.Size = new System.Drawing.Size(221, 59);
+            this.rjButton2.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
+            this.rjButton2.Size = new System.Drawing.Size(285, 59);
             this.rjButton2.TabIndex = 4;
             this.rjButton2.Text = "Conectar";
-            this.rjButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
-            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click_1);
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
+            this.rjButton2.MouseEnter += new System.EventHandler(this.rjButton2_MouseEnter);
+            this.rjButton2.MouseLeave += new System.EventHandler(this.rjButton2_MouseLeave);
+            this.rjButton2.MouseHover += new System.EventHandler(this.rjButton2_MouseHover);
             // 
             // panel2
             // 

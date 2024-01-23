@@ -1,4 +1,5 @@
 ﻿using AnnarComMICROSESV60.Utilities;
+using CustomControls.RJControls;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -172,6 +173,18 @@ namespace AnnarComMICROSESV60.Forms
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
+
+
+            if (!panel2.Visible == false)
+            {
+
+                panel2.Visible = false;
+                pnlSubMenu.Visible = false;
+
+            }
+          
+            btnResultados_Click(sender, e);
+            this.Invalidate();
             Resultados frm = new Resultados();
 
             if (VariablesGlobal.Resultados)
@@ -369,6 +382,7 @@ namespace AnnarComMICROSESV60.Forms
             {
                 rjButton2.Text = "Conectar";
                 rjButton2.BackgroundColor = colorConectar;
+                rjButton2.FontSize = 19;
                 pictureBox2.BackColor = colorConectar;
                 rjButton2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
                 pictureBox2.BackgroundImage = Properties.Resources.Conectar;
@@ -377,6 +391,7 @@ namespace AnnarComMICROSESV60.Forms
             else
             {
                 rjButton2.Text = "Desconectar";
+                rjButton2.FontSize = 15;
                 rjButton2.BackgroundColor = colorDesconectar;
                 pictureBox2.BackColor = colorDesconectar;
                 rjButton2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
@@ -447,11 +462,6 @@ namespace AnnarComMICROSESV60.Forms
             this.Invalidate();
         }
 
-        private void rjButton2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Resize(object sender, EventArgs e)
         {
             int medio = this.Width / 2;
@@ -469,17 +479,28 @@ namespace AnnarComMICROSESV60.Forms
                 // Pantalla grande: ajusta el diseño para una pantalla grande
                 panelDashPaddingLeft = 80;
                 panelDashPaddingRight = 80;
-              
+                panel4Width = 1000;
+                panel3Width = 400;
+                this.Invalidate();
+            }
+
+            if (medio >= 655 && medio <= 768)
+            {
+                // Ajustes específicos para este rango
+                panel4Width = 700;
+                panel3Width = 300;
+                panelDashPaddingLeft = 15;
                 this.Invalidate();
             }
 
             if (medio >= 511 && medio <= 655)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 420;
+                panel4Width =600;
+                panel3Width = 250;
                 panelDashPaddingLeft = 15;
                 this.Invalidate();
-            }
+            } 
 
             if (medio >= 500 && medio <= 510)
             {
