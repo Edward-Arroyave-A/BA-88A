@@ -91,8 +91,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dao\ConnectionDB.cs" />
-    <Compile Include="Dao\DbQuery.cs" />
     <Compile Include="Forms\Config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +120,11 @@
     </Compile>
     <Compile Include="Forms\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RJControls\RJButton.cs">
       <SubType>Component</SubType>
@@ -170,12 +173,20 @@
     <Compile Include="Utilities\InterfaceConfig.cs" />
     <Compile Include="Utilities\RegistroLog.cs" />
     <Compile Include="Utilities\VariablesGlobal.cs" />
+    <None Include="Resources\OkM.png" />
+    <None Include="Resources\Ok.png" />
+    <None Include="Resources\InterpretandoM.png" />
+    <None Include="Resources\Interpretando.png" />
+    <None Include="Resources\EsperandoM.png" />
+    <None Include="Resources\Esperando.png" />
+    <None Include="Resources\ErrorM.png" />
+    <None Include="Resources\Error.png" />
+    <None Include="Resources\Conectar.png" />
     <None Include="Resources\Desconectar1.png" />
     <None Include="Resources\Desconectar.png" />
     <EmbeddedResource Include="RJControls\RJConnectionButton.resx">
       <DependentUpon>RJConnectionButton.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Resources\Conectar.png" />
     <None Include="Resources\Captura de pantalla 2024-01-21 201001.png" />
     <None Include="Resources\Captura de pantalla 2024-01-21 200855.png" />
     <None Include="Resources\Carga 2.png" />
@@ -223,14 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Content Include="App.config">
       <SubType>Designer</SubType>
     </Content>

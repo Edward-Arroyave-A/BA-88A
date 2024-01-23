@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using AnnarComMICROSESV60.Dao;
+﻿using AnnarComMICROSESV60.Properties;
 using AnnarComMICROSESV60.Utilities;
-using AnnarComMICROSESV60.Properties;
+using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Drawing;
 using System.Drawing.Drawing2D;
-using SerialPortTerminal;
-using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 using System.IO.Ports;
-using System.Runtime;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Text;
 using System.Threading;
-using Npgsql;
-using static AnnarComMICROSESV60.Dao.ConnectionDB;
-using System.Configuration;
-using System.Windows.Forms.DataVisualization.Charting;
-using Application = System.Windows.Forms.Application;
-using System.Data;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms;
 
 namespace AnnarComMICROSESV60.Forms
 {
@@ -36,9 +27,6 @@ namespace AnnarComMICROSESV60.Forms
 
 
 
-        ConnectionDB.ResultadoQuery resultadoQuery = new ConnectionDB.ResultadoQuery();
-        ConnectionDB.ResultadoStatement resultadoStatement = new ConnectionDB.ResultadoStatement();
-        DbQuery dbQuery = new DbQuery();
         RegistroLog log = new RegistroLog();
 
         public string nombreLog = InterfaceConfig.nombreLog;
@@ -123,7 +111,7 @@ namespace AnnarComMICROSESV60.Forms
         public string tipoRaza = string.Empty;
         public bool valUnidad;
 
-   
+
 
 
         public class T
@@ -160,7 +148,7 @@ namespace AnnarComMICROSESV60.Forms
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
             this.Dock = DockStyle.Fill;
-            
+
 
         }
 
@@ -192,7 +180,7 @@ namespace AnnarComMICROSESV60.Forms
 
             EsconderSubmenu();
 
-         
+
 
 
             MensajesFlowLP($"Interfaz iniciada", EnumEstados.Ok);
@@ -207,7 +195,7 @@ namespace AnnarComMICROSESV60.Forms
             //CustomizeComboBoxBorder(cmbPortName, Color.Red);
 
             VariablesGlobal.Resultados = true;
-             
+
 
         }
 
@@ -252,8 +240,8 @@ namespace AnnarComMICROSESV60.Forms
                 EsconderSubmenu();
                 panel.Visible = true;
                 flpContenedorResul.Location = new Point(24, 270);
-               
- 
+
+
                 flpContenedorResul.Size = new Size(748, 330);
             }
             else
@@ -352,77 +340,77 @@ namespace AnnarComMICROSESV60.Forms
         {
             SaveSettings();
 
-         
-                bool error = false;
 
-                // If the port is open, close it.
-                if (comport.IsOpen)
+            bool error = false;
+
+            // If the port is open, close it.
+            if (comport.IsOpen)
+            {
+
+
+                comport.Close();
+            }
+            else
+            {
+                // Set the port's settings
+
+
+
+
+
+
+
+                try
                 {
-
-
-                    comport.Close();
+                    // Open the port
+                    comport.Open();
                 }
+                catch (UnauthorizedAccessException) { error = true; }
+                catch (IOException) { error = true; }
+                catch (ArgumentException) { error = true; }
+
+
+
+
+                if (error)
+                {
+                    DialogResult result;
+                    using (var msFomr = new FormMessageBox("No se puede abrir el puerto.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error))
+                        result = msFomr.ShowDialog();
+
+                }
+
                 else
                 {
-                    // Set the port's settings
-                    
-                   
-                   
-                    
-
-
-
-                    try
-                    {
-                        // Open the port
-                        comport.Open();
-                    }
-                    catch (UnauthorizedAccessException) { error = true; }
-                    catch (IOException) { error = true; }
-                    catch (ArgumentException) { error = true; }
-
-
-
-
-                    if (error)
-                    {
-                        DialogResult result;
-                        using (var msFomr = new FormMessageBox("No se puede abrir el puerto.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error))
-                            result = msFomr.ShowDialog();
-                       
-                    }
-
-                    else
-                    {
-                        // Show the initial pin states
-                        UpdatePinState();
-                        chkDTR.Checked = comport.DtrEnable;
-                        chkRTS.Checked = comport.RtsEnable;
-                    }
+                    // Show the initial pin states
+                    UpdatePinState();
+                    chkDTR.Checked = comport.DtrEnable;
+                    chkRTS.Checked = comport.RtsEnable;
                 }
+            }
 
-                // Change the state of the form's controls
-                EnableControls();
+            // Change the state of the form's controls
+            EnableControls();
 
-                // If the port is open, send focus to the send data box
-                if (comport.IsOpen)
-                {
-                     VariablesGlobal.Conectar = true;
+            // If the port is open, send focus to the send data box
+            if (comport.IsOpen)
+            {
+                VariablesGlobal.Conectar = true;
 
                 if (chkClearOnOpen.Checked) ClearTerminal();
-                    log.RegistraEnLog("Interfaz Conectada", nombreLog);
-                    timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
-                    //Timer1.Enabled = true;
-                    timeractivo = "S";
-                }
-                else
-                {
-                    VariablesGlobal.Conectar = false;
+                log.RegistraEnLog("Interfaz Conectada", nombreLog);
+                timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
+                //Timer1.Enabled = true;
+                timeractivo = "S";
+            }
+            else
+            {
+                VariablesGlobal.Conectar = false;
 
-                    log.RegistraEnLog("Interfaz Desconectada", nombreLog);
-                     timerIntervalos.Enabled = false;
-                }
-         
+                log.RegistraEnLog("Interfaz Desconectada", nombreLog);
+                timerIntervalos.Enabled = false;
+            }
+
 
 
         }
@@ -505,17 +493,17 @@ namespace AnnarComMICROSESV60.Forms
         /// <summary> Save the user's settings. </summary>
         private void SaveSettings()
         {
-          
+
 
             settings.Save();
         }
         private void RefreshComPortList()
         {
             // Determain if the list of com port names has changed since last checked
-           
+
 
             // If there was an update, then update the control showing the user the list of port names
-           
+
         }
         private string[] OrderedPortNames()
         {
@@ -567,7 +555,7 @@ namespace AnnarComMICROSESV60.Forms
         /// <summary> Populate the form's controls with default settings. </summary>
         private void InitializeControlValues()
         {
-           
+
         }
 
         /// <summary> Enable/disable controls based on the app's current state. </summary>
@@ -784,11 +772,11 @@ namespace AnnarComMICROSESV60.Forms
         }
         #endregion
 
-     
+
         private void lnkAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Show the user the about dialog
-            
+
         }
 
         public string GetCheckSum(string frame)
@@ -1019,17 +1007,17 @@ namespace AnnarComMICROSESV60.Forms
 
                                         if (num == 2)
                                         {
-                                            resultadoQuery = dbQuery.HomologacionHistogramas(analito, strOrdenResultado);
+                                            //resultadoQuery = dbQuery.HomologacionHistogramas(analito, strOrdenResultado);
 
-                                            DataTable dtHomologacionI = resultadoQuery.Tabla;
-                                            if (dtHomologacionI.Rows.Count > 0)
-                                            {
-                                                foreach (DataRow drHomologacionI in dtHomologacionI.Rows)
-                                                {
-                                                    Examenhomologado = drHomologacionI["examen_cod"].ToString();
-                                                    vImagen = drHomologacionI["resultado"].ToString();
-                                                }
-                                            }
+                                            //DataTable dtHomologacionI = resultadoQuery.Tabla;
+                                            //if (dtHomologacionI.Rows.Count > 0)
+                                            //{
+                                            //    foreach (DataRow drHomologacionI in dtHomologacionI.Rows)
+                                            //    {
+                                            //        Examenhomologado = drHomologacionI["examen_cod"].ToString();
+                                            //        vImagen = drHomologacionI["resultado"].ToString();
+                                            //    }
+                                            //}
 
                                             string resTotal = parte1[1] + parte1[2];
                                             num = 0;
@@ -1045,18 +1033,7 @@ namespace AnnarComMICROSESV60.Forms
 
                                         if (num == 2)
                                         {
-                                            resultadoQuery = dbQuery.HomologacionHistogramas(analito, strOrdenResultado);
-
-                                            DataTable dtHomologacionI = resultadoQuery.Tabla;
-
-                                            if (dtHomologacionI.Rows.Count > 0)
-                                            {
-                                                foreach (DataRow drHomologacionI in dtHomologacionI.Rows)
-                                                {
-                                                    Examenhomologado = drHomologacionI["examen_cod"].ToString();
-                                                    vImagen = drHomologacionI["resultado"].ToString();
-                                                }
-                                            }
+                                          
 
                                             string resTotal = parte1[1] + parte1[2];
                                             num = 0;
@@ -1072,18 +1049,11 @@ namespace AnnarComMICROSESV60.Forms
 
                                         if (num == 2)
                                         {
-                                            resultadoQuery = dbQuery.HomologacionHistogramas(analito, strOrdenResultado);
+                                            //resultadoQuery = dbQuery.HomologacionHistogramas(analito, strOrdenResultado);
 
-                                            DataTable dtHomologacionI = resultadoQuery.Tabla;
+                                            //DataTable dtHomologacionI = resultadoQuery.Tabla;
 
-                                            if (dtHomologacionI.Rows.Count > 0)
-                                            {
-                                                foreach (DataRow drHomologacionI in dtHomologacionI.Rows)
-                                                {
-                                                    Examenhomologado = drHomologacionI["examen_cod"].ToString();
-                                                    vImagen = drHomologacionI["resultado"].ToString();
-                                                }
-                                            }
+
 
                                             string resTotal = parte1[1] + parte1[2];
                                             num = 0;
@@ -1130,7 +1100,7 @@ namespace AnnarComMICROSESV60.Forms
 
         private void cmbPortName_DrawItem(object sender, DrawItemEventArgs e)
         {
-         
+
         }
 
         private void cmbBaudRate_SelectedIndexChanged(object sender, EventArgs e)
@@ -1140,9 +1110,9 @@ namespace AnnarComMICROSESV60.Forms
 
         private void rjButton1_Click(object sender, EventArgs e)
         {
-           
-                //mostrarSubmenu(pnlSubMenu);
-            
+
+            //mostrarSubmenu(pnlSubMenu);
+
         }
 
         private void Resultados_SizeChanged(object sender, EventArgs e)
