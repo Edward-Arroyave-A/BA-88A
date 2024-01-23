@@ -1,4 +1,4 @@
-﻿namespace UrilyzerLiveLis100.Models
+﻿namespace AnnarComMICROSESV60.Models
 {
     public class RespuestaLoginToken
     {

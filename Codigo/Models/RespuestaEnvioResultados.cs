@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UrilyzerLiveLis100.Models
+namespace AnnarComMICROSESV60.Models
 {
     internal class RespuestaEnvioResultados
     {
