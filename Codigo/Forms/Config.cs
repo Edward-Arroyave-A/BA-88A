@@ -1,4 +1,5 @@
-﻿using AnnarComMICROSESV60.Utilities;
+﻿using AnnarComMICROSESV60.RJControls;
+using AnnarComMICROSESV60.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -463,8 +464,90 @@ namespace AnnarComMICROSESV60.Forms
 
             // Establecer el nuevo tamaño para el panel
             panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);
-                RedondearEsquinas(panelContenedor, 10);
+            rjInputsFormulariosControl5.Size = new Size(nuevoAncho, nuevoAlto);
+            RedondearEsquinas(panelContenedor, 10);
+
+            int medio = this.Width / 2;
+   
+            Padding padingRuta2 = new Padding(15, 15, 15, 15);
+            int panel4Width = 490;
+            int panel3Width = 231;
+            int panelDashPaddingLeft = 30;
+            int panelDashPaddingRight = 30;
+            int panelDashPaddingTop = 7;
+            int panelDashPaddingBottom = 7;
+
+            if (medio >= 768 && medio > 1024)
+            {
+
+                
             
+                // Pantalla grande: ajusta el diseño para una pantalla grande
+                panelDashPaddingLeft = 80;
+                panelDashPaddingRight = 80;
+                panel4Width = 1000;
+                panel3Width = 400;
+              
+                this.Invalidate();
+            }
+
+            if (medio >= 655 && medio <= 768)
+            {
+                // Ajustes específicos para este rango
+                panel4Width = 700;
+                panel3Width = 300;
+                panelDashPaddingLeft = 15;
+                this.Invalidate();
+            }
+
+            if (medio >= 511 && medio <= 655)
+            {
+                // Ajustes específicos para este rango
+                panel4Width = 600;
+                panel3Width = 250;
+                panelDashPaddingLeft = 15;
+                this.Invalidate();
+            }
+
+            if (medio >= 500 && medio <= 510)
+            {
+                // Ajustes específicos para este rango
+                panel4Width = 390;
+                panel3Width = 224;
+                this.Invalidate();
+            }
+
+            if (medio <= 467)
+            {
+                // Ajustes específicos para este rango
+                panel4Width = 350;
+                panel3Width = 200;
+                this.Invalidate();
+            }
+
+            // Aplicar configuraciones comunes
+            panelRuta2.Padding = padingRuta2;
+            //panel3.Width = panel3Width;
+            //panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
+
+            //terminal.Size = new Size(1000, 1000);
+            //panel1.Padding = new Padding(panelDashPaddingLeft, 30, panelDashPaddingRight, 3);
+            //panel2.Padding = new Padding(panelDashPaddingLeft, 3, panelDashPaddingRight, 3); // Siempre se aplica este valor
+
+            //// Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
+            //double proporcionAltura = 0.7; // Ajusta esta proporción según tus necesidades
+
+            //panel3.Height = Convert.ToInt32(panel4.Width * proporcionAltura);
+
+            //panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
+
+            //// Forzar la actualización del panelDashContenedor
+            //panelDashContenedor.Invalidate();
+
+            //// Ajustar automáticamente el tamaño y la posición de los controles según el modo de escala automática
+            //ScaleControls();
+
+
         }
 
         private void RedondearEsquinas(Control control, int radio)
