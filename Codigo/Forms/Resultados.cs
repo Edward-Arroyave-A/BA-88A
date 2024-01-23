@@ -1,10 +1,11 @@
-﻿using AnnarComMICROSESV60.Properties;
+﻿using AnnarComMICROSESV60.Models;
+using AnnarComMICROSESV60.Properties;
+using AnnarComMICROSESV60.Services;
 using AnnarComMICROSESV60.Utilities;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -13,7 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using UrilyzerLiveLis100.Services;
 
 namespace AnnarComMICROSESV60.Forms
 {
@@ -81,6 +81,7 @@ namespace AnnarComMICROSESV60.Forms
         public int Seq = 0;
         int iArr = 0;
         public int consecutive = 0;
+        readonly ServicioLiveLis servicioLiveLis = new ServicioLiveLis();
 
         public int cantdigitos;
         public string NroGrupo;
@@ -949,14 +950,15 @@ namespace AnnarComMICROSESV60.Forms
                             //{
                             //    resultadoAnalito = arrLinea[3];
                             //}  
+                            ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
 
-                            CrearEstadoTerminal($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", EnumEstados.Ok);
+
                             log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
 
                             resultadoAnalitoJson.sampleNumber = numeroMuestra;
                             resultadoAnalitoJson.analyte = consecutivoAnalito + "-" + nombreAnalito;
-                            resultadoAnalitoJson.medicalDevice = dispositivoMedico;
-                            resultadoAnalitoJson.reactive = reactivo;
+                            resultadoAnalitoJson.medicalDevice = InterfaceConfig.medicalDevice;
+                            resultadoAnalitoJson.reactive = InterfaceConfig.reactive;
                             resultadoAnalitoJson.result = resultadoAnalito;
 
                             servicioLiveLis.EnviarResultados(resultadoAnalitoJson);

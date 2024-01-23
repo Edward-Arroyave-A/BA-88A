@@ -2,10 +2,10 @@
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using UrilyzerLiveLis100.Models;
-using UrilyzerLiveLis100.Utils;
+using AnnarComMICROSESV60.Models;
+using AnnarComMICROSESV60.Utils;
 
-namespace UrilyzerLiveLis100.Services
+namespace AnnarComMICROSESV60.Services
 {
     public class ServicioLiveLis
     {

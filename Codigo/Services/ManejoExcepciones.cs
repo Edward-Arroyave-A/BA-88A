@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
 
-namespace UrilyzerLiveLis100.Utils
+namespace AnnarComMICROSESV60.Utils
 {
     public class ManejoExcepciones
     {
