@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System;
 
-namespace CustomControls.RJControls
+namespace AnnarComMICROSESV60.RJControls
 {
     public class RJButton : Button
     {

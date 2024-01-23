@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.rjpictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rjButton2 = new CustomControls.RJControls.RJButton();
+            this.rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.rjpictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,9 +102,9 @@
 
         #endregion
 
-        private CustomControls.RJControls.RJButton rjButton1;
+        private AnnarComMICROSESV60.RJControls.RJButton rjButton1;
         private System.Windows.Forms.PictureBox rjpictureBox1;
-        private CustomControls.RJControls.RJButton rjButton2;
+        private AnnarComMICROSESV60.RJControls.RJButton rjButton2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
