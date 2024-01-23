@@ -65,7 +65,7 @@
             this.labelCaption.Location = new System.Drawing.Point(10, 9);
             this.labelCaption.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(97, 17);
+            this.labelCaption.Size = new System.Drawing.Size(114, 19);
             this.labelCaption.TabIndex = 4;
             this.labelCaption.Text = "labelCaption";
             // 
@@ -102,6 +102,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.SeaGreen;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
@@ -117,6 +118,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SeaGreen;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
@@ -132,6 +134,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SeaGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
@@ -168,7 +171,7 @@
             this.labelMessage.MaximumSize = new System.Drawing.Size(700, 0);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Padding = new System.Windows.Forms.Padding(6, 6, 12, 17);
-            this.labelMessage.Size = new System.Drawing.Size(122, 40);
+            this.labelMessage.Size = new System.Drawing.Size(143, 42);
             this.labelMessage.TabIndex = 1;
             this.labelMessage.Text = "labelMessage";
             this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,7 +190,7 @@
             // 
             // FormMessageBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(385, 150);

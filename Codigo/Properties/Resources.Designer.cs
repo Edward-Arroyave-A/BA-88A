@@ -63,9 +63,9 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_17_132719 {
+        internal static System.Drawing.Bitmap btn_carga1 {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-17 132719", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_carga1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_17_132805 {
+        internal static System.Drawing.Bitmap btn_carga2 {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-17 132805", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_carga2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_17_132932 {
+        internal static System.Drawing.Bitmap btn_configuracion {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-17 132932", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_configuracion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_17_133654 {
+        internal static System.Drawing.Bitmap btn_configuracion_white {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-17 133654", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_configuracion_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,49 +103,9 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_17_134355 {
+        internal static System.Drawing.Bitmap by_it_health_blanco {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-17 134355", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_21_193328 {
-            get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-21 193328", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_21_200855 {
-            get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-21 200855", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_01_21_201001 {
-            get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2024-01-21 201001", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Carga_2 {
-            get {
-                object obj = ResourceManager.GetObject("Carga 2", resourceCulture);
+                object obj = ResourceManager.GetObject("by_it_health_blanco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +116,16 @@ namespace AnnarComMICROSESV60.Properties {
         internal static System.Drawing.Bitmap Conectar {
             get {
                 object obj = ResourceManager.GetObject("Conectar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Conectar1 {
+            get {
+                object obj = ResourceManager.GetObject("Conectar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +146,16 @@ namespace AnnarComMICROSESV60.Properties {
         internal static System.Drawing.Bitmap Desconectar1 {
             get {
                 object obj = ResourceManager.GetObject("Desconectar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Desconectar2 {
+            get {
+                object obj = ResourceManager.GetObject("Desconectar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +196,16 @@ namespace AnnarComMICROSESV60.Properties {
         internal static System.Drawing.Bitmap EsperandoM {
             get {
                 object obj = ResourceManager.GetObject("EsperandoM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FondoDashboard_2x {
+            get {
+                object obj = ResourceManager.GetObject("FondoDashboard_2x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +286,26 @@ namespace AnnarComMICROSESV60.Properties {
         internal static System.Drawing.Bitmap InterpretandoM {
             get {
                 object obj = ResourceManager.GetObject("InterpretandoM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon Logo_2x {
+            get {
+                object obj = ResourceManager.GetObject("Logo_2x", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Live_LIS {
+            get {
+                object obj = ResourceManager.GetObject("Logo_Live_LIS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
