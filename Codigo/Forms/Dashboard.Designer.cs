@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.pnlForm = new System.Windows.Forms.Panel();
             this.panelNav = new System.Windows.Forms.Panel();
+            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
             this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panelNav.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,11 +54,11 @@
             // pnlForm
             // 
             this.pnlForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this.pnlForm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlForm.Location = new System.Drawing.Point(349, 117);
+            this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlForm.Location = new System.Drawing.Point(353, 112);
             this.pnlForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1002, 714);
+            this.pnlForm.Size = new System.Drawing.Size(998, 719);
             this.pnlForm.TabIndex = 1;
             // 
             // panelNav
@@ -75,144 +75,8 @@
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(349, 831);
+            this.panelNav.Size = new System.Drawing.Size(353, 831);
             this.panelNav.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 560);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 271);
-            this.panel1.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.by_it_health_blanco;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(80, 174);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 29);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
-            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(138)))), ((int)(((byte)(226)))));
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Location = new System.Drawing.Point(138, 53);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(74, 73);
-            this.btnSalir.TabIndex = 6;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(349, 268);
-            this.panel3.TabIndex = 7;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(79, 76);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(202, 121);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.90501F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.09499F));
-            this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(349, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.89362F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.10638F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 112);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // rjbConectar
-            // 
-            this.rjbConectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.rjbConectar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.rjbConectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjbConectar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjbConectar.BorderRadius = 15;
-            this.rjbConectar.BorderSize = 0;
-            this.rjbConectar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjbConectar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjbConectar.FlatAppearance.BorderSize = 0;
-            this.rjbConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjbConectar.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.rjbConectar.FontSize = 14F;
-            this.rjbConectar.ForeColor = System.Drawing.Color.White;
-            this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
-            this.rjbConectar.Location = new System.Drawing.Point(671, 23);
-            this.rjbConectar.MouseOverBackColor = System.Drawing.Color.Empty;
-            this.rjbConectar.Name = "rjbConectar";
-            this.rjbConectar.Size = new System.Drawing.Size(323, 81);
-            this.rjbConectar.TabIndex = 11;
-            this.rjbConectar.Text = "Conectar";
-            this.rjbConectar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjbConectar.TextColor = System.Drawing.Color.White;
-            this.rjbConectar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rjbConectar.UseVisualStyleBackColor = false;
-            this.rjbConectar.Click += new System.EventHandler(this.rjbConectar_Click);
-            // 
-            // rjbTitulo
-            // 
-            this.rjbTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
-            this.rjbTitulo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
-            this.rjbTitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjbTitulo.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjbTitulo.BorderRadius = 10;
-            this.rjbTitulo.BorderSize = 0;
-            this.rjbTitulo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjbTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjbTitulo.FlatAppearance.BorderSize = 0;
-            this.rjbTitulo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.rjbTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjbTitulo.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.rjbTitulo.FontSize = 14F;
-            this.rjbTitulo.ForeColor = System.Drawing.Color.White;
-            this.rjbTitulo.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
-            this.rjbTitulo.Location = new System.Drawing.Point(8, 23);
-            this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.rjbTitulo.Name = "rjbTitulo";
-            this.rjbTitulo.Size = new System.Drawing.Size(657, 81);
-            this.rjbTitulo.TabIndex = 12;
-            this.rjbTitulo.Text = "    Carga Resultados";
-            this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjbTitulo.TextColor = System.Drawing.Color.White;
-            this.rjbTitulo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rjbTitulo.UseVisualStyleBackColor = false;
             // 
             // rjbConfiguracion
             // 
@@ -264,6 +128,142 @@
             this.rjbResultados.UseVisualStyleBackColor = false;
             this.rjbResultados.Click += new System.EventHandler(this.rjbResultados_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 560);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(353, 271);
+            this.panel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.by_it_health_blanco;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(80, 174);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(189, 29);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(138)))), ((int)(((byte)(226)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Location = new System.Drawing.Point(140, 53);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(74, 73);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(353, 268);
+            this.panel3.TabIndex = 7;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(79, 76);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(202, 121);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.90501F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.09499F));
+            this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(353, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.89362F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.10638F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(998, 112);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // rjbConectar
+            // 
+            this.rjbConectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
+            this.rjbConectar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
+            this.rjbConectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjbConectar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjbConectar.BorderRadius = 15;
+            this.rjbConectar.BorderSize = 0;
+            this.rjbConectar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjbConectar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjbConectar.FlatAppearance.BorderSize = 0;
+            this.rjbConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjbConectar.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.rjbConectar.FontSize = 14F;
+            this.rjbConectar.ForeColor = System.Drawing.Color.White;
+            this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
+            this.rjbConectar.Location = new System.Drawing.Point(669, 23);
+            this.rjbConectar.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.rjbConectar.Name = "rjbConectar";
+            this.rjbConectar.Size = new System.Drawing.Size(321, 81);
+            this.rjbConectar.TabIndex = 11;
+            this.rjbConectar.Text = "Conectar";
+            this.rjbConectar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjbConectar.TextColor = System.Drawing.Color.White;
+            this.rjbConectar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.rjbConectar.UseVisualStyleBackColor = false;
+            this.rjbConectar.Click += new System.EventHandler(this.rjbConectar_Click);
+            // 
+            // rjbTitulo
+            // 
+            this.rjbTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
+            this.rjbTitulo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
+            this.rjbTitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjbTitulo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjbTitulo.BorderRadius = 10;
+            this.rjbTitulo.BorderSize = 0;
+            this.rjbTitulo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjbTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjbTitulo.FlatAppearance.BorderSize = 0;
+            this.rjbTitulo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjbTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjbTitulo.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.rjbTitulo.FontSize = 14F;
+            this.rjbTitulo.ForeColor = System.Drawing.Color.White;
+            this.rjbTitulo.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
+            this.rjbTitulo.Location = new System.Drawing.Point(8, 23);
+            this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjbTitulo.Name = "rjbTitulo";
+            this.rjbTitulo.Size = new System.Drawing.Size(655, 81);
+            this.rjbTitulo.TabIndex = 12;
+            this.rjbTitulo.Text = "    Carga Resultados";
+            this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjbTitulo.TextColor = System.Drawing.Color.White;
+            this.rjbTitulo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.rjbTitulo.UseVisualStyleBackColor = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -271,8 +271,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1351, 831);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnlForm);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelNav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
