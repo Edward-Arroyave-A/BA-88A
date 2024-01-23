@@ -204,7 +204,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(21, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(23, 8);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.pictureBox2.Size = new System.Drawing.Size(43, 45);

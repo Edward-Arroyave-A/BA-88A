@@ -464,7 +464,7 @@ namespace AnnarComMICROSESV60.Forms
 
         private void panel1_Resize(object sender, EventArgs e)
         {
-            int medio = this.Width / 2;
+             int medio = this.Width / 2;
 
             int panel4Width = 490;
             int panel3Width = 231;
