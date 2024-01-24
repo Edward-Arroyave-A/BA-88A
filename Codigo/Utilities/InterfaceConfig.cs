@@ -9,6 +9,8 @@ namespace AnnarComMICROSESV60.Utilities
 
         static internal string diasatras;
         static internal string nombreEquipo;
+        static internal string nombreInterfaz;
+        static internal string intervalo;
 
         static internal string equipoCodigoCaratula;
         static internal string recativoCodigoCaratula;
@@ -53,6 +55,8 @@ namespace AnnarComMICROSESV60.Utilities
 
             diasatras = ConfigurationManager.AppSettings["DiasAtras"];
             nombreEquipo = ConfigurationManager.AppSettings["nombreEquipo"];
+            nombreInterfaz = ConfigurationManager.AppSettings["nombreInterfaz"];
+            intervalo = ConfigurationManager.AppSettings["intervalo"];
 
             equipoCodigoCaratula = ConfigurationManager.AppSettings["equipoCodigoCaratula"].ToString();
             recativoCodigoCaratula = ConfigurationManager.AppSettings["recativoCodigoCaratula"].ToString();

@@ -66,6 +66,16 @@ namespace AnnarComMICROSESV60.RJControls
                 this.Invalidate();
             }
         }
+        [Category("RJ Code Advance")]
+        public bool Focuse
+        {
+            get { return isFocused; }
+            set
+            {
+                isFocused = value;
+                this.Invalidate();
+            }
+        }
 
 
         [Category("RJ Code Advance")]

@@ -18,6 +18,7 @@ namespace AnnarComMICROSESV60.Forms
         private string pathConfig;
         private string condicional;
         int heightInicial;
+        Color IncialColorInputs = Color.FromArgb(46, 189, 255);
   
         
 
@@ -30,6 +31,40 @@ namespace AnnarComMICROSESV60.Forms
             string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.config");
             pathConfig = files[0];
             var datosConexion = conexion.Split(';');
+
+
+            rjInputsCabecera.TextBoxText = InterfaceConfig.client;
+            rjInputsCabecera.BorderFocusColor = IncialColorInputs;
+            rjInputsUsuario.TextBoxText = InterfaceConfig.userName;
+            rjInputsUsuario.BorderFocusColor = IncialColorInputs;
+            rjInputsContraseña.TextBoxText = InterfaceConfig.password;
+            rjInputsContraseña.BorderFocusColor = IncialColorInputs;
+            rjInputsUrlResultados.TextBoxText = InterfaceConfig.endPointResultados;
+            rjInputsUrlResultados.BorderFocusColor = IncialColorInputs;
+            rjInputsUrlToken.TextBoxText = InterfaceConfig.endPointToken;
+            rjInputsUrlToken.BorderFocusColor = IncialColorInputs;
+            rjInputsDispositivoMedico.TextBoxText = InterfaceConfig.medicalDevice;
+            rjInputsDispositivoMedico.BorderFocusColor = IncialColorInputs;
+            rjInputsReactivo.TextBoxText = InterfaceConfig.medicalDevice;
+            rjInputsReactivo.BorderFocusColor = IncialColorInputs;
+            rjInputsNombreEquipo.TextBoxText = InterfaceConfig.nombreEquipo;
+            rjInputsNombreEquipo.BorderFocusColor = IncialColorInputs;
+            rjInputsNombreInterfaz.TextBoxText = InterfaceConfig.nombreInterfaz;
+            rjInputsNombreInterfaz.BorderFocusColor = IncialColorInputs;
+            rjInputsNombrelogs.TextBoxText = InterfaceConfig.nombreLog;
+            rjInputsNombrelogs.BorderFocusColor = IncialColorInputs;
+            rjInputsIntervalo.TextBoxText = InterfaceConfig.intervalo;
+            rjInputsIntervalo.BorderFocusColor = IncialColorInputs;
+
+            if (InterfaceConfig.logActivo == "S" || InterfaceConfig.logActivo.Equals("S"))
+            {
+                rjToggleLog.Checked = true;
+            }
+            else {
+                rjToggleLog.Checked = false;
+            }
+
+
 
             //txtDireccionIP.Text = datosConexion[0].Split('=')[1].ToString();
             //txtPuerto.Text = datosConexion[1].Split('=')[1].ToString();
@@ -54,7 +89,7 @@ namespace AnnarComMICROSESV60.Forms
             //txtRutaArchivos.Text = InterfaceConfig.rutaArchivos.ToString();
             //txtRutaArchivosOK.Text = InterfaceConfig.rutaArchivosOK.ToString();
             //txtRutaArchivosERROR.Text = InterfaceConfig.rutaArchivosError.ToString();
-            
+
             #endregion
 
             #region Proceso para cargar la primera ventana
@@ -505,10 +540,10 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
                 rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
                 rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsFormulariosControl4.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsFormulariosControl3.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsFormulariosControl2.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsFormulariosControl1.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsNombreEquipo.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsNombreInterfaz.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsNombrelogs.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsIntervalo.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
 
 
 
@@ -526,10 +561,10 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsFormulariosControl7.Size = new Size(medio, heightInicial);
                 rjInputsFormulariosControl6.Size = new Size(medio, heightInicial);
                 rjInputsFormulariosControl5.Size = new Size(medio, heightInicial);
-                rjInputsFormulariosControl4.Size = new Size(medio, heightInicial);
-                rjInputsFormulariosControl3.Size = new Size(medio, heightInicial);
-                rjInputsFormulariosControl2.Size = new Size(medio, heightInicial);
-                rjInputsFormulariosControl1.Size = new Size(medio, heightInicial);
+                rjInputsNombreEquipo.Size = new Size(medio, heightInicial);
+                rjInputsNombreInterfaz.Size = new Size(medio, heightInicial);
+                rjInputsNombrelogs.Size = new Size(medio, heightInicial);
+                rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
         
 
