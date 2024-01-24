@@ -237,6 +237,9 @@
     <None Include="Resources\Conectar.png" />
     <None Include="Resources\Desconectar1.png" />
     <None Include="Resources\Desconectar.png" />
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RJControls\RJConnectionButton.resx">
       <DependentUpon>RJConnectionButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,9 +266,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
