@@ -1,4 +1,6 @@
-﻿namespace AnnarComMICROSESV60.Forms
+﻿using System;
+
+namespace AnnarComMICROSESV60.Forms
 {
     partial class Resultados
     {
@@ -42,6 +44,8 @@
             this.rbText = new System.Windows.Forms.RadioButton();
             this.chkRTS = new System.Windows.Forms.CheckBox();
             this.flpContenedorResul = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonDefault = new System.Windows.Forms.Button();
+            this.flpContenedorResul.SuspendLayout();
             this.SuspendLayout();
             // 
             // timerIntervalos
@@ -169,8 +173,8 @@
             // flpContenedorResul
             // 
             this.flpContenedorResul.AutoScroll = true;
-            this.flpContenedorResul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpContenedorResul.BackColor = System.Drawing.Color.White;
+            this.flpContenedorResul.Controls.Add(this.buttonDefault);
             this.flpContenedorResul.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpContenedorResul.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpContenedorResul.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
@@ -180,6 +184,20 @@
             this.flpContenedorResul.Size = new System.Drawing.Size(767, 576);
             this.flpContenedorResul.TabIndex = 17;
             this.flpContenedorResul.WrapContents = false;
+            this.flpContenedorResul.SizeChanged += new System.EventHandler(this.flpContenedorResul_SizeChanged);
+            // 
+            // buttonDefault
+            // 
+            this.buttonDefault.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDefault.Enabled = false;
+            this.buttonDefault.FlatAppearance.BorderSize = 0;
+            this.buttonDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDefault.Location = new System.Drawing.Point(18, 18);
+            this.buttonDefault.Name = "buttonDefault";
+            this.buttonDefault.Size = new System.Drawing.Size(469, 0);
+            this.buttonDefault.TabIndex = 0;
+            this.buttonDefault.UseVisualStyleBackColor = false;
+            this.buttonDefault.Resize += new System.EventHandler(this.button_Resize);
             // 
             // Resultados
             // 
@@ -208,9 +226,22 @@
             this.Load += new System.EventHandler(this.Terminal_Load);
             this.Shown += new System.EventHandler(this.Resultados_Shown);
             this.SizeChanged += new System.EventHandler(this.Resultados_SizeChanged);
+            this.flpContenedorResul.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void flpContenedorResul_SizeChanged(object sender, EventArgs e)
+        {
+            var widthClient = this.ClientSize.Width - 75;
+            buttonDefault.Width = widthClient;
+        }
+
+        private void button_Resize(object sender, EventArgs e)
+        {
+            var widthClient = this.ClientSize.Width - 75;
+            buttonDefault.Width = widthClient;
         }
 
         #endregion
@@ -228,5 +259,6 @@
         private System.Windows.Forms.RadioButton rbText;
         private System.Windows.Forms.CheckBox chkRTS;
         private System.Windows.Forms.FlowLayoutPanel flpContenedorResul;
+        private System.Windows.Forms.Button buttonDefault;
     }
 }
