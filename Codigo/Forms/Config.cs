@@ -17,6 +17,7 @@ namespace AnnarComMICROSESV60.Forms
         public string conexion = InterfaceConfig.StrCadenaConeccion;
         private string pathConfig;
         private string condicional;
+        int heightInicial;
 
         public Config()
         {
@@ -72,6 +73,8 @@ namespace AnnarComMICROSESV60.Forms
             //panelParametrizacion2.Visible = false;
             panelRuta2.Visible = false;
             #endregion
+
+             heightInicial = rjInputsFormulariosControl5.Size.Height;
         }
 
 
@@ -472,30 +475,40 @@ namespace AnnarComMICROSESV60.Forms
             int medioPanel = 700;
 
             panel3.Padding = new Padding(15, 15, 15, 15);
-     
+
 
             if (medio >= 768)
             {
 
 
 
-              
-                panel3.Padding = new Padding(50, 200, 50, 200);
+
+                panel3.Padding = new Padding(50, 150, 50, 150);
 
                 rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
 
                 rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
 
                 rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
-                rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-           
-                
+                rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+
+
 
                 // Pantalla grande: ajusta el diseño para una pantalla grande
 
 
                 this.Invalidate();
             }
+            else {
+
+                rjInputsFormulariosControl5.Size = new Size(medio, heightInicial);
+
+                rjInputsFormulariosControl6.Size = new Size(medio, heightInicial);
+
+                rjInputsFormulariosControl7.Size = new Size(medio, heightInicial);
+                rjInputsFormulariosControl8.Size = new Size(medio, heightInicial);
+            }
+        
 
             if (medio >= 655 && medio <= 768)
             {
