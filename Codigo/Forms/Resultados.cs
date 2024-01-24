@@ -1,5 +1,6 @@
 ﻿using AnnarComMICROSESV60.Models;
 using AnnarComMICROSESV60.Properties;
+using AnnarComMICROSESV60.RJControls;
 using AnnarComMICROSESV60.Services;
 using AnnarComMICROSESV60.Utilities;
 using Npgsql;
@@ -132,7 +133,6 @@ namespace AnnarComMICROSESV60.Forms
             public static byte[] EOT_BUFF = { EOT };
         }
 
-
         public Resultados()
         {
             InitializeComponent();
@@ -172,33 +172,19 @@ namespace AnnarComMICROSESV60.Forms
             }
         }
 
-
-
-
         private void Terminal_Load(object sender, EventArgs e)
         {
             tmrCheckComPorts.Interval = Convert.ToInt32(settings.VelocidadBuffer);
 
-
             EsconderSubmenu();
 
-
-
-
-            MensajesFlowLP($"Interfaz iniciada", EnumEstados.Ok);
-
-            //RedondearEsquinas(flpContenedorResul, 17);
-            //RedondearBordes(pnlSubMenu, 17);
-
-
-            //RedondearBordes(cmbPortName, 10); 
-            //RedondearBordes(pbPuerto, 10);
-
-            //CustomizeComboBoxBorder(cmbPortName, Color.Red);
+            MensajesEstadosTerminal($"Succes", EnumEstados.Ok);
+            MensajesEstadosTerminal($"Process", EnumEstados.Process);
+            MensajesEstadosTerminal($"Warning", EnumEstados.Warning);
+            MensajesEstadosTerminal($"Error", EnumEstados.Error);
+            MensajesEstadosTerminal($"Info", EnumEstados.Info);
 
             VariablesGlobal.Resultados = true;
-
-
         }
 
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -262,62 +248,57 @@ namespace AnnarComMICROSESV60.Forms
 
         }
 
-
         //Metodo para mostrar los mensajes en el FlowLayoutPanel
-        public void MensajesFlowLP(string msg, EnumEstados estado)
+        public void MensajesEstadosTerminal(string msg, EnumEstados estado)
         {
-            System.Windows.Forms.Button nuevoButton = new System.Windows.Forms.Button();
+            RJButton nuevoButton = new RJButton();
             string fechaActual = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            //nuevoButton.Dock = DockStyle.Top;
+            nuevoButton.Dock = DockStyle.Fill;
             nuevoButton.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             nuevoButton.ImageAlign = ContentAlignment.MiddleLeft;
             nuevoButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            nuevoButton.Width = 225;
-            nuevoButton.Height = 10;
+            nuevoButton.Width = 700;
+            nuevoButton.Height = 40;
             nuevoButton.FlatStyle = FlatStyle.Flat;
             nuevoButton.FlatAppearance.BorderColor = Color.White;
             nuevoButton.FlatAppearance.BorderSize = 0;
             nuevoButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
             nuevoButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            nuevoButton.BorderRadius = 20;
+            nuevoButton.BorderSize = 2;
+            nuevoButton.BackColor = Color.Transparent;
+            nuevoButton.TextColor = Color.FromArgb(62, 62, 62);
+            nuevoButton.ForeColor = Color.FromArgb(62, 62, 62);
+            nuevoButton.FontSize = 10;
+            nuevoButton.Text = $" {fechaActual}: " + msg;
+            nuevoButton.AutoSize = true;            
 
             switch (estado)
             {
                 case EnumEstados.Ok:
                     nuevoButton.Image = Resources.OkM;
-                    nuevoButton.AutoSize = true;
-                    nuevoButton.Text = $" {fechaActual}: " + msg;
-                    nuevoButton.ForeColor = Color.Black;
-                    nuevoButton.TextAlign = ContentAlignment.MiddleLeft; // Alinea el texto a la izquierda
+                    nuevoButton.BorderColor = Color.FromArgb(25, 183, 175);
                     break;
 
                 case EnumEstados.Info:
                     nuevoButton.Image = Resources.Null;
-                    nuevoButton.AutoSize = true;
-                    nuevoButton.Text = msg;
-                    nuevoButton.ForeColor = Color.Black;
-                    nuevoButton.TextAlign = ContentAlignment.MiddleLeft; // Alinea el texto a la izquierda
+                    nuevoButton.BorderColor = Color.FromArgb(99, 121, 216);
                     break;
 
                 case EnumEstados.Process:
                     nuevoButton.Image = Resources.InterpretandoM;
-                    nuevoButton.AutoSize = true;
-                    nuevoButton.Text = $" {fechaActual}: " + msg;
-                    nuevoButton.ForeColor = Color.Black;
+                    nuevoButton.BorderColor = Color.FromArgb(99, 121, 216);
                     break;
 
                 case EnumEstados.Warning:
                     nuevoButton.Image = Resources.EsperandoM;
-                    nuevoButton.AutoSize = true;
-                    nuevoButton.Text = $" {fechaActual}: " + msg;
-                    nuevoButton.ForeColor = Color.Black;
+                    nuevoButton.BorderColor = Color.FromArgb(255, 183, 3);
                     break;
 
                 case EnumEstados.Error:
                     nuevoButton.Image = Resources.ErrorM;
-                    nuevoButton.AutoSize = true;
-                    nuevoButton.Text = $" {fechaActual}: " + msg;
-                    nuevoButton.ForeColor = Color.Black;
+                    nuevoButton.BorderColor = Color.FromArgb(209, 62, 73);
                     break;
 
                 default:
@@ -327,9 +308,6 @@ namespace AnnarComMICROSESV60.Forms
             flpContenedorResul.Invoke(new EventHandler(delegate
             {
                 flpContenedorResul.Controls.Add(nuevoButton);
-
-                //Hacer scroll hacia abajo para mostrar el contenido más reciente
-                flpContenedorResul.AutoScrollPosition = new Point(0, flpContenedorResul.VerticalScroll.Maximum);
             }));
         }
 
@@ -342,25 +320,16 @@ namespace AnnarComMICROSESV60.Forms
         {
             SaveSettings();
 
-
             bool error = false;
 
             // If the port is open, close it.
             if (comport.IsOpen)
             {
-
-
                 comport.Close();
             }
             else
             {
                 // Set the port's settings
-
-
-
-
-
-
 
                 try
                 {
@@ -372,16 +341,12 @@ namespace AnnarComMICROSESV60.Forms
                 catch (ArgumentException) { error = true; }
 
 
-
-
                 if (error)
                 {
                     DialogResult result;
                     using (var msFomr = new FormMessageBox("No se puede abrir el puerto.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error))
                         result = msFomr.ShowDialog();
-
                 }
-
                 else
                 {
                     // Show the initial pin states
@@ -412,10 +377,8 @@ namespace AnnarComMICROSESV60.Forms
                 log.RegistraEnLog("Interfaz Desconectada", nombreLog);
                 timerIntervalos.Enabled = false;
             }
-
-
-
         }
+
         private void ClearTerminal()
         {
             //Control parent = btn.Parent;
@@ -451,7 +414,6 @@ namespace AnnarComMICROSESV60.Forms
             //    //btnOpenPort.BackgroundImage = Resources.ConectarDesconectar_2x;
             //}
         }
-
         private void pnlSubMenu_Paint(object sender, PaintEventArgs e)
         {
 
@@ -469,8 +431,6 @@ namespace AnnarComMICROSESV60.Forms
 
             control.Region = new Region(path);
         }
-
-
 
         void comport_PinChanged(object sender, SerialPinChangedEventArgs e)
         {
@@ -897,7 +857,6 @@ namespace AnnarComMICROSESV60.Forms
             }
         }
 
-
         public string ProcesarResultados(List<string> PaqueteResultado)
         {
             string numeroMuestra = null;
@@ -942,16 +901,7 @@ namespace AnnarComMICROSESV60.Forms
                             string consecutivoAnalito = arrgNombreAnalito[0];
                             string resultadoAnalito = arrLinea[3];
 
-                            //if (adicionarUnidadMedida.Equals("S"))
-                            //{
-                            //    resultadoAnalito = arrLinea[3] + " " + arrLinea[4].Replace("??", "µ");
-                            //}
-                            //else
-                            //{
-                            //    resultadoAnalito = arrLinea[3];
-                            //}  
                             ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
-
 
                             log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
 
@@ -1018,10 +968,6 @@ namespace AnnarComMICROSESV60.Forms
             flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
             RedondearEsquinas(flpContenedorResul, 10);
         }
-
     }
-
-
-
 }
 
