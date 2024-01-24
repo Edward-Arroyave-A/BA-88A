@@ -37,16 +37,11 @@ namespace AnnarComMICROSESV60
             this.pnlForm = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+
             this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
             this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.rjbCerrarSesion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelNav = new System.Windows.Forms.Panel();
-            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+
+
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,15 +54,18 @@ namespace AnnarComMICROSESV60
             // 
             this.pnlForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.pnlForm.Location = new System.Drawing.Point(349, 108);
             this.pnlForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlForm.Name = "pnlForm";
             this.pnlForm.Size = new System.Drawing.Size(1002, 723);
+
             this.pnlForm.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41532F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58468F));
@@ -269,15 +267,18 @@ namespace AnnarComMICROSESV60
             this.rjbResultados.UseVisualStyleBackColor = false;
             this.rjbResultados.Click += new System.EventHandler(this.rjbResultados_Click);
             // 
+
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(349, 268);
+
             this.panel3.TabIndex = 7;
             // 
             // pictureBox2
@@ -285,6 +286,7 @@ namespace AnnarComMICROSESV60
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.pictureBox2.Location = new System.Drawing.Point(79, 76);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
@@ -292,13 +294,14 @@ namespace AnnarComMICROSESV60
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
+
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1351, 831);
+            this.ClientSize = new System.Drawing.Size(1013, 675);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelNav);
