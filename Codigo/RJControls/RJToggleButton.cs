@@ -91,7 +91,7 @@ namespace AnnarComMICROSESV60.RJControls
 
             set
             {
-               
+
             }
         }
 
@@ -139,26 +139,51 @@ namespace AnnarComMICROSESV60.RJControls
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             pevent.Graphics.Clear(this.Parent.BackColor);
 
-            if (this.Checked) //ON
+            // Dibujar la superficie de control
+            GraphicsPath figurePath = GetFigurePath();
+            if (this.Checked)
             {
-                //Dibujar la superficie de control
                 if (solidStyle)
-                    pevent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
-                else pevent.Graphics.DrawPath(new Pen(onBackColor,2), GetFigurePath());
-                //Dibujar la palanca
-                pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor),
-                    new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
+                    pevent.Graphics.FillPath(new SolidBrush(onBackColor), figurePath);
+                else
+                    pevent.Graphics.DrawPath(new Pen(onBackColor, 2), figurePath);
+
+                // Dibujar la palanca y el símbolo "Visto"
+                pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor), new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
+                DrawCheckSymbol(pevent.Graphics, Brushes.White, new Rectangle(2, 2, toggleSize, toggleSize));
             }
-            else //OFF
+            else
             {
-                //Dibujar la superficie de control
                 if (solidStyle)
-                pevent.Graphics.FillPath(new SolidBrush(offBackColor), GetFigurePath());
-                else pevent.Graphics.DrawPath(new Pen(offBackColor, 2), GetFigurePath());
-                //Dibujar la palanca
-                pevent.Graphics.FillEllipse(new SolidBrush(offToggleColor),
-                    new Rectangle(2, 2, toggleSize, toggleSize));
+                    pevent.Graphics.FillPath(new SolidBrush(offBackColor), figurePath);
+                else
+                    pevent.Graphics.DrawPath(new Pen(offBackColor, 2), figurePath);
+
+                // Dibujar la palanca y el símbolo "X"
+                pevent.Graphics.FillEllipse(new SolidBrush(offToggleColor), new Rectangle(2, 2, toggleSize, toggleSize));
+                DrawXSymbol(pevent.Graphics, Brushes.White, new Rectangle(2, 2, toggleSize, toggleSize));
             }
         }
+
+        private void DrawCheckSymbol(Graphics graphics, Brush brush, Rectangle bounds)
+        {
+            // Símbolo de marca de verificación (✓)
+            Point[] points = new Point[5];
+            points[0] = new Point(bounds.X + bounds.Width / 8, bounds.Y + bounds.Height / 2);
+            points[1] = new Point(bounds.X + bounds.Width / 3, bounds.Y + 3 * bounds.Height / 4);
+            points[2] = new Point(bounds.X + 7 * bounds.Width / 8, bounds.Y + bounds.Height / 4);
+            points[3] = new Point(bounds.X + bounds.Width / 2, bounds.Y + 6 * bounds.Height / 8);
+            points[4] = new Point(bounds.X + bounds.Width / 3, bounds.Y + 5 * bounds.Height / 8);
+
+            graphics.FillPolygon(brush, points);
+        }
+
+        private void DrawXSymbol(Graphics graphics, Brush brush, Rectangle bounds)
+        {
+            // Símbolo de "X"
+            graphics.DrawLine(new Pen(brush, 2), bounds.X + bounds.Width / 4, bounds.Y + bounds.Height / 4, bounds.X + 3 * bounds.Width / 4, bounds.Y + 3 * bounds.Height / 4);
+            graphics.DrawLine(new Pen(brush, 2), bounds.X + bounds.Width / 4, bounds.Y + 3 * bounds.Height / 4, bounds.X + 3 * bounds.Width / 4, bounds.Y + bounds.Height / 4);
+        }
+
     }
 }
