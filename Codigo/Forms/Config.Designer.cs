@@ -70,7 +70,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel16 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -715,14 +714,13 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.BackColor = System.Drawing.Color.Transparent;
             this.panel10.Controls.Add(this.panel12);
-            this.panel10.Controls.Add(this.panel16);
             this.panel10.Controls.Add(this.panel13);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(487, 8);
             this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(7, 120, 7, 7);
+            this.panel10.Padding = new System.Windows.Forms.Padding(7, 40, 7, 7);
             this.panel10.Size = new System.Drawing.Size(228, 492);
             this.panel10.TabIndex = 23;
             // 
@@ -731,12 +729,12 @@
             this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel12.BackColor = System.Drawing.Color.Gray;
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
             this.panel12.Controls.Add(this.pictureBox2);
-            this.panel12.Location = new System.Drawing.Point(0, 151);
+            this.panel12.Location = new System.Drawing.Point(0, 120);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(15);
-            this.panel12.Size = new System.Drawing.Size(224, 228);
+            this.panel12.Size = new System.Drawing.Size(224, 236);
             this.panel12.TabIndex = 22;
             // 
             // pictureBox2
@@ -746,30 +744,19 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(15, 15);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(194, 198);
+            this.pictureBox2.Size = new System.Drawing.Size(194, 206);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // panel16
-            // 
-            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel16.Location = new System.Drawing.Point(4, 2);
-            this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(15);
-            this.panel16.Size = new System.Drawing.Size(217, 143);
-            this.panel16.TabIndex = 23;
-            // 
             // panel13
             // 
-            this.panel13.BackColor = System.Drawing.Color.IndianRed;
+            this.panel13.BackColor = System.Drawing.Color.Transparent;
             this.panel13.Controls.Add(this.rjButton2);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(7, 385);
+            this.panel13.Location = new System.Drawing.Point(7, 362);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(50, 0, 50, 50);
-            this.panel13.Size = new System.Drawing.Size(214, 100);
+            this.panel13.Size = new System.Drawing.Size(214, 123);
             this.panel13.TabIndex = 6;
             // 
             // rjButton2
@@ -1014,7 +1001,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel13;
         private RJControls.RJButton rjButton2;
         private System.Windows.Forms.Panel panel14;

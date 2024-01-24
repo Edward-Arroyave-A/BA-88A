@@ -478,6 +478,7 @@ namespace AnnarComMICROSESV60.Forms
             panel7.Padding = new Padding(7, 7, 7, 7);
             panel8.Padding = new Padding(7, 7, 7, 7);
             panel14.Padding = new Padding(7, 7, 7, 7);
+            panel10.Padding = new Padding(7, 40, 7, 7);
 
 
             if (medio >= 768)
@@ -490,13 +491,14 @@ namespace AnnarComMICROSESV60.Forms
                 panel7.Padding = new Padding(50, 150, 50, 150);
                 panel8.Padding = new Padding(50, 150, 50, 150);
                 panel14.Padding = new Padding(50, 150, 50, 150);
+                panel10.Padding = new Padding(7, 150, 7, 50);
 
-                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
+       
 
-                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
-
-                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
                 rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
+                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
+                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
                 rjInputsFormulariosControl4.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
                 rjInputsFormulariosControl3.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
                 rjInputsFormulariosControl2.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
