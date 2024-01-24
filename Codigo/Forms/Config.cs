@@ -479,29 +479,17 @@ namespace AnnarComMICROSESV60.Forms
 
 
 
-                ////panel5.Height = medio / 4;
+              
                 panel3.Padding = new Padding(50, 200, 50, 200);
-                ////pictureBox1.Size = new Size(medio, 300);
-                ////rjInputsFormulariosControl5.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
-                ////rjInputsFormulariosControl5.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                ////rjInputsFormulariosControl5.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl5.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl5.Label2TextPadding = new Padding(0, 15, 0, 0);
-                ////rjInputsFormulariosControl6.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
-                ////rjInputsFormulariosControl6.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                ////rjInputsFormulariosControl6.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl6.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl6.Label2TextPadding = new Padding(0, 15, 0, 0);
-                ////rjInputsFormulariosControl7.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
-                ////rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                ////rjInputsFormulariosControl7.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl7.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl7.Label2TextPadding = new Padding(0, 15, 0, 0);
-                ////rjInputsFormulariosControl8.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
-                ////rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                ////rjInputsFormulariosControl8.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl8.TextBoxSize = new Size(medioPanel, 50);
-                ////rjInputsFormulariosControl8.Label2TextPadding = new Padding(0, 15, 0, 0);
+
+                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
+
+                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
+
+                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
+                rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+           
+                
 
                 // Pantalla grande: ajusta el diseño para una pantalla grande
 

@@ -134,12 +134,11 @@ namespace AnnarComMICROSESV60.RJControls
 
         private void RJInputsFormulariosControl_SizeChanged(object sender, EventArgs e)
         {
-            
-      
+           
+
             if (rjTextBoxControl1.Size.Width >= 768)
             {
 
-              
                 label2.Padding = new Padding(0, 15, 0, 0);
                 rjTextBoxControl1.Size = new Size(rjTextBoxControl1.Size.Width, 50);
                 cambio = true;
