@@ -75,11 +75,11 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.rjToggleButton1 = new AnnarComMICROSESV60.RJControls.RJToggleButton();
             this.rjInputsFormulariosControl1 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl2 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl3 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl4 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjToggleButton1 = new AnnarComMICROSESV60.RJControls.RJToggleButton();
             this.panelConexion2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -143,6 +143,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.rjInputsFormulariosControl15);
             this.panel8.Controls.Add(this.rjInputsFormulariosControl14);
+            this.panel8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(364, 3);
             this.panel8.Name = "panel8";
@@ -167,6 +168,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.68919F));
             this.tableLayoutPanel3.Controls.Add(this.panel11, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 0, 0);
+            this.tableLayoutPanel3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(15, 15);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -179,6 +181,7 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.rjButton1);
+            this.panel11.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel11.Location = new System.Drawing.Point(146, 111);
             this.panel11.Name = "panel11";
@@ -195,13 +198,13 @@
             this.rjButton1.BorderRadius = 20;
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold);
             this.rjButton1.FontSize = 10F;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(29, 17);
-            this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(83, 37);
             this.rjButton1.TabIndex = 20;
@@ -214,6 +217,7 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Location = new System.Drawing.Point(3, 3);
             this.pictureBox3.Name = "pictureBox3";
@@ -267,6 +271,7 @@
             this.panel7.Controls.Add(this.rjInputsFormulariosControl11);
             this.panel7.Controls.Add(this.rjInputsFormulariosControl9);
             this.panel7.Controls.Add(this.rjInputsFormulariosControl13);
+            this.panel7.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
@@ -279,6 +284,7 @@
             // 
             this.rjInputsFormulariosControl12.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsFormulariosControl12.BorderRadius = 5;
+            this.rjInputsFormulariosControl12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjInputsFormulariosControl12.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl12.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl12.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,6 +304,7 @@
             // 
             this.rjInputsFormulariosControl10.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsFormulariosControl10.BorderRadius = 5;
+            this.rjInputsFormulariosControl10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjInputsFormulariosControl10.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl10.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl10.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,6 +324,7 @@
             // 
             this.rjInputsFormulariosControl11.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsFormulariosControl11.BorderRadius = 5;
+            this.rjInputsFormulariosControl11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjInputsFormulariosControl11.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl11.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl11.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,6 +344,7 @@
             // 
             this.rjInputsFormulariosControl9.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsFormulariosControl9.BorderRadius = 5;
+            this.rjInputsFormulariosControl9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjInputsFormulariosControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl9.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl9.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,6 +364,7 @@
             // 
             this.rjInputsFormulariosControl13.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsFormulariosControl13.BorderRadius = 5;
+            this.rjInputsFormulariosControl13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjInputsFormulariosControl13.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl13.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl13.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -606,9 +616,9 @@
             this.panelContenedor.AutoScroll = true;
             this.panelContenedor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.panelConexion2);
             this.panelContenedor.Controls.Add(this.panelParametrizacion2);
             this.panelContenedor.Controls.Add(this.panelRuta2);
-            this.panelContenedor.Controls.Add(this.panelConexion2);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(15, 53);
             this.panelContenedor.Name = "panelContenedor";
@@ -633,6 +643,9 @@
             this.btnConexion.Text = "Conexión";
             this.btnConexion.UseVisualStyleBackColor = false;
             this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
+            this.btnConexion.MouseLeave += new System.EventHandler(this.btnConexion_MouseLeave);
+            this.btnConexion.MouseHover += new System.EventHandler(this.btnConexion_MouseHover);
+            this.btnConexion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConexion_MouseMove);
             // 
             // btnParametrizacion
             // 
@@ -650,6 +663,9 @@
             this.btnParametrizacion.Text = "Parametrización";
             this.btnParametrizacion.UseVisualStyleBackColor = false;
             this.btnParametrizacion.Click += new System.EventHandler(this.btnParametrizacion_Click);
+            this.btnParametrizacion.MouseLeave += new System.EventHandler(this.btnParametrizacion_MouseLeave);
+            this.btnParametrizacion.MouseHover += new System.EventHandler(this.btnParametrizacion_MouseHover);
+            this.btnParametrizacion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnParametrizacion_MouseMove);
             // 
             // btnRuta
             // 
@@ -766,15 +782,16 @@
             this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton2.BorderRadius = 20;
             this.rjButton2.BorderSize = 0;
+            this.rjButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold);
             this.rjButton2.FontSize = 10F;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
             this.rjButton2.Location = new System.Drawing.Point(50, 0);
-            this.rjButton2.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton2.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(114, 37);
             this.rjButton2.TabIndex = 5;
@@ -800,8 +817,8 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
-            this.panel15.Controls.Add(this.label2);
             this.panel15.Controls.Add(this.rjToggleButton1);
+            this.panel15.Controls.Add(this.label2);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(15, 370);
             this.panel15.Name = "panel15";
@@ -812,26 +829,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 13);
+            this.label2.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(73)))));
+            this.label2.Location = new System.Drawing.Point(63, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.Size = new System.Drawing.Size(72, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "LogActivo";
-            // 
-            // rjToggleButton1
-            // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(19, 13);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
-            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton1.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.TabIndex = 0;
-            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // rjInputsFormulariosControl1
             // 
@@ -909,6 +913,21 @@
             this.rjInputsFormulariosControl4.Size = new System.Drawing.Size(443, 80);
             this.rjInputsFormulariosControl4.TabIndex = 17;
             this.rjInputsFormulariosControl4.TextBoxSize = new System.Drawing.Size(407, 36);
+            // 
+            // rjToggleButton1
+            // 
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjToggleButton1.Location = new System.Drawing.Point(18, 9);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
+            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
+            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.TabIndex = 2;
+            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // Config
             // 
@@ -1006,10 +1025,10 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label2;
-        private RJControls.RJToggleButton rjToggleButton1;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl1;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl2;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl3;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl4;
+        private RJControls.RJToggleButton rjToggleButton1;
     }
 }

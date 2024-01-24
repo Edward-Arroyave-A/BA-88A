@@ -18,6 +18,8 @@ namespace AnnarComMICROSESV60.Forms
         private string pathConfig;
         private string condicional;
         int heightInicial;
+  
+        
 
         public Config()
         {
@@ -58,6 +60,10 @@ namespace AnnarComMICROSESV60.Forms
             #region Proceso para cargar la primera ventana
             //Color
             btnConexion.ForeColor = Color.FromArgb(64, 81, 252);
+
+            btnConexion.Capture = true;
+
+
             //panelConexion.BackColor = Color.FromArgb(64, 81, 252);
 
             btnParametrizacion.ForeColor = Color.Gray;
@@ -69,7 +75,7 @@ namespace AnnarComMICROSESV60.Forms
             //Comportamiento
             panelConexion2.Visible = true;
             panelConexion2.Dock = DockStyle.Fill;
-
+            
             //panelParametrizacion2.Visible = false;
             panelRuta2.Visible = false;
             #endregion
@@ -405,7 +411,7 @@ namespace AnnarComMICROSESV60.Forms
 
         private void btnConexion_Click(object sender, EventArgs e)
         {
-
+            
             //Color
             btnConexion.BackColor = Color.SteelBlue;
             btnConexion.ForeColor = Color.White;
@@ -633,6 +639,53 @@ namespace AnnarComMICROSESV60.Forms
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConexion_MouseHover(object sender, EventArgs e)
+        {
+            if (!btnConexion.Focused && !btnConexion.Capture )
+            {
+                btnConexion.BackColor = Color.FromArgb(46, 189, 255);
+                btnConexion.ForeColor = Color.White;
+                this.Invalidate();
+            }
+        }
+        private void btnConexion_MouseLeave(object sender, EventArgs e)
+        {
+            if (!btnConexion.Focused)
+            {
+                btnConexion.BackColor = Color.White;
+                btnConexion.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnParametrizacion_MouseHover(object sender, EventArgs e)
+        {
+            if (!btnParametrizacion.Focused )
+            {
+                btnParametrizacion.BackColor = Color.FromArgb(46, 189, 255);
+                btnParametrizacion.ForeColor = Color.White;
+                this.Invalidate();
+            }
+        }
+
+        private void btnParametrizacion_MouseLeave(object sender, EventArgs e)
+        {
+            if (!btnParametrizacion.Focused)
+            {
+                btnParametrizacion.BackColor = Color.White;
+                btnParametrizacion.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnParametrizacion_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnParametrizacion_MouseHover(sender, e);
+        }
+
+        private void btnConexion_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnConexion_MouseHover(sender, e);
         }
     }
 }
