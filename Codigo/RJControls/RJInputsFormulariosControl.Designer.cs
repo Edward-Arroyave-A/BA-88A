@@ -92,7 +92,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "RJInputsFormulariosControl";
             this.Padding = new System.Windows.Forms.Padding(7, 0, 15, 0);
-            this.Size = new System.Drawing.Size(321, 80);
+            this.Size = new System.Drawing.Size(321, 108);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -476,11 +476,14 @@ namespace AnnarComMICROSESV60.Forms
             int panelDashPaddingTop = 7;
             int panelDashPaddingBottom = 7;
 
-            if (medio >= 768 && medio > 1024)
+            if (medio >= 768 )
             {
-
                 
-            
+                rjButton3.Width = 100;
+                panel4.Width = medio/ 2;
+                panel5.Height = medio/ 4;
+                panel3.Padding = new Padding(50, 50, 50, 50);
+                pictureBox1.Size = new Size (medio,300) ;
                 // Pantalla grande: ajusta el diseño para una pantalla grande
                 panelDashPaddingLeft = 80;
                 panelDashPaddingRight = 80;
@@ -541,7 +544,7 @@ namespace AnnarComMICROSESV60.Forms
             //panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
 
             //// Forzar la actualización del panelDashContenedor
-            //panelDashContenedor.Invalidate();
+            panelContenedor.Invalidate();
 
             //// Ajustar automáticamente el tamaño y la posición de los controles según el modo de escala automática
             ScaleControls();
@@ -561,6 +564,21 @@ namespace AnnarComMICROSESV60.Forms
             path.CloseFigure();
 
             control.Region = new Region(path);
+        }
+
+        private void ScaleControls()
+        {
+            // Utilizar el modo de escala automática proporcionado por WinForms
+            this.AutoScaleMode = AutoScaleMode.Dpi; // O AutoScaleMode.Font según tus preferencias
+
+            // Forzar el rediseño y el repintado de los controles
+            this.PerformLayout();
+            this.Refresh();
+        }
+
+        private void rjButton3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

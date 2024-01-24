@@ -66,6 +66,7 @@
             this.btnParametrizacion = new System.Windows.Forms.Button();
             this.btnRuta = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panelConexion2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelRuta2.SuspendLayout();
@@ -78,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelConexion2
@@ -249,7 +251,7 @@
             this.panelRuta2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRuta2.Location = new System.Drawing.Point(15, 15);
             this.panelRuta2.Name = "panelRuta2";
-            this.panelRuta2.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.panelRuta2.Padding = new System.Windows.Forms.Padding(15);
             this.panelRuta2.Size = new System.Drawing.Size(737, 508);
             this.panelRuta2.TabIndex = 8;
             this.panelRuta2.Visible = false;
@@ -292,16 +294,16 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.IndianRed;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.rjInputsFormulariosControl8);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl7);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl6);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(7, 0);
+            this.panel3.Location = new System.Drawing.Point(15, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(15, 30, 15, 15);
-            this.panel3.Size = new System.Drawing.Size(479, 508);
+            this.panel3.Padding = new System.Windows.Forms.Padding(15, 20, 15, 15);
+            this.panel3.Size = new System.Drawing.Size(475, 478);
             this.panel3.TabIndex = 22;
             // 
             // rjInputsFormulariosControl8
@@ -311,14 +313,14 @@
             this.rjInputsFormulariosControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl8.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl8.LabelText = "Ruta log";
-            this.rjInputsFormulariosControl8.Location = new System.Drawing.Point(15, 270);
+            this.rjInputsFormulariosControl8.Location = new System.Drawing.Point(15, 260);
             this.rjInputsFormulariosControl8.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsFormulariosControl8.Multiline = false;
             this.rjInputsFormulariosControl8.Name = "rjInputsFormulariosControl8";
             this.rjInputsFormulariosControl8.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsFormulariosControl8.Size = new System.Drawing.Size(449, 80);
+            this.rjInputsFormulariosControl8.Size = new System.Drawing.Size(445, 80);
             this.rjInputsFormulariosControl8.TabIndex = 20;
-            this.rjInputsFormulariosControl8.TextBoxSize = new System.Drawing.Size(431, 36);
+            this.rjInputsFormulariosControl8.TextBoxSize = new System.Drawing.Size(427, 36);
             // 
             // rjInputsFormulariosControl7
             // 
@@ -327,14 +329,14 @@
             this.rjInputsFormulariosControl7.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl7.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl7.LabelText = "Ruta archivos OK";
-            this.rjInputsFormulariosControl7.Location = new System.Drawing.Point(15, 190);
+            this.rjInputsFormulariosControl7.Location = new System.Drawing.Point(15, 180);
             this.rjInputsFormulariosControl7.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsFormulariosControl7.Multiline = false;
             this.rjInputsFormulariosControl7.Name = "rjInputsFormulariosControl7";
             this.rjInputsFormulariosControl7.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsFormulariosControl7.Size = new System.Drawing.Size(449, 80);
+            this.rjInputsFormulariosControl7.Size = new System.Drawing.Size(445, 80);
             this.rjInputsFormulariosControl7.TabIndex = 19;
-            this.rjInputsFormulariosControl7.TextBoxSize = new System.Drawing.Size(431, 36);
+            this.rjInputsFormulariosControl7.TextBoxSize = new System.Drawing.Size(427, 36);
             // 
             // rjInputsFormulariosControl6
             // 
@@ -343,14 +345,14 @@
             this.rjInputsFormulariosControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl6.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
             this.rjInputsFormulariosControl6.LabelText = "Ruta archivos error";
-            this.rjInputsFormulariosControl6.Location = new System.Drawing.Point(15, 110);
+            this.rjInputsFormulariosControl6.Location = new System.Drawing.Point(15, 100);
             this.rjInputsFormulariosControl6.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsFormulariosControl6.Multiline = false;
             this.rjInputsFormulariosControl6.Name = "rjInputsFormulariosControl6";
             this.rjInputsFormulariosControl6.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsFormulariosControl6.Size = new System.Drawing.Size(449, 80);
+            this.rjInputsFormulariosControl6.Size = new System.Drawing.Size(445, 80);
             this.rjInputsFormulariosControl6.TabIndex = 18;
-            this.rjInputsFormulariosControl6.TextBoxSize = new System.Drawing.Size(431, 36);
+            this.rjInputsFormulariosControl6.TextBoxSize = new System.Drawing.Size(427, 36);
             // 
             // rjInputsFormulariosControl5
             // 
@@ -360,37 +362,42 @@
             this.rjInputsFormulariosControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsFormulariosControl5.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjInputsFormulariosControl5.LabelText = "Ruta archivos resultados";
-            this.rjInputsFormulariosControl5.Location = new System.Drawing.Point(15, 30);
+            this.rjInputsFormulariosControl5.Location = new System.Drawing.Point(15, 20);
             this.rjInputsFormulariosControl5.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsFormulariosControl5.Multiline = false;
             this.rjInputsFormulariosControl5.Name = "rjInputsFormulariosControl5";
             this.rjInputsFormulariosControl5.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsFormulariosControl5.Size = new System.Drawing.Size(449, 80);
+            this.rjInputsFormulariosControl5.Size = new System.Drawing.Size(445, 80);
             this.rjInputsFormulariosControl5.TabIndex = 17;
-            this.rjInputsFormulariosControl5.TextBoxSize = new System.Drawing.Size(425, 36);
+            this.rjInputsFormulariosControl5.TextBoxSize = new System.Drawing.Size(421, 36);
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.rjButton3);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(486, 0);
+            this.panel4.Location = new System.Drawing.Point(490, 15);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(244, 508);
+            this.panel4.Padding = new System.Windows.Forms.Padding(7, 120, 7, 7);
+            this.panel4.Size = new System.Drawing.Size(232, 478);
             this.panel4.TabIndex = 23;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Imagen1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 178);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 143);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 172);
+            this.pictureBox1.Size = new System.Drawing.Size(218, 228);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // rjButton3
             // 
+            this.rjButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
@@ -402,7 +409,7 @@
             this.rjButton3.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold);
             this.rjButton3.FontSize = 10F;
             this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(146, 337);
+            this.rjButton3.Location = new System.Drawing.Point(70, 0);
             this.rjButton3.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton3.Name = "rjButton3";
             this.rjButton3.Size = new System.Drawing.Size(83, 37);
@@ -410,6 +417,7 @@
             this.rjButton3.Text = "Guardar";
             this.rjButton3.TextColor = System.Drawing.Color.White;
             this.rjButton3.UseVisualStyleBackColor = false;
+            this.rjButton3.Click += new System.EventHandler(this.rjButton3_Click);
             // 
             // panelParametrizacion2
             // 
@@ -637,6 +645,16 @@
             this.panel2.Size = new System.Drawing.Size(767, 38);
             this.panel2.TabIndex = 14;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Red;
+            this.panel5.Controls.Add(this.rjButton3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(7, 371);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(218, 100);
+            this.panel5.TabIndex = 6;
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -668,6 +686,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -710,5 +729,6 @@
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl15;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }
