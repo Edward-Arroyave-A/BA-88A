@@ -34,7 +34,7 @@ namespace AnnarComMICROSESV60.Forms
         public string nombreLog = InterfaceConfig.nombreLog;
         public bool booleanTimer = false;
 
-        public enum EnumEstados { Ok, Info, Process, Warning, Error }
+        public enum EnumEstados { Ok, Info, Process, Warning, Error, Empty }
 
 
 
@@ -113,9 +113,7 @@ namespace AnnarComMICROSESV60.Forms
         public string tipoEspecie = string.Empty;
         public string tipoRaza = string.Empty;
         public bool valUnidad;
-
-
-
+        public RJButton nuevoButton;
 
         public class T
         {
@@ -150,8 +148,6 @@ namespace AnnarComMICROSESV60.Forms
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
             this.Dock = DockStyle.Fill;
-
-
         }
 
         private void timerIntervalos_Tick(object sender, EventArgs e)
@@ -178,11 +174,13 @@ namespace AnnarComMICROSESV60.Forms
 
             EsconderSubmenu();
 
+
             MensajesEstadosTerminal($"Succes", EnumEstados.Ok);
             MensajesEstadosTerminal($"Process", EnumEstados.Process);
             MensajesEstadosTerminal($"Warning", EnumEstados.Warning);
             MensajesEstadosTerminal($"Error", EnumEstados.Error);
             MensajesEstadosTerminal($"Info", EnumEstados.Info);
+            MensajesEstadosTerminal($"", EnumEstados.Empty);
 
             VariablesGlobal.Resultados = true;
         }
@@ -248,31 +246,33 @@ namespace AnnarComMICROSESV60.Forms
 
         }
 
-        //Metodo para mostrar los mensajes en el FlowLayoutPanel
+        //Metodo para mostrar los mensajes en el FlowLayoutPanel        
         public void MensajesEstadosTerminal(string msg, EnumEstados estado)
         {
-            RJButton nuevoButton = new RJButton();
             string fechaActual = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            nuevoButton = new RJButton();
 
             nuevoButton.Dock = DockStyle.Fill;
             nuevoButton.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             nuevoButton.ImageAlign = ContentAlignment.MiddleLeft;
             nuevoButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             nuevoButton.Width = 700;
-            nuevoButton.Height = 40;
+            nuevoButton.Height = 50;
             nuevoButton.FlatStyle = FlatStyle.Flat;
             nuevoButton.FlatAppearance.BorderColor = Color.White;
             nuevoButton.FlatAppearance.BorderSize = 0;
             nuevoButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
             nuevoButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            nuevoButton.BorderRadius = 20;
+            nuevoButton.BorderRadius = 15;
             nuevoButton.BorderSize = 2;
             nuevoButton.BackColor = Color.Transparent;
             nuevoButton.TextColor = Color.FromArgb(62, 62, 62);
             nuevoButton.ForeColor = Color.FromArgb(62, 62, 62);
             nuevoButton.FontSize = 10;
             nuevoButton.Text = $" {fechaActual}: " + msg;
-            nuevoButton.AutoSize = true;            
+            nuevoButton.Padding = new Padding(10, 2, 10, 2);
+            //nuevoButton.AutoSize = true;            
+            nuevoButton.Resize += button_Resize;
 
             switch (estado)
             {
@@ -301,6 +301,12 @@ namespace AnnarComMICROSESV60.Forms
                     nuevoButton.BorderColor = Color.FromArgb(209, 62, 73);
                     break;
 
+                case EnumEstados.Empty:
+                    nuevoButton.Image = Resources.Null;
+                    nuevoButton.BorderSize = 0;
+                    nuevoButton.Text = "";
+                    break;
+
                 default:
                     break;
             }
@@ -309,11 +315,6 @@ namespace AnnarComMICROSESV60.Forms
             {
                 flpContenedorResul.Controls.Add(nuevoButton);
             }));
-        }
-
-        private void flpContenedorResul_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnOpenPort_Click(object sender, EventArgs e)
@@ -968,6 +969,7 @@ namespace AnnarComMICROSESV60.Forms
             flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
             RedondearEsquinas(flpContenedorResul, 10);
         }
+
     }
 }
 

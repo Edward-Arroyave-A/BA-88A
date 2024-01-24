@@ -47,6 +47,7 @@ namespace AnnarComMICROSESV60
             this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,10 +60,10 @@ namespace AnnarComMICROSESV60
             // 
             this.pnlForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlForm.Location = new System.Drawing.Point(349, 108);
+            this.pnlForm.Location = new System.Drawing.Point(349, 121);
             this.pnlForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1002, 723);
+            this.pnlForm.Size = new System.Drawing.Size(1002, 657);
             this.pnlForm.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -71,7 +72,7 @@ namespace AnnarComMICROSESV60
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41532F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58468F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,7 +84,7 @@ namespace AnnarComMICROSESV60
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27711F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.72289F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 108);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 121);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // rjbConectar
@@ -103,11 +104,11 @@ namespace AnnarComMICROSESV60
             this.rjbConectar.FontSize = 14F;
             this.rjbConectar.ForeColor = System.Drawing.Color.White;
             this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
-            this.rjbConectar.Location = new System.Drawing.Point(641, 25);
+            this.rjbConectar.Location = new System.Drawing.Point(637, 28);
             this.rjbConectar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjbConectar.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbConectar.Name = "rjbConectar";
-            this.rjbConectar.Size = new System.Drawing.Size(343, 76);
+            this.rjbConectar.Size = new System.Drawing.Size(342, 86);
             this.rjbConectar.TabIndex = 11;
             this.rjbConectar.Text = "Conectar";
             this.rjbConectar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -135,11 +136,11 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.FontSize = 14F;
             this.rjbTitulo.ForeColor = System.Drawing.Color.White;
             this.rjbTitulo.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
-            this.rjbTitulo.Location = new System.Drawing.Point(8, 25);
+            this.rjbTitulo.Location = new System.Drawing.Point(8, 28);
             this.rjbTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbTitulo.Name = "rjbTitulo";
-            this.rjbTitulo.Size = new System.Drawing.Size(627, 76);
+            this.rjbTitulo.Size = new System.Drawing.Size(623, 86);
             this.rjbTitulo.TabIndex = 12;
             this.rjbTitulo.Text = "    Carga Resultados";
             this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -292,6 +293,20 @@ namespace AnnarComMICROSESV60
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label1.Location = new System.Drawing.Point(349, 778);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1002, 53);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "2024 LIVE LIS. Todos los derechos reservados.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,6 +315,7 @@ namespace AnnarComMICROSESV60
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1351, 831);
             this.Controls.Add(this.pnlForm);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelNav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -388,5 +404,6 @@ namespace AnnarComMICROSESV60
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private RJControls.RJButton rjbCerrarSesion;
+        private System.Windows.Forms.Label label1;
     }
 }
