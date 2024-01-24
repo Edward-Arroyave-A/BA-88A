@@ -48,6 +48,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Open Sans", 7.25F, System.Drawing.FontStyle.Bold);
@@ -55,7 +58,8 @@
             this.label2.Location = new System.Drawing.Point(13, 62);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 14);
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Campo vacío";
             // 
@@ -93,6 +97,7 @@
             this.Name = "RJInputsFormulariosControl";
             this.Padding = new System.Windows.Forms.Padding(7, 0, 15, 0);
             this.Size = new System.Drawing.Size(321, 108);
+            this.SizeChanged += new System.EventHandler(this.RJInputsFormulariosControl_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

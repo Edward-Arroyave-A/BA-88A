@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -457,78 +458,87 @@ namespace AnnarComMICROSESV60.Forms
 
         private void Config_SizeChanged(object sender, EventArgs e)
         {
+
            
-                // Obtener el tamaño actual del formulario
-                int nuevoAncho = this.Size.Width;
-                int nuevoAlto = this.Size.Height;
+            // Obtener el tamaño actual del formulario
+            int nuevoAncho = panelContenedor.Size.Width;
+            int nuevoAlto = panelContenedor.Size.Height;
 
             // Establecer el nuevo tamaño para el panel
-            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);;
+            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto); ;
             RedondearEsquinas(panelContenedor, 10);
 
             int medio = this.Width / 2;
-   
-            Padding padingRuta2 = new Padding(15, 15, 15, 15);
-            int panel4Width = 490;
-            int panel3Width = 231;
-            int panelDashPaddingLeft = 30;
-            int panelDashPaddingRight = 30;
-            int panelDashPaddingTop = 7;
-            int panelDashPaddingBottom = 7;
+            int medioPanel = 700;
 
-            if (medio >= 768 )
+            panel3.Padding = new Padding(15, 15, 15, 15);
+     
+
+            if (medio >= 768)
             {
-                
-                rjButton3.Width = 100;
-                panel4.Width = medio/ 2;
-                panel5.Height = medio/ 4;
-                panel3.Padding = new Padding(50, 50, 50, 50);
-                pictureBox1.Size = new Size (medio,300) ;
+
+
+
+                ////panel5.Height = medio / 4;
+                panel3.Padding = new Padding(50, 200, 50, 200);
+                ////pictureBox1.Size = new Size(medio, 300);
+                ////rjInputsFormulariosControl5.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
+                ////rjInputsFormulariosControl5.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                ////rjInputsFormulariosControl5.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl5.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl5.Label2TextPadding = new Padding(0, 15, 0, 0);
+                ////rjInputsFormulariosControl6.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
+                ////rjInputsFormulariosControl6.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                ////rjInputsFormulariosControl6.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl6.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl6.Label2TextPadding = new Padding(0, 15, 0, 0);
+                ////rjInputsFormulariosControl7.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
+                ////rjInputsFormulariosControl7.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                ////rjInputsFormulariosControl7.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl7.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl7.Label2TextPadding = new Padding(0, 15, 0, 0);
+                ////rjInputsFormulariosControl8.FontTextBox = new Font("Open Sans", 20, FontStyle.Bold);
+                ////rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                ////rjInputsFormulariosControl8.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl8.TextBoxSize = new Size(medioPanel, 50);
+                ////rjInputsFormulariosControl8.Label2TextPadding = new Padding(0, 15, 0, 0);
+
                 // Pantalla grande: ajusta el diseño para una pantalla grande
-                panelDashPaddingLeft = 80;
-                panelDashPaddingRight = 80;
-                panel4Width = 1000;
-                panel3Width = 400;
-              
+
+
                 this.Invalidate();
             }
 
             if (medio >= 655 && medio <= 768)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 700;
-                panel3Width = 300;
-                panelDashPaddingLeft = 15;
+               
                 this.Invalidate();
             }
 
             if (medio >= 511 && medio <= 655)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 600;
-                panel3Width = 250;
-                panelDashPaddingLeft = 15;
+                
                 this.Invalidate();
             }
 
             if (medio >= 500 && medio <= 510)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 390;
-                panel3Width = 224;
+               
                 this.Invalidate();
             }
 
             if (medio <= 467)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 350;
-                panel3Width = 200;
+               
                 this.Invalidate();
             }
 
             // Aplicar configuraciones comunes
-            panelRuta2.Padding = padingRuta2;
+           
             //panel3.Width = panel3Width;
             //panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
 
@@ -551,6 +561,7 @@ namespace AnnarComMICROSESV60.Forms
 
 
         }
+      
 
         private void RedondearEsquinas(Control control, int radio)
         {
