@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -15,7 +16,9 @@ namespace AnnarComMICROSESV60.RJControls
     [DefaultEvent("_TextChanged")]
     public partial class RJInputsFormulariosControl : UserControl
     {
-      
+        bool cambio = false;
+        int valor ;
+
         public RJInputsFormulariosControl()
         {
            
@@ -75,10 +78,31 @@ namespace AnnarComMICROSESV60.RJControls
 
 
         [Category("RJ Code Advance")]
+        public Font FontTextBox
+        {
+            get { return rjTextBoxControl1.Font; }
+            set { rjTextBoxControl1.Font = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public Size SiseTextBox
+        {
+            get { return rjTextBoxControl1.Size; }
+            set { rjTextBoxControl1.Size = value; }
+        }
+
+        [Category("RJ Code Advance")]
         public string LabelText
         {
             get { return label1.Text; }
             set { label1.Text = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public Padding Label2TextPadding
+        {
+            get { return label2.Padding; }
+            set { label2.Padding = value; }
         }
 
         private void rjTextBoxControl1_Leave(object sender, EventArgs e)
@@ -100,14 +124,37 @@ namespace AnnarComMICROSESV60.RJControls
             else
             {
                 label2.Visible = false;
-                this.Invalidate();
+               
                 label1.ForeColor = rjTextBoxControl1.BorderColor;
-              
+                this.Invalidate();
                 //this.Invalidate();
                 // Restablece el color del texto de label1
             }
         }
 
-       
+        private void RJInputsFormulariosControl_SizeChanged(object sender, EventArgs e)
+        {
+           
+
+            if (rjTextBoxControl1.Size.Width >= 768)
+            {
+
+                label2.Padding = new Padding(0, 15, 0, 0);
+                rjTextBoxControl1.Size = new Size(rjTextBoxControl1.Size.Width, 50);
+                cambio = true;
+                
+            }
+            else {
+                if (cambio) {
+                  
+                    label2.Padding = new Padding(0, 0, 0, 0);
+                    rjTextBoxControl1.Size = new Size(rjTextBoxControl1.Size.Width, 36);
+                }
+                cambio = false;
+              
+            }
+
+            this.Invalidate();
+        }
     }
 }

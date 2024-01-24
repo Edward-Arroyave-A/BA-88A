@@ -306,5 +306,29 @@ namespace AnnarComMICROSESV60.RJControls
             textBox1_Enter( sender,  e);
            
         }
+
+        private void textBox1_SizeChanged(object sender, EventArgs e)
+        {
+           
+              
+                if (textBox1.Size.Width >= 768)
+                {
+
+                    textBox1.Font = new Font("Open Sans", 20, FontStyle.Bold);
+
+                    //textBox1.Size = new Size(textBox1.Size.Width, );
+                    //textBox1.Font
+                 
+                }
+                else
+                {
+
+                    textBox1.Font = new Font("Open Sans", 9, FontStyle.Bold);
+                }
+
+                this.Invalidate();
+            
+
+        }
     }
 }
