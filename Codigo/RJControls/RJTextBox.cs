@@ -394,15 +394,16 @@ namespace AnnarComMICROSESV60.Forms
             if (textBox1.Size.Width >= 768)
             {
 
-                textBox1.Font = new Font("Open Sans", 20, FontStyle.Bold);
-                label2.Padding = new Padding(0, 15, 0, 0);
+                textBox1.Font = new Font("Open Sans", 19, FontStyle.Bold);
+               
                 textBox1.Size = new Size(textBox1.Size.Width, 20);
+                //textBox1.Font
                 cambio = true;
             }
             else
             {
 
-                if (cambio) textBox1.Size = new Size(rjTextBotextBox1xControl1.Size.Width, 500);
+                if (cambio) textBox1.Size = new Size(textBox1.Size.Width, (textBox1.Size.Height - 20));
                 cambio = false;
                 textBox1.Font = new Font("Open Sans", 9, FontStyle.Bold);
             }

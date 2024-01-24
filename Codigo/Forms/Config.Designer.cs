@@ -35,8 +35,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelParametrizacion2 = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
@@ -51,7 +49,6 @@
             this.rjInputsFormulariosControl7 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl6 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl5 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjToggleButton2 = new AnnarComMICROSESV60.RJControls.RJToggleButton();
             this.rjButton3 = new AnnarComMICROSESV60.RJControls.RJButton();
             this.rjInputsFormulariosControl15 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl12 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
@@ -69,13 +66,15 @@
             this.rjInputsFormulariosControl4 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rjToggleButton2 = new AnnarComMICROSESV60.RJControls.RJToggleButton();
             this.panelConexion2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelRuta2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelParametrizacion2.SuspendLayout();
             this.panelRight.SuspendLayout();
@@ -84,6 +83,7 @@
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelConexion2
@@ -150,6 +150,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl8);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl7);
             this.panel3.Controls.Add(this.rjInputsFormulariosControl6);
@@ -163,9 +164,8 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(478, 3);
@@ -174,31 +174,9 @@
             this.panel4.Size = new System.Drawing.Size(226, 472);
             this.panel4.TabIndex = 23;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.rjToggleButton2);
-            this.panel1.Location = new System.Drawing.Point(63, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(7);
-            this.panel1.Size = new System.Drawing.Size(133, 42);
-            this.panel1.TabIndex = 21;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "LogActivo";
-            // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.Red;
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.rjButton3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(7, 365);
@@ -405,20 +383,6 @@
             this.rjInputsFormulariosControl5.Size = new System.Drawing.Size(439, 80);
             this.rjInputsFormulariosControl5.TabIndex = 17;
             this.rjInputsFormulariosControl5.TextBoxSize = new System.Drawing.Size(403, 36);
-            // 
-            // rjToggleButton2
-            // 
-            this.rjToggleButton2.AutoSize = true;
-            this.rjToggleButton2.Location = new System.Drawing.Point(19, 13);
-            this.rjToggleButton2.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton2.Name = "rjToggleButton2";
-            this.rjToggleButton2.OffBackColor = System.Drawing.Color.Gray;
-            this.rjToggleButton2.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton2.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjToggleButton2.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton2.Size = new System.Drawing.Size(45, 22);
-            this.rjToggleButton2.TabIndex = 0;
-            this.rjToggleButton2.UseVisualStyleBackColor = true;
             // 
             // rjButton3
             // 
@@ -684,10 +648,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Location = new System.Drawing.Point(0, 140);
+            this.panel6.Location = new System.Drawing.Point(0, 130);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(15);
-            this.panel6.Size = new System.Drawing.Size(222, 219);
+            this.panel6.Size = new System.Drawing.Size(222, 229);
             this.panel6.TabIndex = 22;
             // 
             // pictureBox1
@@ -697,9 +661,44 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(15, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 189);
+            this.pictureBox1.Size = new System.Drawing.Size(192, 199);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.rjToggleButton2);
+            this.panel1.Location = new System.Drawing.Point(39, 412);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(7);
+            this.panel1.Size = new System.Drawing.Size(133, 42);
+            this.panel1.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(70, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "LogActivo";
+            // 
+            // rjToggleButton2
+            // 
+            this.rjToggleButton2.AutoSize = true;
+            this.rjToggleButton2.Location = new System.Drawing.Point(19, 13);
+            this.rjToggleButton2.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton2.Name = "rjToggleButton2";
+            this.rjToggleButton2.OffBackColor = System.Drawing.Color.Gray;
+            this.rjToggleButton2.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton2.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjToggleButton2.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton2.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton2.TabIndex = 0;
+            this.rjToggleButton2.UseVisualStyleBackColor = true;
             // 
             // Config
             // 
@@ -724,8 +723,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panelParametrizacion2.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
@@ -735,6 +732,8 @@
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -743,9 +742,6 @@
         private System.Windows.Forms.Panel panelConexion2;
         private System.Windows.Forms.Panel panelRuta2;
         private AnnarComMICROSESV60.RJControls.RJButton rjButton3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private AnnarComMICROSESV60.RJControls.RJToggleButton rjToggleButton2;
         private System.Windows.Forms.Panel panelParametrizacion2;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl1;
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl2;
@@ -780,5 +776,8 @@
         private RJControls.RJInputsFormulariosControl rjInputsFormulariosControl5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private RJControls.RJToggleButton rjToggleButton2;
     }
 }
