@@ -83,6 +83,36 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_carga3 {
+            get {
+                object obj = ResourceManager.GetObject("btn_carga3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_cerrar_sesion {
+            get {
+                object obj = ResourceManager.GetObject("btn_cerrar_sesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_cerrar_sesion_blue {
+            get {
+                object obj = ResourceManager.GetObject("btn_cerrar_sesion_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_configuracion {
             get {
                 object obj = ResourceManager.GetObject("btn_configuracion", resourceCulture);
@@ -123,6 +153,16 @@ namespace AnnarComMICROSESV60.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Conectar_cian {
+            get {
+                object obj = ResourceManager.GetObject("Conectar_cian", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Conectar1 {
             get {
                 object obj = ResourceManager.GetObject("Conectar1", resourceCulture);
@@ -136,6 +176,16 @@ namespace AnnarComMICROSESV60.Properties {
         internal static System.Drawing.Bitmap Desconectar {
             get {
                 object obj = ResourceManager.GetObject("Desconectar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Desconectar_gray {
+            get {
+                object obj = ResourceManager.GetObject("Desconectar_gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

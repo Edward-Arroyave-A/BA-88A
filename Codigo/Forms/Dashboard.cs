@@ -68,11 +68,6 @@ namespace AnnarComMICROSESV60
             else e.Cancel = true;
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void rjbConectar_Click(object sender, EventArgs e)
         {
             if (estadoBtnConectar)
@@ -90,6 +85,8 @@ namespace AnnarComMICROSESV60
                 estadoBtnConectar = true;
             }
             Dashboard_SizeChanged(sender, e);
+            rjbConectar_MouseHover(sender, e);
+
         }
 
         private void rjbResultados_Click(object sender, EventArgs e)
@@ -122,6 +119,6 @@ namespace AnnarComMICROSESV60
             rjbConfiguracion.ForeColor = Color.White;
 
             OpenChildForm(new Config());
-        }
+        }       
     }
 }
