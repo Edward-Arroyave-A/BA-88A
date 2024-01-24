@@ -475,6 +475,8 @@ namespace AnnarComMICROSESV60.Forms
             int medioPanel = 700;
 
             panel3.Padding = new Padding(15, 15, 15, 15);
+            panel7.Padding = new Padding(7, 7, 7, 7);
+            panel8.Padding = new Padding(7, 7, 7, 7);
 
 
             if (medio >= 768)
@@ -484,6 +486,8 @@ namespace AnnarComMICROSESV60.Forms
 
 
                 panel3.Padding = new Padding(50, 150, 50, 150);
+                panel7.Padding = new Padding(50, 150, 50, 150);
+                panel8.Padding = new Padding(50, 150, 50, 150);
 
                 rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
 
@@ -594,6 +598,16 @@ namespace AnnarComMICROSESV60.Forms
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }
