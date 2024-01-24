@@ -43,7 +43,7 @@ namespace AnnarComMICROSESV60.Forms
         public string rutaGuardarImagenHistograma = ConfigurationManager.AppSettings["RutaGuardarImagenHistograma"].ToString();
         public string SobreEscribeResultado = ConfigurationManager.AppSettings["SobreEscribeResultado"].ToString();
         public string utilizacaratulaporequipos = ConfigurationManager.AppSettings["utilizacaratulaporequipos"].ToString();
-        public string tiempo = "2";
+        public string tiempo = InterfaceConfig.intervalo;
 
         //Para metodo decimales
         // public string AdicionarUnidadMedida = ConfigurationManager.AppSettings["AdicionarUnidadMedida"].ToString();

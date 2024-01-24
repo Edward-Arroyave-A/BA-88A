@@ -26,7 +26,7 @@ namespace AnnarComMICROSESV60.RJControls
              RjTextBoxControl1_TextChanged();
             
             // Agrega el evento Resize
-            // Agrega el evento TextChanged
+            // Agrega el evento TextChangedForeColor
             // Agrega el evento TextChanged
         }
 
@@ -51,7 +51,13 @@ namespace AnnarComMICROSESV60.RJControls
             
         }
 
-    
+        [Category("RJ Code Advance")]
+        public Color BorderFocusColor
+        {
+            get { return rjTextBoxControl1.BorderFocusColor; }
+            set { rjTextBoxControl1.BorderFocusColor = value; }
+        }
+
         // Propiedades expuestas para rjTextBoxControl1
 
         [Category("RJ Code Advance")]
@@ -66,6 +72,22 @@ namespace AnnarComMICROSESV60.RJControls
         {
             get { return rjTextBoxControl1.BorderRadius; }
             set { rjTextBoxControl1.BorderRadius = value; }
+        }
+        [Category("RJ Code Advance")]
+        public string TextBoxText {
+
+            get { return rjTextBoxControl1.Texts; }
+            set { rjTextBoxControl1.Texts = value; }
+        }
+
+        public bool Focuse
+        {
+            get { return rjTextBoxControl1.isFocused; }
+            set
+            {
+                rjTextBoxControl1.isFocused = value;
+                this.Invalidate();
+            }
         }
 
 

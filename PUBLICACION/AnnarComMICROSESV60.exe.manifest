@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnnarComMICROSESV60.exe" size="430592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnnarComMICROSESV60.exe" size="432128">
       <assemblyIdentity name="AnnarComMICROSESV60" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ApcnSsDvpqqFcC5KPQN0L6IYdtJeInZ5vENI1ZDPutQ=</dsig:DigestValue>
+        <dsig:DigestValue>LlETxZNTI9J3ow6fPppqfE5FdwfYbus/cSZq+wf2VSM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -197,22 +197,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AnnarComMICROSESV60.exe.config" size="4238">
+  <file name="AnnarComMICROSESV60.exe.config" size="4339">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EETk+IW3SzSc3vohkSueazlxQG/1pDgMXdsN+8zkHuQ=</dsig:DigestValue>
+      <dsig:DigestValue>p7Ckt1GE8UA4sQjSR08wDgLRk/Os4YH851htrlFfawc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="App.config" size="3394">
+  <file name="App.config" size="3492">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GzppHAU54Wq6x5jmwB1/Srfi3zakb2LPYxiBxmexDTc=</dsig:DigestValue>
+      <dsig:DigestValue>uCeYNMjWYYPtyn8HbwYhTBU/FSVX5f+cZfLW0hhGPHY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
