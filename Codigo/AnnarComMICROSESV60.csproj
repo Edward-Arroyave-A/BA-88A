@@ -212,6 +212,11 @@
     <Compile Include="Utilities\InterfaceConfig.cs" />
     <Compile Include="Utilities\RegistroLog.cs" />
     <Compile Include="Utilities\VariablesGlobal.cs" />
+    <None Include="Resources\Desconectar-gray.png" />
+    <None Include="Resources\Conectar-cian.png" />
+    <None Include="Resources\btn-carga3.png" />
+    <None Include="Resources\btn-cerrar-sesion-blue.png" />
+    <None Include="Resources\btn-cerrar-sesion.png" />
     <None Include="Resources\by_it_health_blanco.png" />
     <None Include="Resources\btn-carga2.png" />
     <None Include="Resources\btn_carga1.png" />
@@ -232,6 +237,9 @@
     <None Include="Resources\Conectar.png" />
     <None Include="Resources\Desconectar1.png" />
     <None Include="Resources\Desconectar.png" />
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RJControls\RJConnectionButton.resx">
       <DependentUpon>RJConnectionButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,9 +266,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
