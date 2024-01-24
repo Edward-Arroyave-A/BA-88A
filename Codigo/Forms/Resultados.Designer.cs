@@ -65,7 +65,7 @@
             this.chkDSR.Enabled = false;
             this.chkDSR.Location = new System.Drawing.Point(479, 310);
             this.chkDSR.Name = "chkDSR";
-            this.chkDSR.Size = new System.Drawing.Size(47, 19);
+            this.chkDSR.Size = new System.Drawing.Size(55, 21);
             this.chkDSR.TabIndex = 29;
             this.chkDSR.Text = "DSR";
             this.chkDSR.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             this.chkCD.Enabled = false;
             this.chkCD.Location = new System.Drawing.Point(425, 310);
             this.chkCD.Name = "chkCD";
-            this.chkCD.Size = new System.Drawing.Size(42, 19);
+            this.chkCD.Size = new System.Drawing.Size(51, 21);
             this.chkCD.TabIndex = 30;
             this.chkCD.Text = "CD";
             this.chkCD.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.chkCTS.Enabled = false;
             this.chkCTS.Location = new System.Drawing.Point(529, 260);
             this.chkCTS.Name = "chkCTS";
-            this.chkCTS.Size = new System.Drawing.Size(45, 19);
+            this.chkCTS.Size = new System.Drawing.Size(54, 21);
             this.chkCTS.TabIndex = 28;
             this.chkCTS.Text = "CTS";
             this.chkCTS.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             this.rbHex.AutoSize = true;
             this.rbHex.Location = new System.Drawing.Point(425, 285);
             this.rbHex.Name = "rbHex";
-            this.rbHex.Size = new System.Drawing.Size(46, 19);
+            this.rbHex.Size = new System.Drawing.Size(56, 21);
             this.rbHex.TabIndex = 32;
             this.rbHex.Text = "Hex";
             this.rbHex.Visible = false;
@@ -109,9 +109,9 @@
             // 
             this.chkClearWithDTR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClearWithDTR.AutoSize = true;
-            this.chkClearWithDTR.Location = new System.Drawing.Point(185, 252);
+            this.chkClearWithDTR.Location = new System.Drawing.Point(185, 250);
             this.chkClearWithDTR.Name = "chkClearWithDTR";
-            this.chkClearWithDTR.Size = new System.Drawing.Size(103, 19);
+            this.chkClearWithDTR.Size = new System.Drawing.Size(126, 21);
             this.chkClearWithDTR.TabIndex = 34;
             this.chkClearWithDTR.Text = "Clear with DTR";
             this.chkClearWithDTR.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@
             // 
             this.chkClearOnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClearOnOpen.AutoSize = true;
-            this.chkClearOnOpen.Location = new System.Drawing.Point(70, 252);
+            this.chkClearOnOpen.Location = new System.Drawing.Point(70, 250);
             this.chkClearOnOpen.Name = "chkClearOnOpen";
-            this.chkClearOnOpen.Size = new System.Drawing.Size(105, 19);
+            this.chkClearOnOpen.Size = new System.Drawing.Size(130, 21);
             this.chkClearOnOpen.TabIndex = 33;
             this.chkClearOnOpen.Text = "Clear on Open";
             this.chkClearOnOpen.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.chkDTR.AutoSize = true;
             this.chkDTR.Location = new System.Drawing.Point(425, 260);
             this.chkDTR.Name = "chkDTR";
-            this.chkDTR.Size = new System.Drawing.Size(46, 19);
+            this.chkDTR.Size = new System.Drawing.Size(54, 21);
             this.chkDTR.TabIndex = 35;
             this.chkDTR.Text = "DTR";
             this.chkDTR.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.rbText.AutoSize = true;
             this.rbText.Location = new System.Drawing.Point(479, 285);
             this.rbText.Name = "rbText";
-            this.rbText.Size = new System.Drawing.Size(46, 19);
+            this.rbText.Size = new System.Drawing.Size(56, 21);
             this.rbText.TabIndex = 31;
             this.rbText.Text = "Text";
             this.rbText.Visible = false;
@@ -160,7 +160,7 @@
             this.chkRTS.AutoSize = true;
             this.chkRTS.Location = new System.Drawing.Point(479, 260);
             this.chkRTS.Name = "chkRTS";
-            this.chkRTS.Size = new System.Drawing.Size(44, 19);
+            this.chkRTS.Size = new System.Drawing.Size(51, 21);
             this.chkRTS.TabIndex = 36;
             this.chkRTS.Text = "RTS";
             this.chkRTS.UseVisualStyleBackColor = true;
@@ -172,6 +172,7 @@
             this.flpContenedorResul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpContenedorResul.BackColor = System.Drawing.Color.White;
             this.flpContenedorResul.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpContenedorResul.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpContenedorResul.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
             this.flpContenedorResul.Location = new System.Drawing.Point(15, 15);
             this.flpContenedorResul.Name = "flpContenedorResul";
@@ -182,7 +183,7 @@
             // 
             // Resultados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(797, 606);

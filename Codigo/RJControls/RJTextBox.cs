@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnnarComMICROSESV60.RJControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,6 +98,22 @@ namespace AnnarComMICROSESV60.Forms
                     textBox1.UseSystemPasswordChar = value;
             }
         }
+
+
+        [Category("RJ Code Advance")]
+        public Font FontTextBox
+        {
+            get { return textBox1.Font; }
+            set { textBox1.Font = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public Size SizeTextBox
+        {
+            get { return textBox1.Size; }
+            set { textBox1.Size = value; }
+        }
+
 
         [Category("RJ Code Advance")]
         public bool Multiline
@@ -370,5 +387,30 @@ namespace AnnarComMICROSESV60.Forms
         }
         ///::::+
         #endregion
+
+        private void RJTextBox_SizeChanged(object sender, EventArgs e)
+        {
+            bool cambio = false;
+            if (textBox1.Size.Width >= 768)
+            {
+
+                textBox1.Font = new Font("Open Sans", 19, FontStyle.Bold);
+               
+                textBox1.Size = new Size(textBox1.Size.Width, 20);
+                //textBox1.Font
+                cambio = true;
+            }
+            else
+            {
+
+                if (cambio) textBox1.Size = new Size(textBox1.Size.Width, (textBox1.Size.Height - 20));
+                cambio = false;
+                textBox1.Font = new Font("Open Sans", 9, FontStyle.Bold);
+            }
+
+            this.Invalidate();
+        }
+
+       
     }
 }

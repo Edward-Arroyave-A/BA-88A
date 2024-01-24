@@ -37,18 +37,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.panelNav = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
             this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panelNav.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelNav.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlForm
@@ -61,7 +60,7 @@
             this.pnlForm.Size = new System.Drawing.Size(998, 719);
             this.pnlForm.TabIndex = 1;
             // 
-            // panelNav
+            // tableLayoutPanel1
             // 
             this.panelNav.AutoScroll = true;
             this.panelNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
@@ -92,10 +91,11 @@
             this.rjbConfiguracion.FontSize = 12F;
             this.rjbConfiguracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.rjbConfiguracion.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_configuracion;
-            this.rjbConfiguracion.Location = new System.Drawing.Point(44, 420);
+            this.rjbConfiguracion.Location = new System.Drawing.Point(33, 341);
+            this.rjbConfiguracion.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConfiguracion.MouseOverBackColor = System.Drawing.Color.Empty;
             this.rjbConfiguracion.Name = "rjbConfiguracion";
-            this.rjbConfiguracion.Size = new System.Drawing.Size(268, 72);
+            this.rjbConfiguracion.Size = new System.Drawing.Size(201, 58);
             this.rjbConfiguracion.TabIndex = 10;
             this.rjbConfiguracion.Text = "    Configuración";
             this.rjbConfiguracion.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
@@ -117,10 +117,11 @@
             this.rjbResultados.FontSize = 12F;
             this.rjbResultados.ForeColor = System.Drawing.Color.White;
             this.rjbResultados.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
-            this.rjbResultados.Location = new System.Drawing.Point(44, 309);
+            this.rjbResultados.Location = new System.Drawing.Point(33, 251);
+            this.rjbResultados.Margin = new System.Windows.Forms.Padding(2);
             this.rjbResultados.MouseOverBackColor = System.Drawing.Color.Empty;
             this.rjbResultados.Name = "rjbResultados";
-            this.rjbResultados.Size = new System.Drawing.Size(268, 74);
+            this.rjbResultados.Size = new System.Drawing.Size(201, 60);
             this.rjbResultados.TabIndex = 9;
             this.rjbResultados.Text = "    Carga \r\n    Resultados";
             this.rjbResultados.TextColor = System.Drawing.Color.White;
@@ -266,7 +267,7 @@
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -275,36 +276,35 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelNav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.SizeChanged += new System.EventHandler(this.Dashboard_SizeChanged);
-            this.panelNav.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelNav.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelNav;
         private System.Windows.Forms.Panel pnlForm;
         public System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private RJControls.RJButton rjbConectar;
         private RJControls.RJButton rjbTitulo;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSalir;
         private RJControls.RJButton rjbResultados;
         private RJControls.RJButton rjbConfiguracion;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelNav;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

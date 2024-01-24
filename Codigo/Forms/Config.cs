@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -16,6 +17,7 @@ namespace AnnarComMICROSESV60.Forms
         public string conexion = InterfaceConfig.StrCadenaConeccion;
         private string pathConfig;
         private string condicional;
+        int heightInicial;
 
         public Config()
         {
@@ -71,6 +73,8 @@ namespace AnnarComMICROSESV60.Forms
             //panelParametrizacion2.Visible = false;
             panelRuta2.Visible = false;
             #endregion
+
+             heightInicial = rjInputsFormulariosControl5.Size.Height;
         }
 
 
@@ -457,76 +461,85 @@ namespace AnnarComMICROSESV60.Forms
 
         private void Config_SizeChanged(object sender, EventArgs e)
         {
+
            
-                // Obtener el tamaño actual del formulario
-                int nuevoAncho = this.Size.Width;
-                int nuevoAlto = this.Size.Height;
+            // Obtener el tamaño actual del formulario
+            int nuevoAncho = panelContenedor.Size.Width;
+            int nuevoAlto = panelContenedor.Size.Height;
 
             // Establecer el nuevo tamaño para el panel
-            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto);
-            rjInputsFormulariosControl5.Size = new Size(nuevoAncho, nuevoAlto);
+            panelContenedor.Size = new Size(nuevoAncho, nuevoAlto); ;
             RedondearEsquinas(panelContenedor, 10);
 
             int medio = this.Width / 2;
-   
-            Padding padingRuta2 = new Padding(15, 15, 15, 15);
-            int panel4Width = 490;
-            int panel3Width = 231;
-            int panelDashPaddingLeft = 30;
-            int panelDashPaddingRight = 30;
-            int panelDashPaddingTop = 7;
-            int panelDashPaddingBottom = 7;
+            int medioPanel = 700;
 
-            if (medio >= 768 && medio > 1024)
+            panel3.Padding = new Padding(15, 15, 15, 15);
+
+
+            if (medio >= 768)
             {
 
-                
-            
+
+
+
+                panel3.Padding = new Padding(50, 150, 50, 150);
+
+                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
+
+                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
+
+                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
+                rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+
+
+
                 // Pantalla grande: ajusta el diseño para una pantalla grande
-                panelDashPaddingLeft = 80;
-                panelDashPaddingRight = 80;
-                panel4Width = 1000;
-                panel3Width = 400;
-              
+
+
                 this.Invalidate();
             }
+            else {
+
+                rjInputsFormulariosControl5.Size = new Size(medio, heightInicial);
+
+                rjInputsFormulariosControl6.Size = new Size(medio, heightInicial);
+
+                rjInputsFormulariosControl7.Size = new Size(medio, heightInicial);
+                rjInputsFormulariosControl8.Size = new Size(medio, heightInicial);
+            }
+        
 
             if (medio >= 655 && medio <= 768)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 700;
-                panel3Width = 300;
-                panelDashPaddingLeft = 15;
+               
                 this.Invalidate();
             }
 
             if (medio >= 511 && medio <= 655)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 600;
-                panel3Width = 250;
-                panelDashPaddingLeft = 15;
+                
                 this.Invalidate();
             }
 
             if (medio >= 500 && medio <= 510)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 390;
-                panel3Width = 224;
+               
                 this.Invalidate();
             }
 
             if (medio <= 467)
             {
                 // Ajustes específicos para este rango
-                panel4Width = 350;
-                panel3Width = 200;
+               
                 this.Invalidate();
             }
 
             // Aplicar configuraciones comunes
-            panelRuta2.Padding = padingRuta2;
+           
             //panel3.Width = panel3Width;
             //panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
 
@@ -542,13 +555,14 @@ namespace AnnarComMICROSESV60.Forms
             //panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
 
             //// Forzar la actualización del panelDashContenedor
-            //panelDashContenedor.Invalidate();
+            panelContenedor.Invalidate();
 
             //// Ajustar automáticamente el tamaño y la posición de los controles según el modo de escala automática
-            //ScaleControls();
+            ScaleControls();
 
 
         }
+      
 
         private void RedondearEsquinas(Control control, int radio)
         {
@@ -562,6 +576,21 @@ namespace AnnarComMICROSESV60.Forms
             path.CloseFigure();
 
             control.Region = new Region(path);
+        }
+
+        private void ScaleControls()
+        {
+            // Utilizar el modo de escala automática proporcionado por WinForms
+            this.AutoScaleMode = AutoScaleMode.Dpi; // O AutoScaleMode.Font según tus preferencias
+
+            // Forzar el rediseño y el repintado de los controles
+            this.PerformLayout();
+            this.Refresh();
+        }
+
+        private void rjButton3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
