@@ -1,12 +1,12 @@
-﻿using AnnarComMICROSESV60.Forms;
-using AnnarComMICROSESV60.Properties;
-using AnnarComMICROSESV60.Utilities;
+﻿using DM_BA_88A.Forms;
+using DM_BA_88A.Properties;
+using DM_BA_88A.Utilities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static AnnarComMICROSESV60.Forms.Resultados;
+using static DM_BA_88A.Forms.Resultados;
 
-namespace AnnarComMICROSESV60
+namespace DM_BA_88A
 {
     public partial class Dashboard : Form
     {

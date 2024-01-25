@@ -1,8 +1,8 @@
-using AnnarComMICROSESV60.Utilities;
+using DM_BA_88A.Utilities;
 using System;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60
+namespace DM_BA_88A
 {
     static class Program
     {

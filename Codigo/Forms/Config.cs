@@ -1,5 +1,5 @@
-﻿using AnnarComMICROSESV60.RJControls;
-using AnnarComMICROSESV60.Utilities;
+﻿using DM_BA_88A.RJControls;
+using DM_BA_88A.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace AnnarComMICROSESV60.Forms
+namespace DM_BA_88A.Forms
 {
     public partial class Config : Form
     {

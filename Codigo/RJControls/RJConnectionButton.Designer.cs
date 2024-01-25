@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.RJControls
+﻿namespace DM_BA_88A.RJControls
 {
     partial class RJConnectionButton
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.rjpictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjButton2 = new DM_BA_88A.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.rjpictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -38,7 +38,7 @@
             // rjpictureBox1
             // 
             this.rjpictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.rjpictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
+            this.rjpictureBox1.BackgroundImage = global::DM_BA_88A.Properties.Resources.Conectar;
             this.rjpictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.rjpictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.rjpictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -75,7 +75,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
+            this.pictureBox1.BackgroundImage = global::DM_BA_88A.Properties.Resources.Conectar;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(13, 5);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
@@ -102,9 +102,9 @@
 
         #endregion
 
-        private AnnarComMICROSESV60.RJControls.RJButton rjButton1;
+        private DM_BA_88A.RJControls.RJButton rjButton1;
         private System.Windows.Forms.PictureBox rjpictureBox1;
-        private AnnarComMICROSESV60.RJControls.RJButton rjButton2;
+        private DM_BA_88A.RJControls.RJButton rjButton2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

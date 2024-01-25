@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.RJControls
+﻿namespace DM_BA_88A.RJControls
 {
     partial class RJInputComboBoxControl
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rjComboBox1 = new AnnarComMICROSESV60.RJControls.RJComboBox();
+            this.rjComboBox1 = new DM_BA_88A.RJControls.RJComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60.Forms
+namespace DM_BA_88A.Forms
 {
     public partial class FormMessageBox : Form
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnnarComMICROSESV60.Forms
+namespace DM_BA_88A.Forms
 {
     partial class Resultados
     {
@@ -50,11 +50,11 @@ namespace AnnarComMICROSESV60.Forms
             this.rbHex = new System.Windows.Forms.RadioButton();
             this.lblSend = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbPortName = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbBaudRate = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbParity = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbDataBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbStopBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
+            this.cmbPortName = new DM_BA_88A.RJControls.RJInputComboBoxControl();
+            this.cmbBaudRate = new DM_BA_88A.RJControls.RJInputComboBoxControl();
+            this.cmbParity = new DM_BA_88A.RJControls.RJInputComboBoxControl();
+            this.cmbDataBits = new DM_BA_88A.RJControls.RJInputComboBoxControl();
+            this.cmbStopBits = new DM_BA_88A.RJControls.RJInputComboBoxControl();
             this.flpContenedorResul.SuspendLayout();
             this.flpCOM.SuspendLayout();
             this.tlpResultados.SuspendLayout();
@@ -276,7 +276,7 @@ namespace AnnarComMICROSESV60.Forms
             // 
             // cmbPortName
             // 
-            this.cmbPortName.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_comport;
+            this.cmbPortName.BackgroundImage = global::DM_BA_88A.Properties.Resources.Icono_comport;
             this.cmbPortName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmbPortName.BorderRadius = 5;
             this.cmbPortName.ComboBoxSize = new System.Drawing.Size(180, 39);
@@ -291,7 +291,7 @@ namespace AnnarComMICROSESV60.Forms
             // 
             // cmbBaudRate
             // 
-            this.cmbBaudRate.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_baudrate;
+            this.cmbBaudRate.BackgroundImage = global::DM_BA_88A.Properties.Resources.Icono_baudrate;
             this.cmbBaudRate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmbBaudRate.BorderRadius = 5;
             this.cmbBaudRate.ComboBoxSize = new System.Drawing.Size(180, 39);
@@ -306,7 +306,7 @@ namespace AnnarComMICROSESV60.Forms
             // 
             // cmbParity
             // 
-            this.cmbParity.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_parity;
+            this.cmbParity.BackgroundImage = global::DM_BA_88A.Properties.Resources.Icono_parity;
             this.cmbParity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmbParity.BorderRadius = 5;
             this.cmbParity.ComboBoxSize = new System.Drawing.Size(180, 39);
@@ -321,7 +321,7 @@ namespace AnnarComMICROSESV60.Forms
             // 
             // cmbDataBits
             // 
-            this.cmbDataBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_databits;
+            this.cmbDataBits.BackgroundImage = global::DM_BA_88A.Properties.Resources.Icono_databits;
             this.cmbDataBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmbDataBits.BorderRadius = 5;
             this.cmbDataBits.ComboBoxSize = new System.Drawing.Size(180, 39);
@@ -336,7 +336,7 @@ namespace AnnarComMICROSESV60.Forms
             // 
             // cmbStopBits
             // 
-            this.cmbStopBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_stopbits;
+            this.cmbStopBits.BackgroundImage = global::DM_BA_88A.Properties.Resources.Icono_stopbits;
             this.cmbStopBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmbStopBits.BorderRadius = 5;
             this.cmbStopBits.ComboBoxSize = new System.Drawing.Size(180, 39);

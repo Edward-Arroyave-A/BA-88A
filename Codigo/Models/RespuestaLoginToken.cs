@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.Models
+﻿namespace DM_BA_88A.Models
 {
     public class RespuestaLoginToken
     {

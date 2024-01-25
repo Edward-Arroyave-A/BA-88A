@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60.Utilities
+namespace DM_BA_88A.Utilities
 {
     public class RegistroLog
     {

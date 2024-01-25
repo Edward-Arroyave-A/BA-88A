@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60.RJControls
+namespace DM_BA_88A.RJControls
 {
     public partial class RJStickynavbar : UserControl
     {

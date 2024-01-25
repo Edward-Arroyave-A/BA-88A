@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AnnarComMICROSESV60.Properties {
+namespace DM_BA_88A.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -74,10 +74,9 @@ namespace AnnarComMICROSESV60.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Text")]
-        public global::AnnarComMICROSESV60.Forms.
-            DataMode DataMode {
+        public global::DM_BA_88A.Forms.DataMode DataMode {
             get {
-                return ((global::AnnarComMICROSESV60.Forms.DataMode)(this["DataMode"]));
+                return ((global::DM_BA_88A.Forms.DataMode)(this["DataMode"]));
             }
             set {
                 this["DataMode"] = value;

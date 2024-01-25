@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnnarComMICROSESV60.Models
+namespace DM_BA_88A.Models
 {
     public class ResultadoAnalito
     {

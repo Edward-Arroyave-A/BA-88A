@@ -1,14 +1,14 @@
-﻿using AnnarComMICROSESV60.Utilities;
+﻿using DM_BA_88A.Utilities;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using AnnarComMICROSESV60.Models;
-using AnnarComMICROSESV60.Utils;
-using AnnarComMICROSESV60.Forms;
-using static AnnarComMICROSESV60.Forms.Resultados;
+using DM_BA_88A.Models;
+using DM_BA_88A.Utils;
+using DM_BA_88A.Forms;
+using static DM_BA_88A.Forms.Resultados;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60.Services
+namespace DM_BA_88A.Services
 {
     public class ServicioLiveLis
     {
@@ -58,7 +58,7 @@ namespace AnnarComMICROSESV60.Services
                     log.RegistraEnLog($"------------------------- Respuesta Recibida ------------------------------", nombreLog);
                     if (response.IsSuccessful)
                     {
-                        EjecutarMensajeEstadosTerminal("Resultados enviados correctamente.", EnumEstados.Ok);
+                        EjecutarMensajeEstadosTerminal("Resultados enviados.", EnumEstados.Ok);
                         log.RegistraEnLog($"Resultados enviados correctamente.", nombreLog);
 
                         if (respuestaEnvio.ok)
@@ -81,7 +81,7 @@ namespace AnnarComMICROSESV60.Services
                     }
                 }
 
-                EjecutarMensajeEstadosTerminal($"", EnumEstados.Empty);
+
 
             }
             catch (Exception ex)

@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.Forms
+﻿namespace DM_BA_88A.Forms
 {
     partial class RJTextBox
     {

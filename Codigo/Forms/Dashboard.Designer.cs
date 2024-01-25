@@ -1,8 +1,8 @@
-﻿using AnnarComMICROSESV60.Properties;
+﻿using DM_BA_88A.Properties;
 using System;
 using System.Drawing;
 
-namespace AnnarComMICROSESV60
+namespace DM_BA_88A
 {
     partial class Dashboard
     {
@@ -37,14 +37,14 @@ namespace AnnarComMICROSESV60
             this.pnlForm = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbConectar = new DM_BA_88A.RJControls.RJButton();
+            this.rjbTitulo = new DM_BA_88A.RJControls.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rjbCerrarSesion = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbCerrarSesion = new DM_BA_88A.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelNav = new System.Windows.Forms.Panel();
-            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbConfiguracion = new DM_BA_88A.RJControls.RJButton();
+            this.rjbResultados = new DM_BA_88A.RJControls.RJButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -103,7 +103,7 @@ namespace AnnarComMICROSESV60
             this.rjbConectar.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.rjbConectar.FontSize = 14F;
             this.rjbConectar.ForeColor = System.Drawing.Color.White;
-            this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
+            this.rjbConectar.Image = global::DM_BA_88A.Properties.Resources.Conectar;
             this.rjbConectar.Location = new System.Drawing.Point(513, 23);
             this.rjbConectar.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConectar.MouseOverBackColor = System.Drawing.Color.White;
@@ -135,7 +135,7 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.rjbTitulo.FontSize = 14F;
             this.rjbTitulo.ForeColor = System.Drawing.Color.White;
-            this.rjbTitulo.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
+            this.rjbTitulo.Image = global::DM_BA_88A.Properties.Resources.btn_carga2;
             this.rjbTitulo.Location = new System.Drawing.Point(6, 23);
             this.rjbTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.White;
@@ -178,7 +178,7 @@ namespace AnnarComMICROSESV60
             this.rjbCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rjbCerrarSesion.FontSize = 18F;
             this.rjbCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.rjbCerrarSesion.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_cerrar_sesion;
+            this.rjbCerrarSesion.Image = global::DM_BA_88A.Properties.Resources.btn_cerrar_sesion;
             this.rjbCerrarSesion.Location = new System.Drawing.Point(90, 13);
             this.rjbCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.rjbCerrarSesion.MouseOverBackColor = System.Drawing.Color.White;
@@ -194,7 +194,7 @@ namespace AnnarComMICROSESV60
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.by_it_health_blanco;
+            this.pictureBox1.BackgroundImage = global::DM_BA_88A.Properties.Resources.by_it_health_blanco;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(60, 141);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -207,7 +207,7 @@ namespace AnnarComMICROSESV60
             // 
             this.panelNav.AutoScroll = true;
             this.panelNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.panelNav.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.FondoDashboard_2x;
+            this.panelNav.BackgroundImage = global::DM_BA_88A.Properties.Resources.FondoDashboard_2x;
             this.panelNav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelNav.Controls.Add(this.panel1);
             this.panelNav.Controls.Add(this.rjbConfiguracion);
@@ -233,7 +233,7 @@ namespace AnnarComMICROSESV60
             this.rjbConfiguracion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.rjbConfiguracion.FontSize = 12F;
             this.rjbConfiguracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.rjbConfiguracion.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_configuracion;
+            this.rjbConfiguracion.Image = global::DM_BA_88A.Properties.Resources.btn_configuracion;
             this.rjbConfiguracion.Location = new System.Drawing.Point(33, 341);
             this.rjbConfiguracion.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConfiguracion.MouseOverBackColor = System.Drawing.Color.Empty;
@@ -259,7 +259,7 @@ namespace AnnarComMICROSESV60
             this.rjbResultados.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.rjbResultados.FontSize = 12F;
             this.rjbResultados.ForeColor = System.Drawing.Color.White;
-            this.rjbResultados.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
+            this.rjbResultados.Image = global::DM_BA_88A.Properties.Resources.btn_carga2;
             this.rjbResultados.Location = new System.Drawing.Point(33, 251);
             this.rjbResultados.Margin = new System.Windows.Forms.Padding(2);
             this.rjbResultados.MouseOverBackColor = System.Drawing.Color.Empty;
@@ -286,7 +286,7 @@ namespace AnnarComMICROSESV60
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
+            this.pictureBox2.BackgroundImage = global::DM_BA_88A.Properties.Resources.Logo_Live_LIS;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(59, 62);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);

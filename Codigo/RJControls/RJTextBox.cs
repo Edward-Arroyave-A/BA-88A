@@ -1,4 +1,4 @@
-﻿using AnnarComMICROSESV60.RJControls;
+﻿using DM_BA_88A.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AnnarComMICROSESV60.Forms
+namespace DM_BA_88A.Forms
 {
     [DefaultEvent("_TextChanged")]
     public partial class RJTextBox : UserControl

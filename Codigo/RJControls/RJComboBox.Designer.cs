@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.RJControls
+﻿namespace DM_BA_88A.RJControls
 {
     partial class RJComboBox
     {

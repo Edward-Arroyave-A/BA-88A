@@ -8,8 +8,8 @@
     <ProjectGuid>{BBE71346-25BB-4D3D-B91E-EE027947F8D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AnnarComMICROSESV60</RootNamespace>
-    <AssemblyName>AnnarComMICROSESV60</AssemblyName>
+    <RootNamespace>DM_BA_88A</RootNamespace>
+    <AssemblyName>DM_BA_88A</AssemblyName>
     <ApplicationIcon>
     </ApplicationIcon>
     <FileUpgradeFlags>

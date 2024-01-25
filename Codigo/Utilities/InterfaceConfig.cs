@@ -2,7 +2,7 @@
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace AnnarComMICROSESV60.Utilities
+namespace DM_BA_88A.Utilities
 {
     static internal class InterfaceConfig
     {
@@ -24,6 +24,7 @@ namespace AnnarComMICROSESV60.Utilities
         static internal string endPointResultados;
         static internal string endPointBase;
 
+        static internal string AdicionaUnidades;
         static internal void InitializeConfig()
         {
             //Configuración Interfaz
@@ -43,6 +44,8 @@ namespace AnnarComMICROSESV60.Utilities
             endPointToken = ConfigurationManager.AppSettings["endPointToken"].ToString();
             endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
             endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
+
+            AdicionaUnidades = ConfigurationManager.AppSettings["AdicionaUnidades"].ToString();
         }
     }
 }

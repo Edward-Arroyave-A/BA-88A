@@ -1,8 +1,8 @@
-﻿using AnnarComMICROSESV60.Models;
-using AnnarComMICROSESV60.Properties;
-using AnnarComMICROSESV60.RJControls;
-using AnnarComMICROSESV60.Services;
-using AnnarComMICROSESV60.Utilities;
+﻿using DM_BA_88A.Models;
+using DM_BA_88A.Properties;
+using DM_BA_88A.RJControls;
+using DM_BA_88A.Services;
+using DM_BA_88A.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +17,7 @@ using System.Threading;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace AnnarComMICROSESV60.Forms
+namespace DM_BA_88A.Forms
 {
     #region Enumeraciones públicas
     public enum DataMode { Text, Hex }
@@ -71,6 +71,7 @@ namespace AnnarComMICROSESV60.Forms
         public const char CR = '\r';
         public const char FS = (char)28;
         public const char SUB = (char)26;
+        public const char VT = (char)11;
 
         public class T
         {
@@ -232,10 +233,12 @@ namespace AnnarComMICROSESV60.Forms
         /// <param name="msg"> La cadena que contiene el mensaje a mostrar. </param>
         private void Log(LogMsgType msgtype, string msg)
         {
-            string tipomsg = "";
 
-            if (msgtype.ToString() == "Outgoing") { tipomsg = "Enviado"; }
-            if (msgtype.ToString() == "Incoming") { tipomsg = "Recibido"; }
+            string tipomsg = "";
+            if (msgtype.ToString() == "Outgoing")
+            { tipomsg = "Enviado"; }
+            if (msgtype.ToString() == "Incoming")
+            { tipomsg = "Recibido"; }
 
             if (CharEnviado == null)
             {
@@ -247,14 +250,14 @@ namespace AnnarComMICROSESV60.Forms
                 SendData(ACK.ToString());
             }
 
-            if ((msgtype.ToString().Contains("Incoming")) && (CharEnviado.Contains("ENQ")) && (msg == ACK.ToString()) && (iniciaRecepcion.Contains("N")))
-            {
-                enviapaquete();
-            }
+            //if ((msgtype.ToString().Contains("Incoming")) && (CharEnviado.Contains("ENQ")) && (msg == ACK.ToString()) && (iniciaRecepcion.Contains("N")))
+            //{
+            //    enviapaquete();
+            //}
 
             if ((msgtype.ToString().Contains("Incoming")) && (msg.Contains(ENQ.ToString())))
             {
-                log.RegistraEnLog(" Inicio Recepcion de resultados --> ", InterfaceConfig.nombreLog);
+                log.RegistraEnLog(" Inicio Recepcion de resultados --> ", nombreLog);
 
                 timeractivo = "N";
                 incr = 0;
@@ -266,43 +269,24 @@ namespace AnnarComMICROSESV60.Forms
 
             if (msgtype.ToString() == "Incoming")
             {
-                //Guardar paquete recibido
+                ///AQUI GUARDAR PAQUETE RECIBIDO
+
                 strLineaResultado = strLineaResultado + msg.ToString();
                 SendData(ACK.ToString());
             }
-
-            if ((msgtype.ToString() == "Incoming") && (msg.Contains(EOT)))
+            if ((msgtype.ToString() == "Incoming") && msg.Contains(FS))
             {
                 MensajesEstadosTerminal("Recepción de resultados en proceso", EnumEstados.Process);
                 VariablesGlobal.Conectar = true;
-
                 timeractivo = "S";
                 CharEnviado = "";
                 iniciaRecepcion = "N";
                 incr = 0;
 
                 strLineaResultado = strLineaRestante + strLineaResultado;
-                ArrPaqueteETX = strLineaResultado.Split(ETX);
-                strLineaRestante = ArrPaqueteETX[ArrPaqueteETX.Length - 1];
 
-                try
-                {
-                    strLineaResultado = "";
-                    for (var x = 0; x <= ArrPaqueteETX.Length - 2; x++)
-                    {
-                        strLineaResultado = strLineaResultado + ArrPaqueteETX[x].Split(CR)[1].Trim();
-                    }
-                }
-                catch (FormatException)
-                {
-                    log.RegistraEnLog(" Error cargando paquete ArrPaqueteETX ", InterfaceConfig.nombreLog);
-                }
-
-                // timeractivo = "S";
                 CharEnviado = "";
-                // iniciaRecepcion = "N";
                 incr = 0;
-
                 try
                 {
                     for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
@@ -312,23 +296,28 @@ namespace AnnarComMICROSESV60.Forms
                 }
                 catch (FormatException)
                 {
-                    log.RegistraEnLog(" Error limpiando Arreglo  ArrPaqueteResultado[x] ", InterfaceConfig.nombreLog);
+                    log.RegistraEnLog(" Error limpiando Arreglo  ArrPaqueteResultado[x] ", nombreLog);
                 }
 
-                // strLineaResultado = strLineaResultado.Replace(STX.ToString(), "");
-                //strLineaResultado = strLineaResultado.Replace(ENQ.ToString(), "");
-                strLineaResultado = strLineaResultado.Replace(ETB.ToString(), "");
-                // strLineaResultado = strLineaResultado.Replace(EOT.ToString(), "");
-                ArrPaqueteResultado = strLineaResultado.Split(STX);
+                strLineaResultado = strLineaResultado.Replace(FS.ToString(), "");
+                strLineaResultado = strLineaResultado.Replace(VT.ToString(), "");
+                strLineaResultado = strLineaResultado.Replace(LF.ToString(), "");
+                ArrPaqueteResultado = strLineaResultado.Split(CR);
+
+                ArrPaqueteResultado = ArrPaqueteResultado.Where(x => x != "").ToArray();
 
                 for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
                 {
-                    log.RegistraEnLog(" Paquete Recibido " + Convert.ToString(x) + " --> " + ArrPaqueteResultado[x], InterfaceConfig.nombreLog);
+                    log.RegistraEnLog(" Paquete Recibido " + Convert.ToString(x) + " --> " + ArrPaqueteResultado[x], nombreLog);
                 }
 
-                ProcesarResultados(ArrPaqueteResultado.ToList());
+                string resultadoRecibido = ProcesarResultados(ArrPaqueteResultado);
+                MensajesEstadosTerminal("", EnumEstados.Empty);
+                MensajesEstadosTerminal("", EnumEstados.Empty);
+                MensajesEstadosTerminal("", EnumEstados.Empty);
                 strLineaResultado = "";
                 VariablesGlobal.Conectar = false;
+
 
                 for (var x = 0; x <= ArrPaqueteETX.Length - 1; x++)
                 {
@@ -336,19 +325,9 @@ namespace AnnarComMICROSESV60.Forms
                 }
             }
 
-            //Validar comentado de momento
-            //flpContenedorResul.Invoke(new EventHandler(delegate
-            //{
-            //    log.RegistraEnLog(tipomsg + " --> " + msg, "Interfaz_Tramas_" + InterfaceConfig.nombreEquipo);
-            //    flpContenedorResul.SelectedText = string.Empty;
-            //    flpContenedorResul.Clear();
-            //    flpContenedorResul.SelectionFont = new Font(flpContenedorResul.SelectionFont, FontStyle.Bold);
-            //    flpContenedorResul.SelectionColor = LogMsgTypeColor[(int)msgtype];
-            //    flpContenedorResul.AppendText(msg);
-            //    flpContenedorResul.AppendText("Esperando Resultados...");
-            //    flpContenedorResul.ScrollToCaret();
-            //}));
+
         }
+
 
         /// <summary> Convertir una cadena de dígitos hexadecimales (por ejemplo: E4 CA B2) en una matriz de bytes. </summary>
         /// <param name="s"> La cadena que contiene los dígitos hexadecimales (con o sin espacios). </param>
@@ -569,86 +548,121 @@ namespace AnnarComMICROSESV60.Forms
         #endregion
 
         #region Metodos formulario resultados
-        public string ProcesarResultados(List<string> PaqueteResultado)
+        public string ProcesarResultados(string[] paqueteResultado)
         {
-            MensajesEstadosTerminal("Inicio de procesamiento de resultados",EnumEstados.Process);
 
-            //return null;
+            ResultadoAnalito resultadoAnlito = new ResultadoAnalito();
+            MensajesEstadosTerminal("Inicio de procesamiento de resultados", EnumEstados.Process);
 
-            string numeroMuestra = null;
 
-            log.RegistraEnLog("Paquete recibido: " + Convert.ToString(PaqueteResultado.Count), nombreLog);
+            string strOrdenResultado = string.Empty;
 
-            for (var x = 0; x <= PaqueteResultado.Count - 1; x++)
+            for (var x = 0; x <= paqueteResultado.Length - 1; x++)
             {
-                if (!string.IsNullOrEmpty(PaqueteResultado[x]))
+                if (!string.IsNullOrEmpty(paqueteResultado[x]))
                 {
-                    string strlinea = PaqueteResultado[x];
+                    log.RegistraEnLog("-->" + paqueteResultado[x], nombreLog);
 
-                    string encabezado = "";
-
-                    try
-                    {
-                        encabezado = strlinea.Substring(1, 1);
-                    }
-                    catch (Exception)
-                    {
-                        encabezado = "";
-                    }
-
+                    string strlinea = paqueteResultado[x];
                     string[] arrLinea = strlinea.Split('|');
+                    string strencabezado = arrLinea[0];
 
-                    if (encabezado == "H" || encabezado == "Q" || encabezado == "P") continue;
-
-                    if (encabezado == "O")
+                    if (strencabezado.Equals("MSH"))
                     {
-                        numeroMuestra = arrLinea[2].ToString();
-                        log.RegistraEnLog("Nro Tubo: " + numeroMuestra, nombreLog);
                         continue;
                     }
 
-                    if (encabezado == "R")
+                    if (strencabezado.Equals("PID"))
                     {
-                        string nombreAnalito = "";
-                        string resultadoAnalito = "";
+                        resultadoAnlito.sampleNumber = arrLinea[5];
+                        log.RegistraEnLog("Resultados para N° tubo: " + strOrdenResultado, nombreLog);
 
+                        if (string.IsNullOrEmpty(resultadoAnlito.sampleNumber))
+                        {
+                            log.RegistraEnLog("No hay N° de tubo ", nombreLog);
+                            MessageBox.Show("No hay N° de tubo ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return null;
+                        }
+                    }
+
+                    if (strencabezado.Equals("OBR"))
+                    {
+                        //strOrdenResultado = arrLinea[3];
+                        //log.RegistraEnLog("Resultados para N° tubo: " + strOrdenResultado, nombreLog);
+
+                        //if (string.IsNullOrEmpty(strOrdenResultado))
+                        //{
+                        //    log.RegistraEnLog("No hay N° de tubo ", nombreLog);
+                        //}
+                    }
+
+                    if (strencabezado.Equals("OBX"))
+                    {
+                        string strVariable = string.Empty;
+                        string strResultado = string.Empty;
+                        string strUnidades = string.Empty;
+                        string strTipoAnalito = string.Empty;
+                        string[] arrLineaVariable;
+
+                        bool qualitativo = false;
                         try
                         {
-                            //banderaquery = "N";
-                            var arrgNombreAnalito = arrLinea[2].Split('^');
-                            nombreAnalito = arrgNombreAnalito[3];
-                            resultadoAnalito = arrLinea[3];
+                            strTipoAnalito = arrLinea[2].Trim();
+                            //valores por defecto
+                            resultadoAnlito.reactive = InterfaceConfig.reactive;
+                            resultadoAnlito.medicalDevice = InterfaceConfig.medicalDevice;
 
-                            ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
-
-                            log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
-                            MensajesEstadosTerminal($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]",EnumEstados.Ok);
-
-                            resultadoAnalitoJson.sampleNumber = numeroMuestra;
-                            resultadoAnalitoJson.analyte = nombreAnalito;
-                            resultadoAnalitoJson.medicalDevice = InterfaceConfig.medicalDevice;
-                            resultadoAnalitoJson.reactive = InterfaceConfig.reactive;
-                            resultadoAnalitoJson.result = resultadoAnalito;
-
-                            servicioLiveLis.EnviarResultados(resultadoAnalitoJson);
-                            continue;
+                            switch (strTipoAnalito)
+                            {
+                                case "ST":
+                                    qualitativo = true;
+                                    resultadoAnlito.analyte = arrLinea[3];
+                                    resultadoAnlito.result = arrLinea[9];
+                                    strUnidades = arrLinea[6];
+                                    MensajesEstadosTerminal($"Analito Procesado [{resultadoAnlito.analyte}], resultado[{resultadoAnlito.result}]", EnumEstados.Ok);
+                                    break;
+                                case "NM":
+                                    resultadoAnlito.analyte = arrLinea[3];
+                                    resultadoAnlito.result = arrLinea[5];
+                                    strUnidades = arrLinea[6];
+                                    MensajesEstadosTerminal($"Analito Procesado [{resultadoAnlito.analyte}], resultado[{resultadoAnlito.result}]", EnumEstados.Ok);
+                                    break;
+                                default:
+                                    continue;
+                            }
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-                            log.RegistraEnLog("Error en trama Segmento R : " + ex.Message, nombreLog);
-                            MensajesEstadosTerminal($"Error procesando analito:[{nombreAnalito}], resultado[{resultadoAnalito}]", EnumEstados.Error);
+                            log.RegistraEnLog("Error cargando linea: " + strlinea, nombreLog);
+                            MensajesEstadosTerminal($"Error procesando analito:[{resultadoAnlito.analyte}], resultado[{resultadoAnlito.result}]", EnumEstados.Error);
                         }
+
+                        log.RegistraEnLog("Variable: " + strVariable + " Resultado: " + strResultado, nombreLog);
+                        RegistraResultados(resultadoAnlito, strUnidades.Trim());
+
                     }
 
-                    if (encabezado == "L")
-                    {
-                        log.RegistraEnLog("Fin de procesamiento de resultados", nombreLog);
-                        SendData(ENQ.ToString());
-                    }
                 }
             }
-            
-            return null;
+
+
+
+            log.RegistraEnLog("Trama procesada correctamente", nombreLog);
+            MensajesEstadosTerminal($"Trama procesada ", EnumEstados.Error);
+            return "Ok";
+        }
+
+        private void RegistraResultados(ResultadoAnalito resultadoAnalito, string strUnidades)
+        {
+
+            MensajesEstadosTerminal($"Incia proceso de envio  de resultados", EnumEstados.Process);
+            if (resultadoAnalito.result.Contains(".")) resultadoAnalito.result = resultadoAnalito.result.Replace(".", ",");
+            if (InterfaceConfig.AdicionaUnidades == "S") resultadoAnalito.result = resultadoAnalito.result + " " + strUnidades;
+            else resultadoAnalito.result = resultadoAnalito.result;
+
+            servicioLiveLis.EnviarResultados(resultadoAnalito);
+            MensajesEstadosTerminal($"finaliza  proceso de envio  de resultados", EnumEstados.Process);
+
         }
 
         //Metodo para mostrar los mensajes en el FlowLayoutPanel        

@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.Forms
+﻿namespace DM_BA_88A.Forms
 {
     partial class Config
     {
@@ -60,26 +60,26 @@
             this.btnParametrizacion = new System.Windows.Forms.Button();
             this.btnRuta = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rjButton1 = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjInputsDispositivoMedico = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsReactivo = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsUrlResultados = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsContraseña = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsUsuario = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsCabecera = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjToggleLog = new AnnarComMICROSESV60.RJControls.RJToggleButton();
-            this.rjInputsIntervalo = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsNombrelogs = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsNombreInterfaz = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjButton3 = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjToggleButton2 = new AnnarComMICROSESV60.RJControls.RJToggleButton();
-            this.rjInputsFormulariosControl8 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsFormulariosControl7 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsFormulariosControl6 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsFormulariosControl5 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsBaseURL = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsUrlToken = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjButton1 = new DM_BA_88A.RJControls.RJButton();
+            this.rjInputsDispositivoMedico = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsReactivo = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsUrlResultados = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsContraseña = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsUsuario = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsCabecera = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjButton2 = new DM_BA_88A.RJControls.RJButton();
+            this.rjToggleLog = new DM_BA_88A.RJControls.RJToggleButton();
+            this.rjInputsIntervalo = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsNombrelogs = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsNombreInterfaz = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjButton3 = new DM_BA_88A.RJControls.RJButton();
+            this.rjToggleButton2 = new DM_BA_88A.RJControls.RJToggleButton();
+            this.rjInputsFormulariosControl8 = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsFormulariosControl7 = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsFormulariosControl6 = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsFormulariosControl5 = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsBaseURL = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
+            this.rjInputsUrlToken = new DM_BA_88A.RJControls.RJInputsFormulariosControl();
             this.panelConexion2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -277,7 +277,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Imagen1;
+            this.pictureBox1.BackgroundImage = global::DM_BA_88A.Properties.Resources.Imagen1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(15, 15);
@@ -407,7 +407,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Imagen1;
+            this.pictureBox2.BackgroundImage = global::DM_BA_88A.Properties.Resources.Imagen1;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(30, 30);
@@ -1028,7 +1028,7 @@
         #endregion
         private System.Windows.Forms.Panel panelConexion2;
         private System.Windows.Forms.Panel panelRuta2;
-        private AnnarComMICROSESV60.RJControls.RJButton rjButton3;
+        private DM_BA_88A.RJControls.RJButton rjButton3;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Button btnConexion;
         private System.Windows.Forms.Button btnParametrizacion;

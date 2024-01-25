@@ -1,9 +1,9 @@
-﻿using AnnarComMICROSESV60.Utilities;
+﻿using DM_BA_88A.Utilities;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
 
-namespace AnnarComMICROSESV60.Utils
+namespace DM_BA_88A.Utils
 {
     public class ManejoExcepciones
     {

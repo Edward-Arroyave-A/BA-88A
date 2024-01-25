@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnnarComMICROSESV60.Utilities
+namespace DM_BA_88A.Utilities
 {
     internal class VariablesGlobal
     {

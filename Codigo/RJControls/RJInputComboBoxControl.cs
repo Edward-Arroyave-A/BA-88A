@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AnnarComMICROSESV60.RJControls
+namespace DM_BA_88A.RJControls
 {
     [DefaultEvent("_TextChanged")]
     public partial class RJInputComboBoxControl : UserControl

@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace AnnarComMICROSESV60.RJControls
+namespace DM_BA_88A.RJControls
 {
     public class RJToggleButton : CheckBox
     {

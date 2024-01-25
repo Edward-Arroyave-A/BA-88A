@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AnnarComm - AnnarComMICROSESV60")]
-[assembly: AssemblyDescription("AnnarComm - AnnarComMICROSESV60")]
+[assembly: AssemblyTitle("AnnarComm - DM_BA_88A")]
+[assembly: AssemblyDescription("AnnarComm - DM_BA_88A")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ITHEALTH")]
-[assembly: AssemblyProduct("AnnarComm - AnnarComMICROSESV60 - 1.0.0")]
+[assembly: AssemblyProduct("AnnarComm - DM_BA_88A - 1.0.0")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

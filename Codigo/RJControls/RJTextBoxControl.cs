@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnnarComMICROSESV60.RJControls
+namespace DM_BA_88A.RJControls
 {
     [DefaultEvent("_TextChanged")]
     public partial class RJTextBoxControl : UserControl

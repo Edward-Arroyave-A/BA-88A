@@ -1,4 +1,4 @@
-﻿namespace AnnarComMICROSESV60.RJControls
+﻿namespace DM_BA_88A.RJControls
 {
     partial class RJInputsFormulariosControl
     {
@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rjTextBoxControl1 = new AnnarComMICROSESV60.RJControls.RJTextBoxControl();
+            this.rjTextBoxControl1 = new DM_BA_88A.RJControls.RJTextBoxControl();
             this.SuspendLayout();
             // 
             // label1
