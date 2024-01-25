@@ -43,13 +43,12 @@ namespace AnnarComMICROSESV60
         {
             if (activeForm != null) activeForm.Close();
             activeForm = childForm;
-            childForm.MdiParent = this;
             childForm.TopLevel = false;
             childForm.TopMost = true;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            //pnlForm.Controls.Add(childForm);
-            //pnlForm.Tag = childForm;
+            pnlForm.Controls.Add(childForm);
+            pnlForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -73,8 +72,17 @@ namespace AnnarComMICROSESV60
 
         private void rjbConectar_Click(object sender, EventArgs e)
         {
-            //Activación del puerto
-            terminal.AbrirPuerto();
+            try
+            {
+                terminal = (Resultados)Application.OpenForms[1];
+
+                //Activación del puerto
+                terminal.AbrirPuerto();
+            }
+            catch (Exception)
+            {
+                terminal.MensajesEstadosTerminal("Error en intento para establecer conexión con el puerto COM", EnumEstados.Error);
+            }
 
             if (estadoBtnConectar)
             {
@@ -108,14 +116,7 @@ namespace AnnarComMICROSESV60
             rjbResultados.Image = Resources.btn_carga2;
             rjbResultados.ForeColor = Color.White;
 
-            //OpenChildForm(new Resultados());
-
-            if (activeForm != null) activeForm.Close();
-            terminal.MdiParent = this;
-            terminal.TopLevel = false;
-            terminal.FormBorderStyle = FormBorderStyle.None;
-            terminal.Dock = DockStyle.Fill;
-            terminal.Show();
+            OpenChildForm(new Resultados());
 
             VariablesGlobal.Config = false;
         }
@@ -132,9 +133,6 @@ namespace AnnarComMICROSESV60
             rjbConfiguracion.Image = Resources.btn_configuracion_white;
             rjbConfiguracion.ForeColor = Color.White;
 
-            terminal.flpCOMVisible = false;
-            //terminal.LimpiarTerminal();
-
             OpenChildForm(new Config());
 
             VariablesGlobal.Config = true;
@@ -142,27 +140,27 @@ namespace AnnarComMICROSESV60
 
         private void rjbTitulo_Click(object sender, EventArgs e)
         {
-            // Cambia la visibilidad de los FlowLayoutPanel en el formulario hijo
-            if (terminal != null)
+            try
             {
-                //terminal.flpCOMVisible = !terminal.flpCOMVisible;
-                if (!terminal.flpCOMVisible)
+                terminal = (Resultados)Application.OpenForms[1];
+
+                // Cambia la visibilidad de los FlowLayoutPanel en el formulario hijo
+                if (terminal != null)
                 {
-                    terminal.flpCOMVisible = true;
-                }
-                else
-                {
-                    terminal.flpCOMVisible = false;
+                    //terminal.flpCOMVisible = !terminal.flpCOMVisible;
+                    if (!terminal.flpCOMVisible)
+                    {
+                        terminal.flpCOMVisible = true;
+                    }
+                    else
+                    {
+                        terminal.flpCOMVisible = false;
+                    }
                 }
             }
-        }
-
-        public int timerInterval
-        {
-            get { return timer1.Interval; }
-            set
+            catch (Exception)
             {
-                timer1.Interval = value;
+                terminal.MensajesEstadosTerminal("Error en visibilidad de configuración COM",EnumEstados.Error);
             }
         }
     }

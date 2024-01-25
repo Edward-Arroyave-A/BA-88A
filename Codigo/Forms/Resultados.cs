@@ -93,11 +93,11 @@ namespace AnnarComMICROSESV60.Forms
         #region Constructor
         public Resultados()
         {
-            // Cargar la configuración del usuario
-            settings.Reload();
-
             // Construir el formulario
             InitializeComponent();
+
+            // Cargar la configuración del usuario
+            settings.Reload();
 
             // Restaurar la configuración de los usuarios
             LlenarComboBox();
@@ -109,8 +109,6 @@ namespace AnnarComMICROSESV60.Forms
             // Cuando se reciben datos a través del puerto, llama a este método
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
-
-            flpCOM.Visible = false;
         }
 
         void comport_PinChanged(object sender, SerialPinChangedEventArgs e)
@@ -182,35 +180,13 @@ namespace AnnarComMICROSESV60.Forms
             }
             else
             {
-                MessageBox.Show(this, "No se han detectado puertos COM en este ordenador.\nInstale un puerto COM y reinicie la aplicación.", "No hay puertos COM instalados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult result;
+                using (var msFomr = new FormMessageBox("No se han detectado puertos COM en este ordenador.\nInstale un puerto COM y reinicie la aplicación.\nNo hay puertos COM instalados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error))
+                {
+                    result = msFomr.ShowDialog();
+                }
                 this.Close();
             }
-        }
-
-        private void LlenarComboBox()
-        {
-            //cmbPortName
-            cmbPortName.ComboBoxControl.Items.Add("COM1");
-            cmbPortName.ComboBoxControl.Items.Add("COM2");
-            cmbPortName.ComboBoxControl.Items.Add("COM3");
-            cmbPortName.ComboBoxControl.Items.Add("COM4");
-            cmbPortName.ComboBoxControl.Items.Add("COM5");
-            cmbPortName.ComboBoxControl.Items.Add("COM6");
-
-            //cmbBaudRate
-            cmbBaudRate.ComboBoxControl.Items.Add("1200");
-            cmbBaudRate.ComboBoxControl.Items.Add("2400");
-            cmbBaudRate.ComboBoxControl.Items.Add("4800");
-            cmbBaudRate.ComboBoxControl.Items.Add("9600");
-            cmbBaudRate.ComboBoxControl.Items.Add("19200");
-            cmbBaudRate.ComboBoxControl.Items.Add("38400");
-            cmbBaudRate.ComboBoxControl.Items.Add("57600");
-            cmbBaudRate.ComboBoxControl.Items.Add("115200");
-
-            //cmbDataBits
-            cmbDataBits.ComboBoxControl.Items.Add("7");
-            cmbDataBits.ComboBoxControl.Items.Add("8");
-            cmbDataBits.ComboBoxControl.Items.Add("9");
         }
 
         //Puerto Serial
@@ -299,6 +275,8 @@ namespace AnnarComMICROSESV60.Forms
 
             if ((msgtype.ToString() == "Incoming") && (msg.Contains(EOT)))
             {
+                MensajesEstadosTerminal("Recepción de resultados en proceso", EnumEstados.Process);
+
                 timeractivo = "S";
                 CharEnviado = "";
                 iniciaRecepcion = "N";
@@ -555,7 +533,7 @@ namespace AnnarComMICROSESV60.Forms
         #region Eventos del formulario resultados
         private void Resultados_Shown(object sender, EventArgs e)
         {
-            Log(LogMsgType.Normal, String.Format("Interfaz Iniciada {0}\n", DateTime.Now));
+            //Log(LogMsgType.Normal, String.Format("Interfaz Iniciada {0}\n", DateTime.Now));
         }
 
         private void Terminal_Load(object sender, EventArgs e)
@@ -578,7 +556,8 @@ namespace AnnarComMICROSESV60.Forms
             int nuevoAlto = this.Size.Height;
 
             // Establecer el nuevo tamaño para el panel
-            flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
+            //flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
+            RedondearEsquinas(flpCOM, 10);
             RedondearEsquinas(flpContenedorResul, 10);
         }
 
@@ -592,6 +571,10 @@ namespace AnnarComMICROSESV60.Forms
         #region Metodos formulario resultados
         public string ProcesarResultados(List<string> PaqueteResultado)
         {
+            MensajesEstadosTerminal("Inicio de procesamiento de resultados",EnumEstados.Process);
+
+            //return null;
+
             string numeroMuestra = null;
 
             log.RegistraEnLog("Paquete recibido: " + Convert.ToString(PaqueteResultado.Count), nombreLog);
@@ -626,20 +609,23 @@ namespace AnnarComMICROSESV60.Forms
 
                     if (encabezado == "R")
                     {
+                        string nombreAnalito = "";
+                        string resultadoAnalito = "";
+
                         try
                         {
                             //banderaquery = "N";
                             var arrgNombreAnalito = arrLinea[2].Split('^');
-                            string nombreAnalito = arrgNombreAnalito[3];
-                            string consecutivoAnalito = arrgNombreAnalito[0];
-                            string resultadoAnalito = arrLinea[3];
+                            nombreAnalito = arrgNombreAnalito[3];
+                            resultadoAnalito = arrLinea[3];
 
                             ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
 
                             log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
+                            MensajesEstadosTerminal($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]",EnumEstados.Ok);
 
                             resultadoAnalitoJson.sampleNumber = numeroMuestra;
-                            resultadoAnalitoJson.analyte = consecutivoAnalito + "-" + nombreAnalito;
+                            resultadoAnalitoJson.analyte = nombreAnalito;
                             resultadoAnalitoJson.medicalDevice = InterfaceConfig.medicalDevice;
                             resultadoAnalitoJson.reactive = InterfaceConfig.reactive;
                             resultadoAnalitoJson.result = resultadoAnalito;
@@ -650,6 +636,7 @@ namespace AnnarComMICROSESV60.Forms
                         catch (Exception ex)
                         {
                             log.RegistraEnLog("Error en trama Segmento R : " + ex.Message, nombreLog);
+                            MensajesEstadosTerminal($"Error procesando analito:[{nombreAnalito}], resultado[{resultadoAnalito}]", EnumEstados.Error);
                         }
                     }
 
@@ -690,8 +677,6 @@ namespace AnnarComMICROSESV60.Forms
             nuevoButton.Padding = new Padding(10, 2, 10, 2);
             //nuevoButton.AutoSize = true;            
             nuevoButton.Resize += button_Resize;
-
-
 
             switch (estado)
             {
@@ -759,11 +744,36 @@ namespace AnnarComMICROSESV60.Forms
             }
         }
 
+        private void LlenarComboBox()
+        {
+            //cmbPortName
+            cmbPortName.ComboBoxControl.Items.Add("COM1");
+            cmbPortName.ComboBoxControl.Items.Add("COM2");
+            cmbPortName.ComboBoxControl.Items.Add("COM3");
+            cmbPortName.ComboBoxControl.Items.Add("COM4");
+            cmbPortName.ComboBoxControl.Items.Add("COM5");
+            cmbPortName.ComboBoxControl.Items.Add("COM6");
+
+            //cmbBaudRate
+            cmbBaudRate.ComboBoxControl.Items.Add("1200");
+            cmbBaudRate.ComboBoxControl.Items.Add("2400");
+            cmbBaudRate.ComboBoxControl.Items.Add("4800");
+            cmbBaudRate.ComboBoxControl.Items.Add("9600");
+            cmbBaudRate.ComboBoxControl.Items.Add("19200");
+            cmbBaudRate.ComboBoxControl.Items.Add("38400");
+            cmbBaudRate.ComboBoxControl.Items.Add("57600");
+            cmbBaudRate.ComboBoxControl.Items.Add("115200");
+
+            //cmbDataBits
+            cmbDataBits.ComboBoxControl.Items.Add("7");
+            cmbDataBits.ComboBoxControl.Items.Add("8");
+            cmbDataBits.ComboBoxControl.Items.Add("9");
+        }
+
         //Borrado FlowLayoutPanel
         public void LimpiarTerminal()
         {
             flpContenedorResul.Controls.Clear();
-            //MensajesEstadosTerminal($"Esperando resultados...", EnumEstados.Process);
         }
 
         //Conectar puerto COM
@@ -793,7 +803,10 @@ namespace AnnarComMICROSESV60.Forms
                     catch (IOException) { error = true; }
                     catch (ArgumentException) { error = true; }
 
-                    if (error) MessageBox.Show(this, "No se Puede Abrir el puerto.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    if (error)
+                    {
+                        MensajesEstadosTerminal("No se Puede Abrir el puerto, puerto COM no disponible", EnumEstados.Error);
+                    }
                     else
                     {
                         // Show the initial pin states
@@ -810,12 +823,14 @@ namespace AnnarComMICROSESV60.Forms
                 if (comport.IsOpen)
                 {
                     if (chkClearOnOpen.Checked) LimpiarTerminal();
-                    log.RegistraEnLog("Interfaz Conectada", nombreLog);
+                    log.RegistraEnLog("Puerto Conectado", nombreLog);
+                    MensajesEstadosTerminal("Puerto conectado",EnumEstados.Ok);
                     timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
                 }
                 else
                 {
-                    log.RegistraEnLog("Interfaz Desconectada", nombreLog);
+                    log.RegistraEnLog("Puerto Desconectada", nombreLog);
+                    MensajesEstadosTerminal("Puerto desconectado", EnumEstados.Warning);
                     timerIntervalos.Enabled = false;
                 }
             }
@@ -826,6 +841,7 @@ namespace AnnarComMICROSESV60.Forms
                 {
                     result = msFomr.ShowDialog();
                 }
+
             }
         }
         #endregion
@@ -856,68 +872,6 @@ namespace AnnarComMICROSESV60.Forms
                 }
             }
         }
-        #endregion
-
-        #region Botones
-        //Boton conectar puerto
-        //private void btnOpenPort_Click(object sender, EventArgs e)
-        //{
-        //    bool error = false;
-        //    var frmCollection = Application.OpenForms;
-
-        //    if (frmCollection.Count <= 1)
-        //    {
-        //        // If the port is open, close it.
-        //        if (comport.IsOpen) comport.Close();
-        //        else
-        //        {
-        //            // Set the port's settings
-        //            comport.BaudRate = int.Parse(cmbBaudRate.Text);
-        //            comport.DataBits = int.Parse(cmbDataBits.Text);
-        //            comport.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
-        //            comport.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
-        //            comport.PortName = cmbPortName.Text;
-
-        //            try
-        //            {
-        //                // Open the port
-        //                comport.Open();
-        //            }
-        //            catch (UnauthorizedAccessException) { error = true; }
-        //            catch (IOException) { error = true; }
-        //            catch (ArgumentException) { error = true; }
-
-        //            if (error) MessageBox.Show(this, "No se Puede Abrir el puerto.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-        //            else
-        //            {
-        //                // Show the initial pin states
-        //                UpdatePinState();
-        //                chkDTR.Checked = comport.DtrEnable;
-        //                chkRTS.Checked = comport.RtsEnable;
-        //            }
-        //        }
-
-        //        // Change the state of the form's controls
-        //        EnableControls();
-
-        //        // If the port is open, send focus to the send data box
-        //        if (comport.IsOpen)
-        //        {
-        //            if (chkClearOnOpen.Checked) ClearTerminal();
-        //            log.RegistraEnLog("Interfaz Conectada", "Interfaz_" + InterfaceConfig.nombreEquipo);
-        //            Timer1.Interval = Convert.ToInt32(tiempo) * 1000;
-        //        }
-        //        else
-        //        {
-        //            log.RegistraEnLog("Interfaz Desconectada", "Interfaz_" + InterfaceConfig.nombreEquipo);
-        //            Timer1.Enabled = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show(this, "Cierre primero la ventana de configuración", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
         #endregion
 
         #region Envio Paquete
