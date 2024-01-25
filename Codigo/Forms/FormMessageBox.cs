@@ -14,7 +14,7 @@ namespace AnnarComMICROSESV60.Forms
     public partial class FormMessageBox : Form
     {
         //Fields
-        private Color primaryColor = Color.CornflowerBlue;
+        private Color primaryColor = Color.FromArgb(46, 189, 255);
         private int borderSize = 2;
 
         //Properties
@@ -39,6 +39,11 @@ namespace AnnarComMICROSESV60.Forms
             this.labelCaption.Text = "";
             SetFormSize();
             SetButtons(MessageBoxButtons.OK, MessageBoxDefaultButton.Button1);//Set Default Buttons
+
+            // Cambiar el color del banner superior y de los botones principales
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72, 206, 247);
         }
         public FormMessageBox(string text, string caption)
         {
@@ -48,7 +53,10 @@ namespace AnnarComMICROSESV60.Forms
             this.labelMessage.Text = text;
             this.labelCaption.Text = caption;
             SetFormSize();
-            SetButtons(MessageBoxButtons.OK, MessageBoxDefaultButton.Button1);//Set Default Buttons
+            SetButtons(MessageBoxButtons.OK, MessageBoxDefaultButton.Button1);
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72, 206, 247);//Set Default Buttons
         }
         public FormMessageBox(string text, string caption, MessageBoxButtons buttons)
         {
@@ -58,7 +66,10 @@ namespace AnnarComMICROSESV60.Forms
             this.labelMessage.Text = text;
             this.labelCaption.Text = caption;
             SetFormSize();
-            SetButtons(buttons, MessageBoxDefaultButton.Button1);//Set [Default Button 1]
+            SetButtons(buttons, MessageBoxDefaultButton.Button1);
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72, 206, 247);//Set [Default Button 1]
         }
         public FormMessageBox(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
@@ -70,6 +81,9 @@ namespace AnnarComMICROSESV60.Forms
             SetFormSize();
             SetButtons(buttons, MessageBoxDefaultButton.Button1);//Set [Default Button 1]
             SetIcon(icon);
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72, 206, 247);
         }
         public FormMessageBox(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
@@ -81,6 +95,9 @@ namespace AnnarComMICROSESV60.Forms
             SetFormSize();
             SetButtons(buttons, defaultButton);
             SetIcon(icon);
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72,206, 247);
         }
 
         //-> Private Methods
@@ -93,7 +110,10 @@ namespace AnnarComMICROSESV60.Forms
             this.button1.DialogResult = DialogResult.OK;
             this.button1.Visible = false;
             this.button2.Visible = false;
-            this.button3.Visible = false;
+            this.button3.Visible = false; 
+            panelTitleBar.BackColor = Color.FromArgb(46, 189, 255); // Color del banner superior
+            button1.BackColor = Color.FromArgb(46, 189, 255);
+            button2.BackColor = Color.FromArgb(72, 206, 247);
         }
         private void SetFormSize()
         {

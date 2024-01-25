@@ -146,7 +146,7 @@
     <Compile Include="Forms\Resultados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Resultados.Designer.cs">
+    <Compile Include="Forms\Resultados.designer.cs">
       <DependentUpon>Resultados.cs</DependentUpon>
     </Compile>
     <Compile Include="RJControls\RJTextBox.cs">
@@ -237,6 +237,12 @@
     <None Include="Resources\Conectar.png" />
     <None Include="Resources\Desconectar1.png" />
     <None Include="Resources\Desconectar.png" />
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Resultados.resx">
+      <DependentUpon>Resultados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RJControls\RJConnectionButton.resx">
       <DependentUpon>RJConnectionButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,14 +270,8 @@
     <EmbeddedResource Include="Forms\Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Resultados.resx">
-      <DependentUpon>Resultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RJControls\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
