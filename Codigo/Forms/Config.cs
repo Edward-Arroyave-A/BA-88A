@@ -333,16 +333,30 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsNombrelogs.Size = new Size(medio, heightInicial);
                 rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
-            if (panel7.Width <= 312)
+            if (medio <= 370)
             {
                 pictureBox3.Visible = false;
                 tableLayoutPanel3.ColumnCount = 1;
+                this.Invalidate();
             }
             else {
                 pictureBox3.Visible = true;
+              
                 tableLayoutPanel3.ColumnCount = 2;
+                this.Invalidate();
             }
-            
+
+            if (medio <= 370)
+            {
+                pictureBox2.Visible = false;
+                this.Invalidate();
+            }
+            else {
+                pictureBox2.Visible = true;
+                this.Invalidate();
+            }
+
+
 
 
             if (medio >= 655 && medio <= 768)
