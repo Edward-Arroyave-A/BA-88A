@@ -113,7 +113,7 @@
             this.panelConexion2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelConexion2.BackColor = System.Drawing.Color.Transparent;
             this.panelConexion2.Controls.Add(this.tableLayoutPanel2);
-            this.panelConexion2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelConexion2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelConexion2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelConexion2.Location = new System.Drawing.Point(15, 15);
             this.panelConexion2.Name = "panelConexion2";
@@ -609,7 +609,7 @@
             this.rjInputsUrlToken.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsUrlToken.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
             this.rjInputsUrlToken.BorderRadius = 5;
-            this.rjInputsUrlToken.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsUrlToken.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rjInputsUrlToken.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsUrlToken.Focuse = false;
             this.rjInputsUrlToken.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
@@ -655,7 +655,7 @@
             this.rjInputsContraseña.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
             this.rjInputsContraseña.BorderRadius = 5;
-            this.rjInputsContraseña.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsContraseña.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rjInputsContraseña.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsContraseña.Focuse = false;
             this.rjInputsContraseña.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
@@ -678,7 +678,7 @@
             this.rjInputsUsuario.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
             this.rjInputsUsuario.BorderRadius = 5;
-            this.rjInputsUsuario.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsUsuario.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rjInputsUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsUsuario.Focuse = false;
             this.rjInputsUsuario.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
@@ -701,7 +701,7 @@
             this.rjInputsCabecera.BackColor = System.Drawing.SystemColors.Window;
             this.rjInputsCabecera.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
             this.rjInputsCabecera.BorderRadius = 5;
-            this.rjInputsCabecera.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsCabecera.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rjInputsCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.rjInputsCabecera.Focuse = false;
             this.rjInputsCabecera.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
