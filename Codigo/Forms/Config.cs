@@ -46,17 +46,18 @@ namespace AnnarComMICROSESV60.Forms
             rjInputsUrlResultados.BorderFocusColor = IncialColorInputs;
             rjInputsUrlToken.TextBoxText = InterfaceConfig.endPointToken;
             rjInputsUrlToken.BorderFocusColor = IncialColorInputs;
+            rjInputsBaseURL.TextBoxText = InterfaceConfig.endPointToken;
+            rjInputsBaseURL.BorderFocusColor = IncialColorInputs;
             rjInputsDispositivoMedico.TextBoxText = InterfaceConfig.medicalDevice;
             rjInputsDispositivoMedico.BorderFocusColor = IncialColorInputs;
-            rjInputsReactivo.TextBoxText = InterfaceConfig.medicalDevice;
+            rjInputsReactivo.TextBoxText = InterfaceConfig.reactive;
             rjInputsReactivo.BorderFocusColor = IncialColorInputs;
-            rjInputsNombreEquipo.TextBoxText = InterfaceConfig.nombreEquipo;
-            rjInputsNombreEquipo.BorderFocusColor = IncialColorInputs;
+        
             rjInputsNombreInterfaz.TextBoxText = InterfaceConfig.nombreEquipo;
             rjInputsNombreInterfaz.BorderFocusColor = IncialColorInputs;
             rjInputsNombrelogs.TextBoxText = InterfaceConfig.nombreLog;
             rjInputsNombrelogs.BorderFocusColor = IncialColorInputs;
-            //rjInputsIntervalo.TextBoxText = InterfaceConfig.intervalo;
+            rjInputsIntervalo.TextBoxText = InterfaceConfig.intervalo;
             rjInputsIntervalo.BorderFocusColor = IncialColorInputs;
 
             if (InterfaceConfig.logActivo == "S" || InterfaceConfig.logActivo.Equals("S"))
@@ -274,10 +275,12 @@ namespace AnnarComMICROSESV60.Forms
             // Establecer el nuevo tamaño para el panel
             panelContenedor.Size = new Size(nuevoAncho, nuevoAlto); ;
             RedondearEsquinas(panelContenedor, 10);
-
+         
             int medio = this.Width / 2;
             int medioPanel = 700;
 
+           
+     
             panel3.Padding = new Padding(15, 15, 15, 15);
             panel7.Padding = new Padding(7, 7, 7, 7);
             panel8.Padding = new Padding(7, 7, 7, 7);
@@ -299,14 +302,14 @@ namespace AnnarComMICROSESV60.Forms
 
        
 
-                rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 20);
-                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 20);
-                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsNombreEquipo.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsNombreInterfaz.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsNombrelogs.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
-                rjInputsIntervalo.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 20);
+                rjInputsFormulariosControl8.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 10);
+                rjInputsFormulariosControl7.Size = new Size(medio, rjInputsFormulariosControl7.Size.Height + 10);
+                rjInputsFormulariosControl6.Size = new Size(medio, rjInputsFormulariosControl6.Size.Height + 10);
+                rjInputsFormulariosControl5.Size = new Size(medio, rjInputsFormulariosControl5.Size.Height + 10);
+               
+                rjInputsNombreInterfaz.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 10);
+                rjInputsNombrelogs.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 10);
+                rjInputsIntervalo.Size = new Size(medioPanel, rjInputsFormulariosControl5.Size.Height + 10);
                
 
 
@@ -325,12 +328,22 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsFormulariosControl7.Size = new Size(medio, heightInicial);
                 rjInputsFormulariosControl6.Size = new Size(medio, heightInicial);
                 rjInputsFormulariosControl5.Size = new Size(medio, heightInicial);
-                rjInputsNombreEquipo.Size = new Size(medio, heightInicial);
+
                 rjInputsNombreInterfaz.Size = new Size(medio, heightInicial);
                 rjInputsNombrelogs.Size = new Size(medio, heightInicial);
                 rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
-        
+            if (panel7.Width <= 312)
+            {
+                pictureBox3.Visible = false;
+                tableLayoutPanel3.ColumnCount = 1;
+            }
+            else {
+                pictureBox3.Visible = true;
+                tableLayoutPanel3.ColumnCount = 2;
+            }
+            
+
 
             if (medio >= 655 && medio <= 768)
             {
@@ -355,6 +368,7 @@ namespace AnnarComMICROSESV60.Forms
 
             if (medio <= 467)
             {
+                
                 // Ajustes específicos para este rango
                
                 this.Invalidate();
@@ -418,17 +432,19 @@ namespace AnnarComMICROSESV60.Forms
                 !string.IsNullOrEmpty(rjInputsUrlToken.TextBoxText) &&
                 !string.IsNullOrEmpty(rjInputsUrlResultados.TextBoxText) &&
                 !string.IsNullOrEmpty(rjInputsDispositivoMedico.TextBoxText) &&
-                !string.IsNullOrEmpty(rjInputsReactivo.TextBoxText)
+                !string.IsNullOrEmpty(rjInputsReactivo.TextBoxText) &&
+                !string.IsNullOrEmpty(rjInputsBaseURL.TextBoxText) 
                 )
             {
                 try
                 {
                     UpdateConfigKey("medicalDevice", rjInputsDispositivoMedico.TextBoxText, 1);
                     UpdateConfigKey("reactive", rjInputsReactivo.TextBoxText, 1);
-                    UpdateConfigKey("client", rjInputsUsuario.TextBoxText, 1);
+                    UpdateConfigKey("userName", rjInputsUsuario.TextBoxText, 1);
                     UpdateConfigKey("password", rjInputsContraseña.TextBoxText, 1);
                     UpdateConfigKey("endPointResultados", rjInputsUrlResultados.TextBoxText, 1);
                     UpdateConfigKey("endPointToken", rjInputsUrlToken.TextBoxText, 1);
+                    UpdateConfigKey("endPointBase", rjInputsUrlToken.TextBoxText, 1);
 
                     DialogResult result;
                     using (var msFomr = new FormMessageBox("Datos de conexión guardados correctamente. ", "OK", MessageBoxButtons.OK, MessageBoxIcon.None))
@@ -572,7 +588,7 @@ namespace AnnarComMICROSESV60.Forms
         private void rjButton2_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(rjInputsNombreEquipo.TextBoxText) &&
+            if (
                 !string.IsNullOrEmpty(rjInputsNombreInterfaz.TextBoxText) &&
                 !string.IsNullOrEmpty(rjInputsNombrelogs.TextBoxText) &&
                 !string.IsNullOrEmpty(rjInputsIntervalo.TextBoxText) 
@@ -580,8 +596,8 @@ namespace AnnarComMICROSESV60.Forms
             {
                 try
                 {
-                    UpdateConfigKey("nombreEquipo", rjInputsNombreEquipo.TextBoxText, 1);
-                    UpdateConfigKey("nombreInterfaz", rjInputsNombreInterfaz.TextBoxText, 1);
+                   
+                    UpdateConfigKey("nombreEquipo", rjInputsNombreInterfaz.TextBoxText, 1);
                     UpdateConfigKey("nombreLog", rjInputsNombrelogs.TextBoxText, 1);
                     UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
                    
@@ -605,6 +621,58 @@ namespace AnnarComMICROSESV60.Forms
             }
 
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+            string log;
+            if (rjToggleLog.Checked)
+            {
+                log = "S";
+            }
+            else {
+                log = "N";
+            }
+            
+
+            if (
+                !string.IsNullOrEmpty(rjInputsNombreInterfaz.TextBoxText) &&
+                !string.IsNullOrEmpty(rjInputsNombrelogs.TextBoxText) &&
+                !string.IsNullOrEmpty(rjInputsIntervalo.TextBoxText)
+                )
+            {
+                try
+                {
+
+                    UpdateConfigKey("nombreEquipo", rjInputsNombreInterfaz.TextBoxText, 1);
+                    UpdateConfigKey("nombreLog", rjInputsNombrelogs.TextBoxText, 1);
+                    UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
+                    UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
+                    UpdateConfigKey("logActivo", log, 1);
+
+
+                    DialogResult result;
+                    using (var msFomr = new FormMessageBox("Datos de parametrización guardados correctamente. ", "OK", MessageBoxButtons.OK, MessageBoxIcon.None))
+                        result = msFomr.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result;
+                    using (var msFomr = new FormMessageBox($"No se pudo guardar correctamente. {ex}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error))
+                        result = msFomr.ShowDialog();
+                }
+            }
+            else
+            {
+                DialogResult result;
+                using (var msFomr = new FormMessageBox($"No puede enviar campos vacíos. ", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                    result = msFomr.ShowDialog();
+            }
         }
     }
 }

@@ -12,12 +12,13 @@ namespace AnnarComMICROSESV60.Services
 {
     public class ServicioLiveLis
     {
+
         private static RestClient client;
         private static readonly RegistroLog log = new RegistroLog();
         private static readonly string nombreLog = InterfaceConfig.nombreLog + "_JSON";
         private Resultados formResultados; 
 
-        static ServicioLiveLis()
+        public ServicioLiveLis()
         {
             var options = new RestClientOptions(InterfaceConfig.endPointBase) { MaxTimeout = -1, };
             client = new RestClient(options);
