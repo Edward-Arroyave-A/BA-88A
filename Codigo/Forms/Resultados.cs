@@ -3,9 +3,9 @@ using AnnarComMICROSESV60.Properties;
 using AnnarComMICROSESV60.RJControls;
 using AnnarComMICROSESV60.Services;
 using AnnarComMICROSESV60.Utilities;
-using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -15,85 +15,50 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AnnarComMICROSESV60.Forms
 {
-    #region Public Enumerations
+    #region Enumeraciones públicas
     public enum DataMode { Text, Hex }
     public enum LogMsgType { Incoming, Outgoing, Normal, Warning, Error };
     #endregion
 
-
     public partial class Resultados : Form
     {
-
-
-
-        RegistroLog log = new RegistroLog();
-
-        public string nombreLog = InterfaceConfig.nombreLog;
-        public bool booleanTimer = false;
-
-        public enum EnumEstados { Ok, Info, Process, Warning, Error, Empty }
-
-
-
-        #region Local Variables
-
-        public string rutaGuardarImagenHistograma = ConfigurationManager.AppSettings["RutaGuardarImagenHistograma"].ToString();
-        public string SobreEscribeResultado = ConfigurationManager.AppSettings["SobreEscribeResultado"].ToString();
-        public string utilizacaratulaporequipos = ConfigurationManager.AppSettings["utilizacaratulaporequipos"].ToString();
+        #region Variables locales
         public string tiempo = "2";
 
-        //Para metodo decimales
-        // public string AdicionarUnidadMedida = ConfigurationManager.AppSettings["AdicionarUnidadMedida"].ToString();
-
-        // The main control for communicating through the RS-232 port
+        // Control principal para comunicarse a través del puerto RS-232
         private SerialPort comport = new SerialPort();
 
-        // Various colors for logging info
+        // Varios colores para la información de registro
         private Color[] LogMsgTypeColor = { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red };
 
-        // Temp holder for whether a key was pressed
+        // Temporizador para saber si se ha pulsado una tecla
         private bool KeyHandled = false;
 
         private Settings settings = Settings.Default;
-        public string ERROR = "ERROR";
-        public bool existe = false;
-
+        RegistroLog log = new RegistroLog();
+        public string nombreLog = InterfaceConfig.nombreLog;
+        readonly ServicioLiveLis servicioLiveLis = new ServicioLiveLis();
         #endregion
-
-        public string[] strValoresLimites = new string[50];
 
         public string[] ArrPaquete = new string[91];
         public string[] ArrPaqueteResultado = new string[3000];
         public string[] ArrPaqueteETX = new string[3000];
         public string[] ArrPaqueteETB = new string[3000];
-        public string vCodPaciente = "";
-        public string strExamen = "";
-        public string strregExa = "";
         public string StrLineaEstudio = "";
         public string timeractivo = "N";
         public string strLineaResultado = "";
         public string iniciaRecepcion = "N";
         public string strLineaRestante = "";
-        public string registraevento = "N";
-        public string banderaquery = "N";
-        public int Seq = 0;
-        int iArr = 0;
-        public int consecutive = 0;
-        readonly ServicioLiveLis servicioLiveLis = new ServicioLiveLis();
-
-        public int cantdigitos;
-        public string NroGrupo;
-        public string NroTapa;
-        public bool tubo_ind;
         public string CharEnviado;
         public int inc;
         public int incr;
-        public NpgsqlDataReader reader;
-        public NpgsqlDataReader reader2;
-        public string EscribeResultado;
+
+        public enum EnumEstados { Ok, Info, Process, Warning, Error, Empty }
+        public RJButton nuevoButton;
 
         public const char EOT = (char)4;
         public const char US = (char)31;
@@ -108,12 +73,6 @@ namespace AnnarComMICROSESV60.Forms
         public const char CR = '\r';
         public const char FS = (char)28;
         public const char SUB = (char)26;
-        public string nroDocumento = string.Empty;
-        public string vCodSede = string.Empty;
-        public string tipoEspecie = string.Empty;
-        public string tipoRaza = string.Empty;
-        public bool valUnidad;
-        public RJButton nuevoButton;
 
         public class T
         {
@@ -131,119 +90,577 @@ namespace AnnarComMICROSESV60.Forms
             public static byte[] EOT_BUFF = { EOT };
         }
 
+        #region Constructor
         public Resultados()
         {
-            InitializeComponent();
-
-            // Load user settings
+            // Cargar la configuración del usuario
             settings.Reload();
 
-            // Restore the users settings
+            // Construir el formulario
+            InitializeComponent();
+
+            // Restaurar la configuración de los usuarios
+            LlenarComboBox();
             InitializeControlValues();
 
-            // Enable/disable controls based on the current state
+            // Activar/desactivar controles en función del estado actual
             EnableControls();
 
-            this.SizeChanged += Resultados_SizeChanged;
+            // Cuando se reciben datos a través del puerto, llama a este método
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
-            this.Dock = DockStyle.Fill;
+
+            flpCOM.Visible = false;
         }
 
-        private void timerIntervalos_Tick(object sender, EventArgs e)
+        void comport_PinChanged(object sender, SerialPinChangedEventArgs e)
         {
-            if ((timeractivo.Contains("S")) && (iniciaRecepcion.Contains("N")))
-            {
-                timeractivo = "N";
+            // Mostrar el estado de los pines
+            UpdatePinState();
+        }
 
-                if (ArrPaquete[inc] != null)
+        //Puerto Serial
+        private void UpdatePinState()
+        {
+            this.Invoke(new ThreadStart(() =>
+            {
+                // Mostrar el estado de los pines
+                chkCD.Checked = comport.CDHolding;
+                chkCTS.Checked = comport.CtsHolding;
+                chkDSR.Checked = comport.DsrHolding;
+
+                chkCD.Checked = comport.CDHolding;
+                chkCTS.Checked = comport.CtsHolding;
+                chkDSR.Checked = comport.DsrHolding;
+            }));
+        }
+        #endregion
+
+        #region Métodos locales
+        //Puerto Serial
+        //Guardar la configuración del usuario
+        public void SaveSettings()
+        {
+            settings.BaudRate = int.Parse(cmbBaudRate.ComboBoxControl.Text);
+            settings.DataBits = int.Parse(cmbDataBits.ComboBoxControl.Text);
+            settings.DataMode = CurrentDataMode;
+            settings.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.ComboBoxControl.Text);
+            settings.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.ComboBoxControl.Text);
+            settings.PortName = cmbPortName.ComboBoxControl.Text;
+            settings.ClearOnOpen = chkClearOnOpen.Checked;
+            settings.ClearWithDTR = chkClearWithDTR.Checked;
+
+            settings.Save();
+        }
+
+        //Puerto Serial
+        //Rellenar los controles del formulario con la configuración por defecto
+        private void InitializeControlValues() //Validar, comentado de momento
+        {
+            cmbParity.ComboBoxControl.Items.Clear(); cmbParity.ComboBoxControl.Items.AddRange(Enum.GetNames(typeof(Parity)));
+            cmbStopBits.ComboBoxControl.Items.Clear(); cmbStopBits.ComboBoxControl.Items.AddRange(Enum.GetNames(typeof(StopBits)));
+
+            cmbParity.ComboBoxControl.Text = settings.Parity.ToString();
+            cmbStopBits.ComboBoxControl.Text = settings.StopBits.ToString();
+            cmbDataBits.ComboBoxControl.Text = settings.DataBits.ToString();
+            cmbBaudRate.ComboBoxControl.Text = settings.BaudRate.ToString();
+            CurrentDataMode = settings.DataMode;
+
+            RefreshComPortList();
+
+            chkClearOnOpen.Checked = settings.ClearOnOpen;
+            chkClearWithDTR.Checked = settings.ClearWithDTR;
+
+            // Si aún está disponible, seleccione el último puerto utilizado.
+            if (cmbPortName.ComboBoxControl.Items.Contains(settings.PortName))
+            {
+                cmbPortName.ComboBoxControl.Text = settings.PortName;
+            }
+            else if (cmbPortName.ComboBoxControl.Items.Count > 0)
+            {
+                cmbPortName.ComboBoxControl.SelectedIndex = cmbPortName.ComboBoxControl.Items.Count - 1;
+            }
+            else
+            {
+                MessageBox.Show(this, "No se han detectado puertos COM en este ordenador.\nInstale un puerto COM y reinicie la aplicación.", "No hay puertos COM instalados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+        }
+
+        private void LlenarComboBox()
+        {
+            //cmbPortName
+            cmbPortName.ComboBoxControl.Items.Add("COM1");
+            cmbPortName.ComboBoxControl.Items.Add("COM2");
+            cmbPortName.ComboBoxControl.Items.Add("COM3");
+            cmbPortName.ComboBoxControl.Items.Add("COM4");
+            cmbPortName.ComboBoxControl.Items.Add("COM5");
+            cmbPortName.ComboBoxControl.Items.Add("COM6");
+
+            //cmbBaudRate
+            cmbBaudRate.ComboBoxControl.Items.Add("1200");
+            cmbBaudRate.ComboBoxControl.Items.Add("2400");
+            cmbBaudRate.ComboBoxControl.Items.Add("4800");
+            cmbBaudRate.ComboBoxControl.Items.Add("9600");
+            cmbBaudRate.ComboBoxControl.Items.Add("19200");
+            cmbBaudRate.ComboBoxControl.Items.Add("38400");
+            cmbBaudRate.ComboBoxControl.Items.Add("57600");
+            cmbBaudRate.ComboBoxControl.Items.Add("115200");
+
+            //cmbDataBits
+            cmbDataBits.ComboBoxControl.Items.Add("7");
+            cmbDataBits.ComboBoxControl.Items.Add("8");
+            cmbDataBits.ComboBoxControl.Items.Add("9");
+        }
+
+        //Puerto Serial
+        //Activar/desactivar controles en función del estado actual de la aplicación
+        public void EnableControls() //Validar, comentado de momento
+        {
+            // Activar/desactivar controles en función de si el puerto está abierto o no
+            flpCOM.Enabled = !comport.IsOpen;
+        }
+
+        //Enviar los datos del usuario introducidos actualmente en la casilla "enviar".
+        private void SendData(string strlinea)
+        {
+            if (CurrentDataMode == DataMode.Text)
+            {
+                // Enviar el texto del usuario directamente al puerto
+                comport.Write(strlinea);
+
+                // Mostrar en la ventana del terminal el texto del usuario
+                Log(LogMsgType.Outgoing, strlinea + "\n");
+            }
+            else
+            {
+                try
                 {
-                    CharEnviado = "ENQ";
-                    SendData(ENQ.ToString());
+                    // Convertir la cadena de dígitos hexadecimales del usuario (por ejemplo: B4 CA E2) en una matriz de bytes.
+                    byte[] data = HexStringToByteArray(strlinea);
+
+                    // Envía los datos binarios por el puerto
+                    comport.Write(data, 0, data.Length);
+
+                    // Mostrar los dígitos hexadecimales en la ventana del terminal
+                    Log(LogMsgType.Outgoing, ByteArrayToHexString(data) + "\n");
+                }
+                catch (FormatException)
+                {
+                    // Informar al usuario si la cadena hexadecimal no se ha formateado correctamente
+                    Log(LogMsgType.Error, "Cadena hexadecimal mal formateada:");
+                }
+            }
+        }
+
+        /// <summary> Registrar datos en la ventana del terminal. </summary>
+        /// <param name="msgtype"> El tipo de mensaje que se va a escribir. </param>
+        /// <param name="msg"> La cadena que contiene el mensaje a mostrar. </param>
+        private void Log(LogMsgType msgtype, string msg)
+        {
+            string tipomsg = "";
+
+            if (msgtype.ToString() == "Outgoing") { tipomsg = "Enviado"; }
+            if (msgtype.ToString() == "Incoming") { tipomsg = "Recibido"; }
+
+            if (CharEnviado == null)
+            {
+                CharEnviado = "";
+            }
+
+            if ((msgtype.ToString() == "Incoming") && (CharEnviado.Contains("ENQ")) && (msg.Contains(EOT)))
+            {
+                SendData(ACK.ToString());
+            }
+
+            if ((msgtype.ToString().Contains("Incoming")) && (CharEnviado.Contains("ENQ")) && (msg == ACK.ToString()) && (iniciaRecepcion.Contains("N")))
+            {
+                enviapaquete();
+            }
+
+            if ((msgtype.ToString().Contains("Incoming")) && (msg.Contains(ENQ.ToString())))
+            {
+                log.RegistraEnLog(" Inicio Recepcion de resultados --> ", InterfaceConfig.nombreLog);
+
+                timeractivo = "N";
+                incr = 0;
+                iniciaRecepcion = "S";
+                CharEnviado = "ACK";
+                strLineaResultado = "";
+                SendData(ACK.ToString());
+            }
+
+            if (msgtype.ToString() == "Incoming")
+            {
+                //Guardar paquete recibido
+                strLineaResultado = strLineaResultado + msg.ToString();
+                SendData(ACK.ToString());
+            }
+
+            if ((msgtype.ToString() == "Incoming") && (msg.Contains(EOT)))
+            {
+                timeractivo = "S";
+                CharEnviado = "";
+                iniciaRecepcion = "N";
+                incr = 0;
+
+                strLineaResultado = strLineaRestante + strLineaResultado;
+                ArrPaqueteETX = strLineaResultado.Split(ETX);
+                strLineaRestante = ArrPaqueteETX[ArrPaqueteETX.Length - 1];
+
+                try
+                {
+                    strLineaResultado = "";
+                    for (var x = 0; x <= ArrPaqueteETX.Length - 2; x++)
+                    {
+                        strLineaResultado = strLineaResultado + ArrPaqueteETX[x].Split(CR)[1].Trim();
+                    }
+                }
+                catch (FormatException)
+                {
+                    log.RegistraEnLog(" Error cargando paquete ArrPaqueteETX ", InterfaceConfig.nombreLog);
+                }
+
+                // timeractivo = "S";
+                CharEnviado = "";
+                // iniciaRecepcion = "N";
+                incr = 0;
+
+                try
+                {
+                    for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
+                    {
+                        ArrPaqueteResultado[x] = null;
+                    }
+                }
+                catch (FormatException)
+                {
+                    log.RegistraEnLog(" Error limpiando Arreglo  ArrPaqueteResultado[x] ", InterfaceConfig.nombreLog);
+                }
+
+                // strLineaResultado = strLineaResultado.Replace(STX.ToString(), "");
+                //strLineaResultado = strLineaResultado.Replace(ENQ.ToString(), "");
+                strLineaResultado = strLineaResultado.Replace(ETB.ToString(), "");
+                // strLineaResultado = strLineaResultado.Replace(EOT.ToString(), "");
+                ArrPaqueteResultado = strLineaResultado.Split(STX);
+
+                for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
+                {
+                    log.RegistraEnLog(" Paquete Recibido " + Convert.ToString(x) + " --> " + ArrPaqueteResultado[x], InterfaceConfig.nombreLog);
+                }
+
+                ProcesarResultados(ArrPaqueteResultado.ToList());
+                strLineaResultado = "";
+
+                for (var x = 0; x <= ArrPaqueteETX.Length - 1; x++)
+                {
+                    ArrPaqueteETX[x] = null;
+                }
+            }
+
+            //Validar comentado de momento
+            //flpContenedorResul.Invoke(new EventHandler(delegate
+            //{
+            //    log.RegistraEnLog(tipomsg + " --> " + msg, "Interfaz_Tramas_" + InterfaceConfig.nombreEquipo);
+            //    flpContenedorResul.SelectedText = string.Empty;
+            //    flpContenedorResul.Clear();
+            //    flpContenedorResul.SelectionFont = new Font(flpContenedorResul.SelectionFont, FontStyle.Bold);
+            //    flpContenedorResul.SelectionColor = LogMsgTypeColor[(int)msgtype];
+            //    flpContenedorResul.AppendText(msg);
+            //    flpContenedorResul.AppendText("Esperando Resultados...");
+            //    flpContenedorResul.ScrollToCaret();
+            //}));
+        }
+
+        /// <summary> Convertir una cadena de dígitos hexadecimales (por ejemplo: E4 CA B2) en una matriz de bytes. </summary>
+        /// <param name="s"> La cadena que contiene los dígitos hexadecimales (con o sin espacios). </param>
+        /// <returns> Devuelve una matriz de bytes. </returns>
+        private byte[] HexStringToByteArray(string s)
+        {
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            return buffer;
+        }
+
+        /// <summary> Convierte una matriz de bytes en una cadena formateada de dígitos hexadecimales (por ejemplo: E4 CA B2).</summary>
+        /// <param name="data"> El array de bytes a traducir en una cadena de dígitos hexadecimales. </param>
+        /// <returns> Devuelve una cadena bien formateada de dígitos hexadecimales con espaciado. </returns>
+        private string ByteArrayToHexString(byte[] data)
+        {
+            StringBuilder sb = new StringBuilder(data.Length * 3);
+            foreach (byte b in data)
+                sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
+            return sb.ToString().ToUpper();
+        }
+        #endregion
+
+        #region Propiedades locales
+        //Puerto Serial
+        private DataMode CurrentDataMode
+        {
+            get
+            {
+                if (rbHex.Checked) return DataMode.Hex;
+                else return DataMode.Text;
+            }
+            set
+            {
+                if (value == DataMode.Text) rbText.Checked = true;
+                else rbHex.Checked = true;
+            }
+        }
+        #endregion
+
+        #region Manejadores de eventos
+        //Puerto Serial
+        private void rbText_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbText.Checked) CurrentDataMode = DataMode.Text;
+        }
+
+        //Puerto Serial
+        private void rbHex_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbHex.Checked) CurrentDataMode = DataMode.Hex;
+        }
+
+        //Puerto Serial
+        private void chkDTR_CheckedChanged(object sender, EventArgs e)
+        {
+            comport.DtrEnable = chkDTR.Checked;
+            if (chkDTR.Checked && chkClearWithDTR.Checked) LimpiarTerminal();
+        }
+
+        //Puerto Serial
+        private void chkRTS_CheckedChanged(object sender, EventArgs e)
+        {
+            comport.RtsEnable = chkRTS.Checked;
+        }
+
+        //Puerto Serial
+        private void cmbBaudRate_Validating(object sender, CancelEventArgs e)
+        {
+            int x; e.Cancel = !int.TryParse(cmbBaudRate.ComboBoxControl.Text, out x);
+        }
+
+        //Puerto Serial
+        private void cmbDataBits_Validating(object sender, CancelEventArgs e)
+        {
+            int x; e.Cancel = !int.TryParse(cmbDataBits.ComboBoxControl.Text, out x);
+        }
+
+        //Puerto Serial
+        private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            // Si el puerto com ha sido cerrado, no haga nada
+            if (!comport.IsOpen) return;
+
+            // Este método será llamado cuando haya datos esperando en el buffer del puerto
+
+            // Determina en qué modo (cadena o binario) se encuentra el usuario
+            if (CurrentDataMode == DataMode.Text)
+            {
+                // Leer todos los datos en espera en el búfer
+                string data = comport.ReadExisting();
+
+                // Mostrar el texto al usuario en el terminal
+                Log(LogMsgType.Incoming, data);
+            }
+            else
+            {
+                // Obtener el número de bytes en espera en el búfer del puerto
+                int bytes = comport.BytesToRead;
+
+                // Crear una matriz de bytes para almacenar los datos entrantes
+                byte[] buffer = new byte[bytes];
+
+
+                // Leer los datos del puerto y almacenarlos en nuestro buffer
+                comport.Read(buffer, 0, bytes);
+
+                // Mostrar al usuario los datos entrantes en formato hexadecimal
+                Log(LogMsgType.Incoming, ByteArrayToHexString(buffer));
+            }
+        }
+        #endregion
+
+        #region Metodos para puerto serial
+        //Puerto Serial
+        private void RefreshComPortList()
+        {
+            // Determain si la lista de nombres de puertos com ha cambiado desde la última vez que se comprobó.
+            string selected = RefreshComPortList(cmbPortName.ComboBoxControl.Items.Cast<string>(), cmbPortName.ComboBoxControl.SelectedItem as string, comport.IsOpen);
+
+            // Si hubo una actualización, entonces actualiza el control mostrando al usuario la lista de nombres de puertos
+            if (!String.IsNullOrEmpty(selected))
+            {
+                cmbPortName.ComboBoxControl.Items.Clear();
+                cmbPortName.ComboBoxControl.Items.AddRange(OrderedPortNames());
+                cmbPortName.ComboBoxControl.SelectedItem = selected;
+            }
+        }
+
+        //Puerto Serial
+        private string[] OrderedPortNames()
+        {
+            // Sólo un marcador de posición para un análisis correcto de una cadena a un número entero
+            int num;
+
+            // Ordene los nombres de los puertos serie en orden numérico (si es posible)
+            return SerialPort.GetPortNames().OrderBy(a => a.Length > 3 && int.TryParse(a.Substring(3), out num) ? num : 0).ToArray();
+        }
+
+        //Puerto Serial
+        private string RefreshComPortList(IEnumerable<string> PreviousPortNames, string CurrentSelection, bool PortOpen)
+        {
+            // Crear un nuevo informe de retorno para rellenar
+            string selected = null;
+
+            // Recupera la lista de puertos montados actualmente por el sistema operativo (ordenados por nombre)
+            string[] ports = SerialPort.GetPortNames();
+
+            // Primer determain si ha habido cambios (altas o bajas)
+            bool updated = PreviousPortNames.Except(ports).Count() > 0 || ports.Except(PreviousPortNames).Count() > 0;
+
+            // Si se ha producido algún cambio, seleccione un puerto por defecto adecuado
+            if (updated)
+            {
+                // Utilizar el conjunto correctamente ordenado de nombres de puertos
+                ports = OrderedPortNames();
+
+                // Buscar el puerto más nuevo si se han añadido uno o más
+                string newest = SerialPort.GetPortNames().Except(PreviousPortNames).OrderBy(a => a).LastOrDefault();
+
+                if (PortOpen)
+                {
+                    if (ports.Contains(CurrentSelection)) selected = CurrentSelection;
+                    else if (!String.IsNullOrEmpty(newest)) selected = newest;
+                    else selected = ports.LastOrDefault();
                 }
                 else
                 {
-                    timeractivo = "S";
+                    if (!String.IsNullOrEmpty(newest)) selected = newest;
+                    else if (ports.Contains(CurrentSelection)) selected = CurrentSelection;
+                    else selected = ports.LastOrDefault();
                 }
             }
+
+            // Si se ha producido un cambio en la lista de puertos, devuelve la selección recomendada por defecto
+            return selected;
+        }
+        #endregion
+
+        #region Eventos del formulario resultados
+        private void Resultados_Shown(object sender, EventArgs e)
+        {
+            Log(LogMsgType.Normal, String.Format("Interfaz Iniciada {0}\n", DateTime.Now));
         }
 
         private void Terminal_Load(object sender, EventArgs e)
         {
             tmrCheckComPorts.Interval = Convert.ToInt32(settings.VelocidadBuffer);
 
-            EsconderSubmenu();
-
-
-            MensajesEstadosTerminal($"Succes", EnumEstados.Ok);
-            MensajesEstadosTerminal($"Process", EnumEstados.Process);
-            MensajesEstadosTerminal($"Warning", EnumEstados.Warning);
-            MensajesEstadosTerminal($"Error", EnumEstados.Error);
-            MensajesEstadosTerminal($"Info", EnumEstados.Info);
-            MensajesEstadosTerminal($"", EnumEstados.Empty);
+            MensajesEstadosTerminal($"Interfaz iniciada", EnumEstados.Ok);
+            MensajesEstadosTerminal($"Esperando resultados...", EnumEstados.Process);
+            //MensajesEstadosTerminal($"Warning", EnumEstados.Warning);
+            //MensajesEstadosTerminal($"Error", EnumEstados.Error);
+            //MensajesEstadosTerminal($"Info", EnumEstados.Info);
 
             VariablesGlobal.Resultados = true;
         }
 
-        private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void Resultados_SizeChanged(object sender, EventArgs e)
         {
-            // If the com port has been closed, do nothing
-            if (!comport.IsOpen) return;
+            // Obtener el tamaño actual del formulario
+            int nuevoAncho = this.Size.Width;
+            int nuevoAlto = this.Size.Height;
 
-            // This method will be called when there is data waiting in the port's buffer
-
-            // Determain which mode (string or binary) the user is in
-            if (CurrentDataMode == DataMode.Text)
-            {
-                // Read all the data waiting in the buffer
-                string data = comport.ReadExisting();
-
-                // Display the text to the user in the terminal
-                Log(LogMsgType.Incoming, data);
-            }
-            else
-            {
-                // Obtain the number of bytes waiting in the port's buffer
-                int bytes = comport.BytesToRead;
-
-                // Create a byte array buffer to hold the incoming data
-                byte[] buffer = new byte[bytes];
-
-
-                // Read the data from the port and store it in our buffer
-                comport.Read(buffer, 0, bytes);
-
-                // Show the user the incoming data in hex format
-                Log(LogMsgType.Incoming, ByteArrayToHexString(buffer));
-            }
+            // Establecer el nuevo tamaño para el panel
+            flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
+            RedondearEsquinas(flpContenedorResul, 10);
         }
 
-        private void mostrarSubmenu(Panel panel)
+        private void Resultados_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Alternar la visibilidad de los submenus
-            if (panel.Visible == false)
-            {
-                EsconderSubmenu();
-                panel.Visible = true;
-                flpContenedorResul.Location = new Point(24, 270);
-
-
-                flpContenedorResul.Size = new Size(748, 330);
-            }
-            else
-            {
-                panel.Visible = false;
-                flpContenedorResul.Location = new Point(24, 100);
-                flpContenedorResul.Size = new Size(748, 500);
-            }
+            // El formulario se está cerrando, guarda las preferencias del usuario
+            SaveSettings();
         }
+        #endregion
 
-        private void EsconderSubmenu()
+        #region Metodos formulario resultados
+        public string ProcesarResultados(List<string> PaqueteResultado)
         {
-            //if (pnlSubMenu.Visible == true) pnlSubMenu.Visible = false;
-            //flpContenedorResul.Location = new Point(24, 100);
-            //flpContenedorResul.Size = new Size(748, 500);
+            string numeroMuestra = null;
 
+            log.RegistraEnLog("Paquete recibido: " + Convert.ToString(PaqueteResultado.Count), nombreLog);
+
+            for (var x = 0; x <= PaqueteResultado.Count - 1; x++)
+            {
+                if (!string.IsNullOrEmpty(PaqueteResultado[x]))
+                {
+                    string strlinea = PaqueteResultado[x];
+
+                    string encabezado = "";
+
+                    try
+                    {
+                        encabezado = strlinea.Substring(1, 1);
+                    }
+                    catch (Exception)
+                    {
+                        encabezado = "";
+                    }
+
+                    string[] arrLinea = strlinea.Split('|');
+
+                    if (encabezado == "H" || encabezado == "Q" || encabezado == "P") continue;
+
+                    if (encabezado == "O")
+                    {
+                        numeroMuestra = arrLinea[2].ToString();
+                        log.RegistraEnLog("Nro Tubo: " + numeroMuestra, nombreLog);
+                        continue;
+                    }
+
+                    if (encabezado == "R")
+                    {
+                        try
+                        {
+                            //banderaquery = "N";
+                            var arrgNombreAnalito = arrLinea[2].Split('^');
+                            string nombreAnalito = arrgNombreAnalito[3];
+                            string consecutivoAnalito = arrgNombreAnalito[0];
+                            string resultadoAnalito = arrLinea[3];
+
+                            ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
+
+                            log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
+
+                            resultadoAnalitoJson.sampleNumber = numeroMuestra;
+                            resultadoAnalitoJson.analyte = consecutivoAnalito + "-" + nombreAnalito;
+                            resultadoAnalitoJson.medicalDevice = InterfaceConfig.medicalDevice;
+                            resultadoAnalitoJson.reactive = InterfaceConfig.reactive;
+                            resultadoAnalitoJson.result = resultadoAnalito;
+
+                            servicioLiveLis.EnviarResultados(resultadoAnalitoJson);
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                            log.RegistraEnLog("Error en trama Segmento R : " + ex.Message, nombreLog);
+                        }
+                    }
+
+                    if (encabezado == "L")
+                    {
+                        SendData(ENQ.ToString());
+                    }
+                }
+            }
+
+            return null;
         }
 
         //Metodo para mostrar los mensajes en el FlowLayoutPanel        
@@ -273,6 +690,8 @@ namespace AnnarComMICROSESV60.Forms
             nuevoButton.Padding = new Padding(10, 2, 10, 2);
             //nuevoButton.AutoSize = true;            
             nuevoButton.Resize += button_Resize;
+
+
 
             switch (estado)
             {
@@ -317,108 +736,6 @@ namespace AnnarComMICROSESV60.Forms
             }));
         }
 
-        private void btnOpenPort_Click(object sender, EventArgs e)
-        {
-            SaveSettings();
-
-            bool error = false;
-
-            // If the port is open, close it.
-            if (comport.IsOpen)
-            {
-                comport.Close();
-            }
-            else
-            {
-                // Set the port's settings
-
-                try
-                {
-                    // Open the port
-                    comport.Open();
-                }
-                catch (UnauthorizedAccessException) { error = true; }
-                catch (IOException) { error = true; }
-                catch (ArgumentException) { error = true; }
-
-
-                if (error)
-                {
-                    DialogResult result;
-                    using (var msFomr = new FormMessageBox("No se puede abrir el puerto.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error))
-                        result = msFomr.ShowDialog();
-                }
-                else
-                {
-                    // Show the initial pin states
-                    UpdatePinState();
-                    chkDTR.Checked = comport.DtrEnable;
-                    chkRTS.Checked = comport.RtsEnable;
-                }
-            }
-
-            // Change the state of the form's controls
-            EnableControls();
-
-            // If the port is open, send focus to the send data box
-            if (comport.IsOpen)
-            {
-                VariablesGlobal.Conectar = true;
-
-                if (chkClearOnOpen.Checked) ClearTerminal();
-                log.RegistraEnLog("Interfaz Conectada", nombreLog);
-                timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
-                //Timer1.Enabled = true;
-                timeractivo = "S";
-            }
-            else
-            {
-                VariablesGlobal.Conectar = false;
-
-                log.RegistraEnLog("Interfaz Desconectada", nombreLog);
-                timerIntervalos.Enabled = false;
-            }
-        }
-
-        private void ClearTerminal()
-        {
-            //Control parent = btn.Parent;
-
-            //if (parent is Panel)
-            //{
-            //    Panel panel = (Panel)parent;
-            //    int btnIndex = panel.Controls.IndexOf(btn);
-            //    for (int i = btnIndex; i >= 0; i--)
-            //    {
-            //        Control control = panel.Controls[i];
-            //        if (control is Button)
-            //        {
-            //            break;
-            //        }
-            //        panel.Controls.Remove(control);
-            //    }
-            //}
-
-        }
-        private void EnableControls()
-        {
-            //pnlSubMenu.Enabled = !comport.IsOpen;
-
-            //if (comport.IsOpen)
-            //{
-            //    btnOpenPort.BackgroundImage = Resources.ConectarDesconectar_2x;
-            //    //btnOpenPort.BackgroundImage = Resources.Conectar_2x;
-            //}
-            //else
-            //{
-            //    btnOpenPort.BackgroundImage = Resources.Conectar_2x;
-            //    //btnOpenPort.BackgroundImage = Resources.ConectarDesconectar_2x;
-            //}
-        }
-        private void pnlSubMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void RedondearEsquinas(Control control, int radio)
         {
             GraphicsPath path = new GraphicsPath();
@@ -433,323 +750,216 @@ namespace AnnarComMICROSESV60.Forms
             control.Region = new Region(path);
         }
 
-        void comport_PinChanged(object sender, SerialPinChangedEventArgs e)
+        public bool flpCOMVisible
         {
-            // Show the state of the pins
-            UpdatePinState();
-        }
-
-        private void UpdatePinState()
-        {
-            this.Invoke(new ThreadStart(() =>
+            get { return flpCOM.Visible; }
+            set
             {
-                // Show the state of the pins
-                chkCD.Checked = comport.CDHolding;
-                chkCTS.Checked = comport.CtsHolding;
-                chkDSR.Checked = comport.DsrHolding;
-            }));
+                flpCOM.Visible = value;
+            }
         }
 
-
-        #region Local Methods
-
-        /// <summary> Save the user's settings. </summary>
-        private void SaveSettings()
+        //Borrado FlowLayoutPanel
+        public void LimpiarTerminal()
         {
-
-
-            settings.Save();
+            flpContenedorResul.Controls.Clear();
+            //MensajesEstadosTerminal($"Esperando resultados...", EnumEstados.Process);
         }
-        private void RefreshComPortList()
+
+        //Conectar puerto COM
+        public void AbrirPuerto()
         {
-            // Determain if the list of com port names has changed since last checked
+            bool error = false;
 
-
-            // If there was an update, then update the control showing the user the list of port names
-
-        }
-        private string[] OrderedPortNames()
-        {
-            // Just a placeholder for a successful parsing of a string to an integer
-            int num;
-
-            // Order the serial port names in numberic order (if possible)
-            return SerialPort.GetPortNames().OrderBy(a => a.Length > 3 && int.TryParse(a.Substring(3), out num) ? num : 0).ToArray();
-        }
-        private string RefreshComPortList(IEnumerable<string> PreviousPortNames, string CurrentSelection, bool PortOpen)
-        {
-            // Create a new return report to populate
-            string selected = null;
-
-            // Retrieve the list of ports currently mounted by the operating system (sorted by name)
-            string[] ports = SerialPort.GetPortNames();
-
-            // First determain if there was a change (any additions or removals)
-            bool updated = PreviousPortNames.Except(ports).Count() > 0 || ports.Except(PreviousPortNames).Count() > 0;
-
-            // If there was a change, then select an appropriate default port
-            if (updated)
+            if (!VariablesGlobal.Config)
             {
-                // Use the correctly ordered set of port names
-                ports = OrderedPortNames();
-
-                // Find newest port if one or more were added
-                string newest = SerialPort.GetPortNames().Except(PreviousPortNames).OrderBy(a => a).LastOrDefault();
-
-                // If the port was already open... (see logic notes and reasoning in Notes.txt)
-                if (PortOpen)
+                // If the port is open, close it.
+                if (comport.IsOpen) comport.Close();
+                else
                 {
-                    if (ports.Contains(CurrentSelection)) selected = CurrentSelection;
-                    else if (!String.IsNullOrEmpty(newest)) selected = newest;
-                    else selected = ports.LastOrDefault();
+                    // Set the port's settings
+                    comport.BaudRate = int.Parse(cmbBaudRate.ComboBoxControl.Text);
+                    comport.DataBits = int.Parse(cmbDataBits.ComboBoxControl.Text);
+                    comport.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.ComboBoxControl.Text);
+                    comport.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.ComboBoxControl.Text);
+                    comport.PortName = cmbPortName.ComboBoxControl.Text;
+
+                    try
+                    {
+                        // Open the port
+                        comport.Open();
+                    }
+                    catch (UnauthorizedAccessException) { error = true; }
+                    catch (IOException) { error = true; }
+                    catch (ArgumentException) { error = true; }
+
+                    if (error) MessageBox.Show(this, "No se Puede Abrir el puerto.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    else
+                    {
+                        // Show the initial pin states
+                        UpdatePinState();
+                        chkDTR.Checked = comport.DtrEnable;
+                        chkRTS.Checked = comport.RtsEnable;
+                    }
+                }
+
+                // Change the state of the form's controls
+                EnableControls();
+
+                // If the port is open, send focus to the send data box
+                if (comport.IsOpen)
+                {
+                    if (chkClearOnOpen.Checked) LimpiarTerminal();
+                    log.RegistraEnLog("Interfaz Conectada", nombreLog);
+                    timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
                 }
                 else
                 {
-                    if (!String.IsNullOrEmpty(newest)) selected = newest;
-                    else if (ports.Contains(CurrentSelection)) selected = CurrentSelection;
-                    else selected = ports.LastOrDefault();
+                    log.RegistraEnLog("Interfaz Desconectada", nombreLog);
+                    timerIntervalos.Enabled = false;
                 }
-            }
-
-            // If there was a change to the port list, return the recommended default selection
-            return selected;
-        }
-
-        /// <summary> Populate the form's controls with default settings. </summary>
-        private void InitializeControlValues()
-        {
-
-        }
-
-        /// <summary> Enable/disable controls based on the app's current state. </summary>
-
-        /// <summary> Send the user's data currently entered in the 'send' box.</summary>
-        private void SendData(string strlinea)
-        {
-            if (CurrentDataMode == DataMode.Text)
-            {
-                // Send the user's text straight out the port
-                comport.Write(strlinea);
-
-                // Show in the terminal window the user's text
-                Log(LogMsgType.Outgoing, strlinea + "\n");
             }
             else
             {
-                try
+                DialogResult result;
+                using (var msFomr = new FormMessageBox("Cierre primero la ventana de configuración", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning))
                 {
-                    // Convert the user's string of hex digits (ex: B4 CA E2) to a byte array
-                    byte[] data = HexStringToByteArray(strlinea);
-
-                    // Send the binary data out the port
-                    comport.Write(data, 0, data.Length);
-
-                    // Show the hex digits on in the terminal window
-                    Log(LogMsgType.Outgoing, ByteArrayToHexString(data) + "\n");
-                }
-                catch (FormatException)
-                {
-                    // Inform the user if the hex string was not properly formatted
-                    Log(LogMsgType.Error, "Not properly formatted hex string: " + "\n");
+                    result = msFomr.ShowDialog();
                 }
             }
-            // txtSendData.SelectAll();
+        }
+        #endregion
+
+        #region Timers
+        //Puerto Serial
+        private void tmrCheckComPorts_Tick(object sender, EventArgs e)
+        {
+            // Comprueba si se han añadido o eliminado puertos COM,
+            // ya que es bastante común ahora con los adaptadores de USB a serie.
+            RefreshComPortList();
         }
 
-        /// <summary> Log data to the terminal window. </summary>
-        /// <param name="msgtype"> The type of message to be written. </param>
-        /// <param name="msg"> The string containing the message to be shown. </param>
-        /// 
-
-        private void Log(LogMsgType msgtype, string msg)
+        private void timerIntervalos_Tick(object sender, EventArgs e)
         {
-            string tipomsg = "";
-
-            if (msgtype.ToString() == "Outgoing") { tipomsg = "Enviado"; }
-            if (msgtype.ToString() == "Incoming") { tipomsg = "Recibido"; }
-
-            if (CharEnviado == null)
+            if ((timeractivo.Contains("S")) && (iniciaRecepcion.Contains("N")))
             {
-                CharEnviado = "";
-            }
-
-            if ((msgtype.ToString() == "Incoming") && (CharEnviado.Contains("ENQ")) && (msg.Contains(EOT)))
-            {
-                SendData(ACK.ToString());
-            }
-
-            if ((msgtype.ToString().Contains("Incoming")) && (CharEnviado.Contains("ENQ")) && (msg == ACK.ToString()) && (iniciaRecepcion.Contains("N")))
-            {
-                enviapaquete();
-            }
-
-            if ((msgtype.ToString().Contains("Incoming")) && (msg.Contains(ENQ.ToString())))
-            {
-                log.RegistraEnLog(" Inicio Recepcion de resultados --> ", InterfaceConfig.nombreLog);
-
                 timeractivo = "N";
-                incr = 0;
-                iniciaRecepcion = "S";
-                CharEnviado = "ACK";
-                strLineaResultado = "";
-                SendData(ACK.ToString());
+
+                if (ArrPaquete[inc] != null)
+                {
+                    CharEnviado = "ENQ";
+                    SendData(ENQ.ToString());
+                }
+                else
+                {
+                    timeractivo = "S";
+                }
             }
+        }
+        #endregion
 
-            if (msgtype.ToString() == "Incoming")
+        #region Botones
+        //Boton conectar puerto
+        //private void btnOpenPort_Click(object sender, EventArgs e)
+        //{
+        //    bool error = false;
+        //    var frmCollection = Application.OpenForms;
+
+        //    if (frmCollection.Count <= 1)
+        //    {
+        //        // If the port is open, close it.
+        //        if (comport.IsOpen) comport.Close();
+        //        else
+        //        {
+        //            // Set the port's settings
+        //            comport.BaudRate = int.Parse(cmbBaudRate.Text);
+        //            comport.DataBits = int.Parse(cmbDataBits.Text);
+        //            comport.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
+        //            comport.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
+        //            comport.PortName = cmbPortName.Text;
+
+        //            try
+        //            {
+        //                // Open the port
+        //                comport.Open();
+        //            }
+        //            catch (UnauthorizedAccessException) { error = true; }
+        //            catch (IOException) { error = true; }
+        //            catch (ArgumentException) { error = true; }
+
+        //            if (error) MessageBox.Show(this, "No se Puede Abrir el puerto.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //            else
+        //            {
+        //                // Show the initial pin states
+        //                UpdatePinState();
+        //                chkDTR.Checked = comport.DtrEnable;
+        //                chkRTS.Checked = comport.RtsEnable;
+        //            }
+        //        }
+
+        //        // Change the state of the form's controls
+        //        EnableControls();
+
+        //        // If the port is open, send focus to the send data box
+        //        if (comport.IsOpen)
+        //        {
+        //            if (chkClearOnOpen.Checked) ClearTerminal();
+        //            log.RegistraEnLog("Interfaz Conectada", "Interfaz_" + InterfaceConfig.nombreEquipo);
+        //            Timer1.Interval = Convert.ToInt32(tiempo) * 1000;
+        //        }
+        //        else
+        //        {
+        //            log.RegistraEnLog("Interfaz Desconectada", "Interfaz_" + InterfaceConfig.nombreEquipo);
+        //            Timer1.Enabled = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(this, "Cierre primero la ventana de configuración", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
+        #endregion
+
+        #region Envio Paquete
+        //Envio de paquete - validar si es necesario
+        private void enviapaquete()
+        {
+            if (ArrPaquete[inc] != null)
             {
-                ///AQUI GUARDAR PAQUETE RECIBIDO
-                strLineaResultado = strLineaResultado + msg.ToString();
-                SendData(ACK.ToString());
+                byte[] hexData = System.Text.Encoding.ASCII.GetBytes(STX + ArrPaquete[inc] + '\r' + ETX);
 
-            }
+                // Después de llamar a la función GetCheckSum la variable
+                // contendrá &H30 utilizando sus datos de prueba
+                string checkSum = GetCheckSum(STX + ArrPaquete[inc] + '\r' + ETX);
 
-            if ((msgtype.ToString() == "Incoming") && (msg.Contains(EOT)))
-            {
-
-                timeractivo = "S";
-                CharEnviado = "";
+                SendData(STX + ArrPaquete[inc] + '\r' + ETX + checkSum + "\r" + "\n");
                 iniciaRecepcion = "N";
-                incr = 0;
 
-                strLineaResultado = strLineaRestante + strLineaResultado;
-
-                ArrPaqueteETX = strLineaResultado.Split(ETX);
-
-                strLineaRestante = ArrPaqueteETX[ArrPaqueteETX.Length - 1];
-
-                try
-                {
-                    strLineaResultado = "";
-                    for (var x = 0; x <= ArrPaqueteETX.Length - 2; x++)
-                    {
-
-                        strLineaResultado = strLineaResultado + ArrPaqueteETX[x].Split(CR)[1].Trim();
-
-                    }
-                }
-                catch (FormatException)
-                {
-
-                    log.RegistraEnLog(" Error cargando paquete ArrPaqueteETX ", InterfaceConfig.nombreLog);
-                }
-
-
-                // timeractivo = "S";
-                CharEnviado = "";
-                // iniciaRecepcion = "N";
-                incr = 0;
-                try
-                {
-
-                    for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
-                    {
-
-                        ArrPaqueteResultado[x] = null;
-
-                    }
-                }
-                catch (FormatException)
-                {
-
-                    log.RegistraEnLog(" Error limpiando Arreglo  ArrPaqueteResultado[x] ", InterfaceConfig.nombreLog);
-                }
-                // strLineaResultado = strLineaResultado.Replace(STX.ToString(), "");
-                //strLineaResultado = strLineaResultado.Replace(ENQ.ToString(), "");
-
-                strLineaResultado = strLineaResultado.Replace(ETB.ToString(), "");
-                // strLineaResultado = strLineaResultado.Replace(EOT.ToString(), "");
-
-                ArrPaqueteResultado = strLineaResultado.Split(STX);
-
-                for (var x = 0; x <= ArrPaqueteResultado.Length - 1; x++)
-                {
-
-                    log.RegistraEnLog(" Paquete Recibido " + Convert.ToString(x) + " --> " + ArrPaqueteResultado[x], InterfaceConfig.nombreLog);
-
-                }
-                ProcesarResultados(ArrPaqueteResultado.ToList());
-                strLineaResultado = "";
-
-
-
-
-
-                for (var x = 0; x <= ArrPaqueteETX.Length - 1; x++)
-                {
-
-                    ArrPaqueteETX[x] = null;
-
-                }
+                inc = inc + 1;
             }
-
-            //rtfTerminal.Invoke(new EventHandler(delegate
-            //{
-            //    log.RegistraEnLog(tipomsg + " --> " + msg, "Interfaz_Tramas_" + InterfaceConfig.nombreEquipo);
-            //    rtfTerminal.SelectedText = string.Empty;
-            //    rtfTerminal.Clear();
-            //    rtfTerminal.SelectionFont = new Font(rtfTerminal.SelectionFont, FontStyle.Bold);
-            //    rtfTerminal.SelectionColor = LogMsgTypeColor[(int)msgtype];
-            //    rtfTerminal.AppendText(msg);
-            //    rtfTerminal.AppendText("Esperando Resultados...");
-            //    rtfTerminal.ScrollToCaret();
-            //}));
-        }
-
-        /// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
-        /// <param name="s"> The string containing the hex digits (with or without spaces). </param>
-        /// <returns> Returns an array of bytes. </returns>
-        private byte[] HexStringToByteArray(string s)
-        {
-            s = s.Replace(" ", "");
-            byte[] buffer = new byte[s.Length / 2];
-            for (int i = 0; i < s.Length; i += 2)
-                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
-            return buffer;
-        }
-
-        /// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
-        /// <param name="data"> The array of bytes to be translated into a string of hex digits. </param>
-        /// <returns> Returns a well formatted string of hex digits with spacing. </returns>
-        private string ByteArrayToHexString(byte[] data)
-        {
-            StringBuilder sb = new StringBuilder(data.Length * 3);
-            foreach (byte b in data)
-                sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
-            return sb.ToString().ToUpper();
-        }
-        #endregion
-
-        #region Local Properties
-        private DataMode CurrentDataMode
-        {
-            get
+            else
             {
-                if (rbHex.Checked) return DataMode.Hex;
-                else return DataMode.Text;
-            }
-            set
-            {
-                if (value == DataMode.Text) rbText.Checked = true;
-                else rbHex.Checked = true;
+                CharEnviado = "EOT";
+                SendData(EOT.ToString());
+
+                iniciaRecepcion = "N";
+                timeractivo = "S";
+                inc = 0;
+
+                for (var xx = 0; xx <= ArrPaquete.Length - 1; xx++)
+                {
+                    ArrPaquete[xx] = null;
+                }
             }
         }
-        #endregion
 
-
-        private void lnkAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // Show the user the about dialog
-
-        }
-
+        //Envio de paquete - validar si es necesario
         public string GetCheckSum(string frame)
         {
             string checksum = "00";
-
             int byteVal = 0;
             int sumOfChars = 0;
             bool complete = false;
-
 
             for (int idx = 0; idx < frame.Length; idx++)
             {
@@ -778,198 +988,12 @@ namespace AnnarComMICROSESV60.Forms
 
             if (sumOfChars > 0)
             {
-
                 checksum = Convert.ToString(sumOfChars % 256, 16).ToUpper();
             }
             return Convert.ToString((checksum.Length == 1) ? "0" + checksum : checksum);
         }
 
-        private void enviapaquete() //enviapaquete no implementa persistencia, pero queda la codificacion para hacerlo si amerita
-        {
-            if (ArrPaquete[inc] != null)
-            {
-                byte[] hexData = System.Text.Encoding.ASCII.GetBytes(STX + ArrPaquete[inc] + '\r' + ETX);
-
-                //' After calling the function GetCheckSum the variable will 
-                //' contain &H30 using your test data
-                string checkSum = GetCheckSum(STX + ArrPaquete[inc] + '\r' + ETX);
-
-                SendData(STX + ArrPaquete[inc] + '\r' + ETX + checkSum + "\r" + "\n");
-                iniciaRecepcion = "N";
-
-                inc = inc + 1;
-            }
-            else
-            {
-                CharEnviado = "EOT";
-                SendData(EOT.ToString());
-
-                iniciaRecepcion = "N";
-
-                int ancho = 0;
-                ancho = strregExa.Length;
-
-                if (ancho > 0)
-                {
-                    strregExa = strregExa.Substring(1, ancho - 1);
-                    ancho = strExamen.Length;
-                    strExamen = strExamen.Substring(0, ancho - 1);
-
-                    log.RegistraEnLog("Cambia Estado a Enviado paciente_examenes Paciente: " + vCodPaciente, "Interfaz_" + InterfaceConfig.nombreEquipo);
-                    log.RegistraEnLog("Cambia estado en paciente_examenes" + vCodPaciente, "Interfaz_" + InterfaceConfig.nombreEquipo);
-
-                    string strCambiaEstado = string.Format("update paciente_examenes set enviado_interfaz= 'S' where paciente_cod = '{0}' and examen in({1}) and reg_exa  in({2})", vCodPaciente, strExamen, strregExa);
-
-                    //Por si se trabaja desde la persistencia
-                    //resultadoStatement = dbQuery.UpdatePaquete(vCodPaciente, strExamen, strregExa);
-                    //if (resultadoStatement.Resultado.Equals(ERROR)) return;
-
-                    NpgsqlConnection cnn3 = new NpgsqlConnection(InterfaceConfig.StrCadenaConeccion);
-                    NpgsqlCommand comsql = new NpgsqlCommand(strCambiaEstado, cnn3);
-
-                    log.RegistraEnLog("Sentencia " + strCambiaEstado, "Interfaz_" + InterfaceConfig.nombreEquipo);
-                    log.RegistraEnLog("Examenes " + strExamen + "  " + strregExa, "Interfaz_" + InterfaceConfig.nombreEquipo);
-                    cnn3.Open();
-                    cnn3.Close();
-
-                    vCodPaciente = "";
-                    strregExa = "";
-                    strExamen = "";
-                    log.RegistraEnLog("Fin Cambia estado en paciente_examenes" + vCodPaciente, "Interfaz_" + InterfaceConfig.nombreEquipo);
-
-                    for (var xx = 0; xx <= ArrPaquete.Length - 1; xx++)
-                    {
-                        ArrPaquete[xx] = null;
-                    }
-
-                }
-                else
-                {
-                    log.RegistraEnLog("Sin Registros", "Interfaz_" + InterfaceConfig.nombreEquipo);
-                }
-                timeractivo = "S";
-                inc = 0;
-
-                for (var xx = 0; xx <= ArrPaquete.Length - 1; xx++)
-                {
-                    ArrPaquete[xx] = null;
-                }
-
-            }
-        }
-
-        public string ProcesarResultados(List<string> PaqueteResultado)
-        {
-            string numeroMuestra = null;
-
-            log.RegistraEnLog("Paquete recibido: " + Convert.ToString(PaqueteResultado.Count), nombreLog);
-
-            for (var x = 0; x <= PaqueteResultado.Count - 1; x++)
-            {
-                if (!string.IsNullOrEmpty(PaqueteResultado[x]))
-                {
-                    string strlinea = PaqueteResultado[x];
-
-                    string encabezado = "";
-
-                    try
-                    {
-                        encabezado = strlinea.Substring(1, 1);
-                    }
-                    catch (Exception ex)
-                    {
-                        encabezado = "";
-                    }
-
-                    string[] arrLinea = strlinea.Split('|');
-
-                    if (encabezado == "H" || encabezado == "Q" || encabezado == "P") continue;
-
-                    if (encabezado == "O")
-                    {
-                        numeroMuestra = arrLinea[2].ToString();
-                        log.RegistraEnLog("Nro Tubo: " + numeroMuestra, nombreLog);
-                        continue;
-                    }
-
-                    if (encabezado == "R")
-                    {
-                        try
-                        {
-                            banderaquery = "N";
-                            var arrgNombreAnalito = arrLinea[2].Split('^');
-                            string nombreAnalito = arrgNombreAnalito[3];
-                            string consecutivoAnalito = arrgNombreAnalito[0];
-                            string resultadoAnalito = arrLinea[3];
-
-                            ResultadoAnalito resultadoAnalitoJson = new ResultadoAnalito();
-
-                            log.RegistraEnLog($"Analito Procesado [{nombreAnalito}], resultado[{resultadoAnalito}]", nombreLog);
-
-                            resultadoAnalitoJson.sampleNumber = numeroMuestra;
-                            resultadoAnalitoJson.analyte = consecutivoAnalito + "-" + nombreAnalito;
-                            resultadoAnalitoJson.medicalDevice = InterfaceConfig.medicalDevice;
-                            resultadoAnalitoJson.reactive = InterfaceConfig.reactive;
-                            resultadoAnalitoJson.result = resultadoAnalito;
-
-                            servicioLiveLis.EnviarResultados(resultadoAnalitoJson);
-                            continue;
-                        }
-                        catch (Exception ex)
-                        {
-                            log.RegistraEnLog("Error en trama Segmento R : " + ex.Message, nombreLog);
-                        }
-                    }
-
-                    if (encabezado == "L")
-                    {
-                        SendData(ENQ.ToString());
-                    }
-                }
-            }
-
-            return null;
-        }
-        private void tmrCheckComPorts_Tick(object sender, EventArgs e)
-        {
-            // checks to see if COM ports have been added or removed
-            // since it is quite common now with USB-to-Serial adapters
-            RefreshComPortList();
-        }
-
-        private void Resultados_Shown(object sender, EventArgs e)
-        {
-            Log(LogMsgType.Normal, String.Format("Interfaz Iniciada {0}\n", DateTime.Now));
-        }
-
-        private void cmbPortName_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
-        }
-
-        private void cmbBaudRate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-
-            //mostrarSubmenu(pnlSubMenu);
-
-        }
-
-        private void Resultados_SizeChanged(object sender, EventArgs e)
-        {
-            // Obtener el tamaño actual del formulario
-            int nuevoAncho = this.Size.Width;
-            int nuevoAlto = this.Size.Height;
-
-            // Establecer el nuevo tamaño para el panel
-            flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
-            RedondearEsquinas(flpContenedorResul, 10);
-        }
-
+        #endregion
     }
 }
 
