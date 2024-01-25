@@ -452,13 +452,15 @@ namespace AnnarComMICROSESV60.Forms
             {
                 try
                 {
-                    UpdateConfigKey("medicalDevice", rjInputsDispositivoMedico.TextBoxText, 1);
-                    UpdateConfigKey("reactive", rjInputsReactivo.TextBoxText, 1);
+                    UpdateConfigKey("client", rjInputsCabecera.TextBoxText, 1);
                     UpdateConfigKey("userName", rjInputsUsuario.TextBoxText, 1);
                     UpdateConfigKey("password", rjInputsContraseña.TextBoxText, 1);
+                    UpdateConfigKey("endPointBase", rjInputsBaseURL.TextBoxText, 1);
                     UpdateConfigKey("endPointResultados", rjInputsUrlResultados.TextBoxText, 1);
                     UpdateConfigKey("endPointToken", rjInputsUrlToken.TextBoxText, 1);
-                    UpdateConfigKey("endPointBase", rjInputsUrlToken.TextBoxText, 1);
+                    UpdateConfigKey("medicalDevice", rjInputsDispositivoMedico.TextBoxText, 1);
+                    UpdateConfigKey("reactive", rjInputsReactivo.TextBoxText, 1);
+
 
                     DialogResult result;
                     using (var msFomr = new FormMessageBox("Datos de conexión guardados correctamente. ", "OK", MessageBoxButtons.OK, MessageBoxIcon.None))
