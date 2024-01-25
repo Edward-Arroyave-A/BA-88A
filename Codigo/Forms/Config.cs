@@ -280,6 +280,8 @@ namespace AnnarComMICROSESV60.Forms
             int medio = this.Width / 2;
             int medioPanel = 700;
 
+           
+
             panel3.Padding = new Padding(15, 15, 15, 15);
             panel7.Padding = new Padding(7, 7, 7, 7);
             panel8.Padding = new Padding(7, 7, 7, 7);
@@ -585,7 +587,7 @@ namespace AnnarComMICROSESV60.Forms
                 try
                 {
                    
-                    UpdateConfigKey("nombreInterfaz", rjInputsNombreInterfaz.TextBoxText, 1);
+                    UpdateConfigKey("nombreEquipo", rjInputsNombreInterfaz.TextBoxText, 1);
                     UpdateConfigKey("nombreLog", rjInputsNombrelogs.TextBoxText, 1);
                     UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
                    
