@@ -27,8 +27,6 @@ namespace AnnarComMICROSESV60.Forms
     public partial class Resultados : Form
     {
         #region Variables locales
-        public string tiempo = "2";
-
         // Control principal para comunicarse a través del puerto RS-232
         private SerialPort comport = new SerialPort();
 
@@ -276,6 +274,7 @@ namespace AnnarComMICROSESV60.Forms
             if ((msgtype.ToString() == "Incoming") && (msg.Contains(EOT)))
             {
                 MensajesEstadosTerminal("Recepción de resultados en proceso", EnumEstados.Process);
+                VariablesGlobal.Conectar = true;
 
                 timeractivo = "S";
                 CharEnviado = "";
@@ -329,6 +328,7 @@ namespace AnnarComMICROSESV60.Forms
 
                 ProcesarResultados(ArrPaqueteResultado.ToList());
                 strLineaResultado = "";
+                VariablesGlobal.Conectar = false;
 
                 for (var x = 0; x <= ArrPaqueteETX.Length - 1; x++)
                 {
@@ -556,7 +556,7 @@ namespace AnnarComMICROSESV60.Forms
             int nuevoAlto = this.Size.Height;
 
             // Establecer el nuevo tamaño para el panel
-            //flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
+            flpContenedorResul.Size = new Size(nuevoAncho, nuevoAlto);
             RedondearEsquinas(flpCOM, 10);
             RedondearEsquinas(flpContenedorResul, 10);
         }
@@ -642,11 +642,12 @@ namespace AnnarComMICROSESV60.Forms
 
                     if (encabezado == "L")
                     {
+                        log.RegistraEnLog("Fin de procesamiento de resultados", nombreLog);
                         SendData(ENQ.ToString());
                     }
                 }
             }
-
+            
             return null;
         }
 
@@ -718,6 +719,8 @@ namespace AnnarComMICROSESV60.Forms
             flpContenedorResul.Invoke(new EventHandler(delegate
             {
                 flpContenedorResul.Controls.Add(nuevoButton);
+                // Hacer un desplazamiento automático para mostrar el nuevo elemento
+                flpContenedorResul.AutoScrollPosition = new Point(0, flpContenedorResul.VerticalScroll.Maximum);
             }));
         }
 
@@ -825,7 +828,7 @@ namespace AnnarComMICROSESV60.Forms
                     if (chkClearOnOpen.Checked) LimpiarTerminal();
                     log.RegistraEnLog("Puerto Conectado", nombreLog);
                     MensajesEstadosTerminal("Puerto conectado",EnumEstados.Ok);
-                    timerIntervalos.Interval = Convert.ToInt32(tiempo) * 1000;
+                    timerIntervalos.Interval = Convert.ToInt32(InterfaceConfig.intervalo) * 1000;
                 }
                 else
                 {

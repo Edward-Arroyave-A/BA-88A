@@ -8,7 +8,7 @@ namespace AnnarComMICROSESV60.Utilities
     {
         //Configuración Interfaz
         static internal string nombreEquipo;
-        static internal string diasAtras;
+        static internal string intervalo;
         //Configuración Log
         static internal string logActivo;
         static internal string rutaLog;
@@ -23,13 +23,12 @@ namespace AnnarComMICROSESV60.Utilities
         static internal string endPointToken;
         static internal string endPointResultados;
         static internal string endPointBase;
-        static internal string intervalo;
 
         static internal void InitializeConfig()
         {
             //Configuración Interfaz
             nombreEquipo = ConfigurationManager.AppSettings["nombreEquipo"];
-            diasAtras = ConfigurationManager.AppSettings["diasAtras"];
+            intervalo = ConfigurationManager.AppSettings["intervalo"].ToString();
             //Configuración Log
             logActivo = ConfigurationManager.AppSettings["logActivo"];
             rutaLog = ConfigurationManager.AppSettings["rutaLog"];
@@ -44,7 +43,6 @@ namespace AnnarComMICROSESV60.Utilities
             endPointToken = ConfigurationManager.AppSettings["endPointToken"].ToString();
             endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
             endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
-            intervalo = ConfigurationManager.AppSettings["intervalo"].ToString();
         }
     }
 }

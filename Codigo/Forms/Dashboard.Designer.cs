@@ -72,7 +72,7 @@ namespace AnnarComMICROSESV60
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41532F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58468F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,11 +104,11 @@ namespace AnnarComMICROSESV60
             this.rjbConectar.FontSize = 14F;
             this.rjbConectar.ForeColor = System.Drawing.Color.White;
             this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
-            this.rjbConectar.Location = new System.Drawing.Point(518, 23);
+            this.rjbConectar.Location = new System.Drawing.Point(513, 23);
             this.rjbConectar.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConectar.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbConectar.Name = "rjbConectar";
-            this.rjbConectar.Size = new System.Drawing.Size(279, 69);
+            this.rjbConectar.Size = new System.Drawing.Size(276, 69);
             this.rjbConectar.TabIndex = 11;
             this.rjbConectar.Text = "Conectar";
             this.rjbConectar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,8 +140,7 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbTitulo.Name = "rjbTitulo";
-            this.rjbTitulo.Size = new System.Drawing.Size(508, 69);
-            this.rjbTitulo.Size = new System.Drawing.Size(509, 69);
+            this.rjbTitulo.Size = new System.Drawing.Size(503, 69);
             this.rjbTitulo.TabIndex = 12;
             this.rjbTitulo.Text = "    Carga Resultados";
             this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -295,13 +294,14 @@ namespace AnnarComMICROSESV60
             this.pictureBox2.Size = new System.Drawing.Size(152, 98);
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
+            //this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.label1.Location = new System.Drawing.Point(262, 632);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

@@ -26,6 +26,7 @@ namespace AnnarComMICROSESV60
         private void Dashboard_Load(object sender, EventArgs e)
         {
             rjbResultados.PerformClick();
+            rjbResultados.Enabled = false;
         }
 
         private void Dashboard_SizeChanged(object sender, EventArgs e)
@@ -76,8 +77,11 @@ namespace AnnarComMICROSESV60
             {
                 terminal = (Resultados)Application.OpenForms[1];
 
-                //Activación del puerto
-                terminal.AbrirPuerto();
+                if (!VariablesGlobal.Conectar)
+                {
+                    //Activación del puerto
+                    terminal.AbrirPuerto();
+                }
             }
             catch (Exception)
             {
@@ -90,13 +94,18 @@ namespace AnnarComMICROSESV60
                 rjbConectar.Text = "Desconectar";
                 rjbConectar.Image = Resources.Desconectar;
                 estadoBtnConectar = false;
+                rjbConfiguracion.Enabled = false;
             }
             else
             {
-                rjbConectar.BackgroundColor = Color.FromArgb(21, 224, 213);
-                rjbConectar.Text = "Conectar";
-                rjbConectar.Image = Resources.Conectar;
-                estadoBtnConectar = true;
+                if (!VariablesGlobal.Conectar)
+                {
+                    rjbConectar.BackgroundColor = Color.FromArgb(21, 224, 213);
+                    rjbConectar.Text = "Conectar";
+                    rjbConectar.Image = Resources.Conectar;
+                    estadoBtnConectar = true;
+                    rjbConfiguracion.Enabled = true;
+                }
             }
             Dashboard_SizeChanged(sender, e);
             rjbConectar_MouseHover(sender, e);
@@ -104,7 +113,13 @@ namespace AnnarComMICROSESV60
 
         private void rjbResultados_Click(object sender, EventArgs e)
         {
-            //InterfaceConfig.InitializeConfig();
+            InterfaceConfig.InitializeConfig();
+
+            //Activación de botones
+            rjbResultados.Enabled = false;
+            rjbConfiguracion.Enabled = true;
+            rjbTitulo.Enabled = true;
+            rjbConectar.Enabled = true;
 
             rjbConfiguracion.BackColor = Color.White;
             rjbConfiguracion.Image = Resources.btn_configuracion;
@@ -123,6 +138,12 @@ namespace AnnarComMICROSESV60
 
         private void rjbConfiguracion_Click(object sender, EventArgs e)
         {
+            //Activación de botones
+            rjbConfiguracion.Enabled = false;
+            rjbResultados.Enabled = true;
+            rjbTitulo.Enabled = false;
+            rjbConectar.Enabled = false;
+
             rjbResultados.BackColor = Color.White;
             rjbResultados.Image = Resources.btn_carga1;
             rjbResultados.ForeColor = Color.FromArgb(62, 62, 62);
@@ -163,5 +184,20 @@ namespace AnnarComMICROSESV60
                 terminal.MensajesEstadosTerminal("Error en visibilidad de configuración COM",EnumEstados.Error);
             }
         }
+
+        //private void pictureBox2_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        terminal = (Resultados)Application.OpenForms[1];
+
+        //        terminal.LimpiarTerminal();
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }
