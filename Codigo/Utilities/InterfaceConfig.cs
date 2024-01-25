@@ -23,6 +23,7 @@ namespace AnnarComMICROSESV60.Utilities
         static internal string endPointToken;
         static internal string endPointResultados;
         static internal string endPointBase;
+        static internal string intervalo;
 
         static internal void InitializeConfig()
         {
@@ -43,6 +44,7 @@ namespace AnnarComMICROSESV60.Utilities
             endPointToken = ConfigurationManager.AppSettings["endPointToken"].ToString();
             endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
             endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
+            intervalo = ConfigurationManager.AppSettings["intervalo"].ToString();
         }
     }
 }
