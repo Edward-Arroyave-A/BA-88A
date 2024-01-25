@@ -631,6 +631,15 @@ namespace AnnarComMICROSESV60.Forms
 
         private void rjButton2_Click_1(object sender, EventArgs e)
         {
+            string log;
+            if (rjToggleLog.Checked)
+            {
+                log = "S";
+            }
+            else {
+                log = "N";
+            }
+            
 
             if (
                 !string.IsNullOrEmpty(rjInputsNombreInterfaz.TextBoxText) &&
@@ -644,6 +653,8 @@ namespace AnnarComMICROSESV60.Forms
                     UpdateConfigKey("nombreEquipo", rjInputsNombreInterfaz.TextBoxText, 1);
                     UpdateConfigKey("nombreLog", rjInputsNombrelogs.TextBoxText, 1);
                     UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
+                    UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
+                    UpdateConfigKey("logActivo", log, 1);
 
 
                     DialogResult result;
