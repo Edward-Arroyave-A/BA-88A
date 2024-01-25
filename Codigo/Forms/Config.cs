@@ -28,10 +28,11 @@ namespace AnnarComMICROSESV60.Forms
 
             #region Cargar datos
             //Conexión
-           
+            string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.config");
+            pathConfig = files[0];
             //var datosConexion = conexion.Split(';');
-       
-          
+
+
             // Definición del método que manejará el evento de clic del botón
 
 
