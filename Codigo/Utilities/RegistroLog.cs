@@ -16,7 +16,7 @@ namespace AnnarComMICROSESV60.Utilities
 
         public void InicializaLog(string p_equipo)
         {
-            logName = InterfaceConfig.rutalog + "/Log_" + p_equipo + "_v" + Application.ProductVersion + "_" + DateTime.Now.ToString("ddMMyyyy");
+            logName = InterfaceConfig.rutaLog + "/Log_" + p_equipo + "_v" + Application.ProductVersion + "_" + DateTime.Now.ToString("ddMMyyyy");
             using (StreamWriter w = File.AppendText(logName + ".txt"))
             {
                 w.Write("\r\nLog " + p_equipo + "_v" + Application.ProductVersion + " : ");
@@ -33,7 +33,7 @@ namespace AnnarComMICROSESV60.Utilities
             if (InterfaceConfig.logActivo.Equals("S"))
             {
 
-                logName = InterfaceConfig.rutalog + "/Log_" + p_equipo + "_v" + Application.ProductVersion + "_" + DateTime.Now.ToString("ddMMyyyy");
+                logName = InterfaceConfig.rutaLog + "/Log_" + p_equipo + "_v" + Application.ProductVersion + "_" + DateTime.Now.ToString("ddMMyyyy");
                 if (!logIniciado) InicializaLog(p_equipo);
                 using (StreamWriter w = File.AppendText(logName + ".txt"))
                 {

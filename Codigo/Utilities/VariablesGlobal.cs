@@ -11,7 +11,5 @@ namespace AnnarComMICROSESV60.Utilities
         public static bool Resultados { get; set; }
         public static bool Config { get; set; }
         public static bool Conectar { get; set; }
-
-
     }
 }
