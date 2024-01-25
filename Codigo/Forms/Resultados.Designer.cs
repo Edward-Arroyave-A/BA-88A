@@ -380,13 +380,13 @@ namespace AnnarComMICROSESV60.Forms
 
         private void flpContenedorResul_SizeChanged(object sender, EventArgs e)
         {
-            var widthClient = this.ClientSize.Width - 75;
+            var widthClient = this.ClientSize.Width - 80;
             buttonDefault.Width = widthClient;
         }
 
         private void button_Resize(object sender, EventArgs e)
         {
-            var widthClient = this.ClientSize.Width - 75;
+            var widthClient = this.ClientSize.Width - 80;
             buttonDefault.Width = widthClient;
         }
 

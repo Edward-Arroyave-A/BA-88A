@@ -88,6 +88,7 @@ namespace AnnarComMICROSESV60.Services
             {
                 // Manejar otras excepciones
                 EjecutarMensajeEstadosTerminal($"Error enviando resultados. Mensaje interno [{ex.Message}]", EnumEstados.Error);
+                EjecutarMensajeEstadosTerminal("Fin de procesamiento de resultados", EnumEstados.Ok);
                 log.RegistraEnLog($"Error en EnviarResultados: {ex.Message}", nombreLog);
             }
         }
