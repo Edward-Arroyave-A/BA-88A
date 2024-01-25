@@ -14,7 +14,7 @@ namespace AnnarComMICROSESV60.Forms
 {
     public partial class Config : Form
     {
-        public string conexion = InterfaceConfig.StrCadenaConeccion;
+        //public string conexion = InterfaceConfig.StrCadenaConeccion;
         private string pathConfig;
         private string condicional;
         int heightInicial;
@@ -30,7 +30,7 @@ namespace AnnarComMICROSESV60.Forms
             //Conexión
             string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.config");
             pathConfig = files[0];
-            var datosConexion = conexion.Split(';');
+            //var datosConexion = conexion.Split(';');
        
           
             // Definición del método que manejará el evento de clic del botón
@@ -52,11 +52,11 @@ namespace AnnarComMICROSESV60.Forms
             rjInputsReactivo.BorderFocusColor = IncialColorInputs;
             rjInputsNombreEquipo.TextBoxText = InterfaceConfig.nombreEquipo;
             rjInputsNombreEquipo.BorderFocusColor = IncialColorInputs;
-            rjInputsNombreInterfaz.TextBoxText = InterfaceConfig.nombreInterfaz;
+            rjInputsNombreInterfaz.TextBoxText = InterfaceConfig.nombreEquipo;
             rjInputsNombreInterfaz.BorderFocusColor = IncialColorInputs;
             rjInputsNombrelogs.TextBoxText = InterfaceConfig.nombreLog;
             rjInputsNombrelogs.BorderFocusColor = IncialColorInputs;
-            rjInputsIntervalo.TextBoxText = InterfaceConfig.intervalo;
+            //rjInputsIntervalo.TextBoxText = InterfaceConfig.intervalo;
             rjInputsIntervalo.BorderFocusColor = IncialColorInputs;
 
             if (InterfaceConfig.logActivo == "S" || InterfaceConfig.logActivo.Equals("S"))

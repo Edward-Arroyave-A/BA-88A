@@ -13,8 +13,8 @@ namespace AnnarComMICROSESV60.RJControls
         {
             InitializeComponent();
             RjComboBox1_TextChanged();
-            rjComboBox1.ComboBoxControl.Items.Add("Opción 1");
-            rjComboBox1.ComboBoxControl.Items.Add("Opción 2");
+            //rjComboBox1.ComboBoxControl.Items.Add("Opción 1");
+            //rjComboBox1.ComboBoxControl.Items.Add("Opción 2");
         }
 
         private void RjComboBox1_TextChanged()

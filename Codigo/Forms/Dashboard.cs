@@ -4,6 +4,7 @@ using AnnarComMICROSESV60.Utilities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static AnnarComMICROSESV60.Forms.Resultados;
 
 namespace AnnarComMICROSESV60
 {
@@ -11,6 +12,7 @@ namespace AnnarComMICROSESV60
     {
         public string token = string.Empty;
         Resultados terminal = new Resultados();
+        Config config = new Config();
         private Form activeForm = null;
         private string espacioTexto = "    ";
         private bool estadoBtnConectar = true;
@@ -41,12 +43,13 @@ namespace AnnarComMICROSESV60
         {
             if (activeForm != null) activeForm.Close();
             activeForm = childForm;
+            childForm.MdiParent = this;
             childForm.TopLevel = false;
             childForm.TopMost = true;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            pnlForm.Controls.Add(childForm);
-            pnlForm.Tag = childForm;
+            //pnlForm.Controls.Add(childForm);
+            //pnlForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -70,6 +73,9 @@ namespace AnnarComMICROSESV60
 
         private void rjbConectar_Click(object sender, EventArgs e)
         {
+            //Activación del puerto
+            terminal.AbrirPuerto();
+
             if (estadoBtnConectar)
             {
                 rjbConectar.BackgroundColor = Color.FromArgb(163, 162, 162);
@@ -86,12 +92,11 @@ namespace AnnarComMICROSESV60
             }
             Dashboard_SizeChanged(sender, e);
             rjbConectar_MouseHover(sender, e);
-
         }
 
         private void rjbResultados_Click(object sender, EventArgs e)
         {
-            InterfaceConfig.InitializeConfig();
+            //InterfaceConfig.InitializeConfig();
 
             rjbConfiguracion.BackColor = Color.White;
             rjbConfiguracion.Image = Resources.btn_configuracion;
@@ -103,7 +108,16 @@ namespace AnnarComMICROSESV60
             rjbResultados.Image = Resources.btn_carga2;
             rjbResultados.ForeColor = Color.White;
 
-            OpenChildForm(new Resultados());
+            //OpenChildForm(new Resultados());
+
+            if (activeForm != null) activeForm.Close();
+            terminal.MdiParent = this;
+            terminal.TopLevel = false;
+            terminal.FormBorderStyle = FormBorderStyle.None;
+            terminal.Dock = DockStyle.Fill;
+            terminal.Show();
+
+            VariablesGlobal.Config = false;
         }
 
         private void rjbConfiguracion_Click(object sender, EventArgs e)
@@ -118,7 +132,38 @@ namespace AnnarComMICROSESV60
             rjbConfiguracion.Image = Resources.btn_configuracion_white;
             rjbConfiguracion.ForeColor = Color.White;
 
+            terminal.flpCOMVisible = false;
+            //terminal.LimpiarTerminal();
+
             OpenChildForm(new Config());
-        }       
+
+            VariablesGlobal.Config = true;
+        }
+
+        private void rjbTitulo_Click(object sender, EventArgs e)
+        {
+            // Cambia la visibilidad de los FlowLayoutPanel en el formulario hijo
+            if (terminal != null)
+            {
+                //terminal.flpCOMVisible = !terminal.flpCOMVisible;
+                if (!terminal.flpCOMVisible)
+                {
+                    terminal.flpCOMVisible = true;
+                }
+                else
+                {
+                    terminal.flpCOMVisible = false;
+                }
+            }
+        }
+
+        public int timerInterval
+        {
+            get { return timer1.Interval; }
+            set
+            {
+                timer1.Interval = value;
+            }
+        }
     }
 }

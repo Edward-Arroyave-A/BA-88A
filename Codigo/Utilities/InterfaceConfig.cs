@@ -6,93 +6,43 @@ namespace AnnarComMICROSESV60.Utilities
 {
     static internal class InterfaceConfig
     {
-
-        static internal string diasatras;
+        //Configuración Interfaz
         static internal string nombreEquipo;
-        static internal string nombreInterfaz;
-        static internal string intervalo;
-
-        static internal string equipoCodigoCaratula;
-        static internal string recativoCodigoCaratula;
-        static internal string ValidaResultado;
-        static internal string imprimirQueriesDBLog;
-        static internal int intentosReconexionDB;
-
-        static internal string rutalog;
+        static internal string diasAtras;
+        //Configuración Log
         static internal string logActivo;
+        static internal string rutaLog;
         static internal string nombreLog;
-
-        static internal string StrCadenaConeccion;
-
-        static internal string generarGraficas;
-
-        //bandera para controlar procesos en el dashboard
-        static internal bool banderaTerminal = false;
-        static internal bool banderaConfig = false;
-
-        static internal string portName;
-        static internal int baudRate;
-        static internal int dataBits;
-        static internal string parity;
-        static internal string dataMode;
-        static internal string stopBits;
-        static internal string clearOnOpen;
-        static internal string clearWithDTR;
-
-
-        static internal string medicalDevice;
-        static internal string reactive;
+        static internal string imprimirQueriesDBLog;
+        //Configuración Servicios
         static internal string client;
+        static internal string reactive;
+        static internal string medicalDevice;
         static internal string userName;
         static internal string password;
-        static internal string endPointBase;
-        static internal string endPointResultados;
         static internal string endPointToken;
+        static internal string endPointResultados;
+        static internal string endPointBase;
 
         static internal void InitializeConfig()
         {
-
-
-            diasatras = ConfigurationManager.AppSettings["DiasAtras"];
+            //Configuración Interfaz
             nombreEquipo = ConfigurationManager.AppSettings["nombreEquipo"];
-            nombreInterfaz = ConfigurationManager.AppSettings["nombreInterfaz"];
-            intervalo = ConfigurationManager.AppSettings["intervalo"];
-
-            equipoCodigoCaratula = ConfigurationManager.AppSettings["equipoCodigoCaratula"].ToString();
-            recativoCodigoCaratula = ConfigurationManager.AppSettings["recativoCodigoCaratula"].ToString();
-
-            ValidaResultado = ConfigurationManager.AppSettings["ValidaResultado"].ToString();
-
-            imprimirQueriesDBLog = ConfigurationManager.AppSettings["imprimirQueriesDBLog"];
-            intentosReconexionDB = Convert.ToInt32(ConfigurationManager.AppSettings["intentosReconexionDB"]);
-
-            rutalog = ConfigurationManager.AppSettings["Rutalog"];
+            diasAtras = ConfigurationManager.AppSettings["diasAtras"];
+            //Configuración Log
             logActivo = ConfigurationManager.AppSettings["logActivo"];
+            rutaLog = ConfigurationManager.AppSettings["rutaLog"];
             nombreLog = ConfigurationManager.AppSettings["nombreLog"];
-
-            StrCadenaConeccion = ConfigurationManager.AppSettings["StrCadenaConeccion"].ToString();
-
-            generarGraficas = ConfigurationManager.AppSettings["generarGraficas"];
-
-
-            portName = ConfigurationManager.AppSettings["portName"];
-            baudRate = Convert.ToInt32(ConfigurationManager.AppSettings["baudRate"]);
-            dataBits = Convert.ToInt32(ConfigurationManager.AppSettings["dataBits"]);
-            parity = ConfigurationManager.AppSettings["parity"];
-            dataMode = ConfigurationManager.AppSettings["dataMode"];
-            stopBits = ConfigurationManager.AppSettings["stopBits"];
-            clearOnOpen = ConfigurationManager.AppSettings["clearOnOpen"];
-            clearWithDTR = ConfigurationManager.AppSettings["clearWithDTR"];
-
-            medicalDevice = ConfigurationManager.AppSettings["medicalDevice"].ToString();
-            reactive = ConfigurationManager.AppSettings["reactive"].ToString();
+            imprimirQueriesDBLog = ConfigurationManager.AppSettings["imprimirQueriesDBLog"];
+            //Configuración Servicios
             client = ConfigurationManager.AppSettings["client"].ToString();
+            reactive = ConfigurationManager.AppSettings["reactive"].ToString();
+            medicalDevice = ConfigurationManager.AppSettings["medicalDevice"].ToString();
             userName = ConfigurationManager.AppSettings["userName"].ToString();
             password = ConfigurationManager.AppSettings["password"].ToString();
-            endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
-            endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
             endPointToken = ConfigurationManager.AppSettings["endPointToken"].ToString();
-
+            endPointResultados = ConfigurationManager.AppSettings["endPointResultados"].ToString();
+            endPointBase = ConfigurationManager.AppSettings["endPointBase"].ToString();
         }
     }
 }
