@@ -362,20 +362,7 @@ namespace AnnarComMICROSESV60.Forms
             }
 
             // Aplicar configuraciones comunes
-           
-            //panel3.Width = panel3Width;
-            //panelDashContenedor.Padding = new Padding(panelDashPaddingLeft, panelDashPaddingTop, panelDashPaddingRight, panelDashPaddingBottom);
 
-            //terminal.Size = new Size(1000, 1000);
-            //panel1.Padding = new Padding(panelDashPaddingLeft, 30, panelDashPaddingRight, 3);
-            //panel2.Padding = new Padding(panelDashPaddingLeft, 3, panelDashPaddingRight, 3); // Siempre se aplica este valor
-
-            //// Incrementa la altura de panel3 y panel4 proporcionalmente al tamaño actual de la ventana
-            //double proporcionAltura = 0.7; // Ajusta esta proporción según tus necesidades
-
-            //panel3.Height = Convert.ToInt32(panel4.Width * proporcionAltura);
-
-            //panel4.Height = Convert.ToInt32(panel4.Width * (1 - proporcionAltura));
 
             //// Forzar la actualización del panelDashContenedor
             panelContenedor.Invalidate();
