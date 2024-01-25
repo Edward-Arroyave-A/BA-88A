@@ -31,8 +31,8 @@ namespace AnnarComMICROSESV60.Forms
             string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.config");
             pathConfig = files[0];
             //var datosConexion = conexion.Split(';');
-       
-          
+
+
             // Definición del método que manejará el evento de clic del botón
 
 
@@ -77,7 +77,7 @@ namespace AnnarComMICROSESV60.Forms
             //Color
             btnConexion.ForeColor = Color.FromArgb(64, 81, 252);
 
-            btnConexion.Capture = true;
+            
 
 
             //panelConexion.BackColor = Color.FromArgb(64, 81, 252);
@@ -104,10 +104,10 @@ namespace AnnarComMICROSESV60.Forms
         private void Config_Load(object sender, EventArgs e)
         {
 
-            btnConexion.BackColor = Color.FromArgb(64, 81, 252);
+            btnConexion.BackColor = Color.SteelBlue;
             btnConexion.ForeColor = Color.White;
-
-                RedondearBordesSuperior(btnParametrizacion, 5);
+            btnConexion.Capture = true;
+            RedondearBordesSuperior(btnParametrizacion, 5);
             RedondearBordesSuperior(btnConexion, 5);
             RedondearBordesSuperior(btnRuta, 5);
             RedondearEsquinas(panelContenedor, 10);
@@ -333,16 +333,30 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsNombrelogs.Size = new Size(medio, heightInicial);
                 rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
-            if (panel7.Width <= 312)
+            if (medio <= 370)
             {
                 pictureBox3.Visible = false;
                 tableLayoutPanel3.ColumnCount = 1;
+                this.Invalidate();
             }
             else {
                 pictureBox3.Visible = true;
+              
                 tableLayoutPanel3.ColumnCount = 2;
+                this.Invalidate();
             }
-            
+
+            if (medio <= 370)
+            {
+                pictureBox2.Visible = false;
+                this.Invalidate();
+            }
+            else {
+                pictureBox2.Visible = true;
+                this.Invalidate();
+            }
+
+
 
 
             if (medio >= 655 && medio <= 768)
@@ -438,13 +452,15 @@ namespace AnnarComMICROSESV60.Forms
             {
                 try
                 {
-                    UpdateConfigKey("medicalDevice", rjInputsDispositivoMedico.TextBoxText, 1);
-                    UpdateConfigKey("reactive", rjInputsReactivo.TextBoxText, 1);
+                    UpdateConfigKey("client", rjInputsCabecera.TextBoxText, 1);
                     UpdateConfigKey("userName", rjInputsUsuario.TextBoxText, 1);
                     UpdateConfigKey("password", rjInputsContraseña.TextBoxText, 1);
+                    UpdateConfigKey("endPointBase", rjInputsBaseURL.TextBoxText, 1);
                     UpdateConfigKey("endPointResultados", rjInputsUrlResultados.TextBoxText, 1);
                     UpdateConfigKey("endPointToken", rjInputsUrlToken.TextBoxText, 1);
-                    UpdateConfigKey("endPointBase", rjInputsUrlToken.TextBoxText, 1);
+                    UpdateConfigKey("medicalDevice", rjInputsDispositivoMedico.TextBoxText, 1);
+                    UpdateConfigKey("reactive", rjInputsReactivo.TextBoxText, 1);
+
 
                     DialogResult result;
                     using (var msFomr = new FormMessageBox("Datos de conexión guardados correctamente. ", "OK", MessageBoxButtons.OK, MessageBoxIcon.None))

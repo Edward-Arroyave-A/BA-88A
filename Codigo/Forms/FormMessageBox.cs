@@ -158,9 +158,9 @@ namespace AnnarComMICROSESV60.Forms
                     //}
 
                     //Colores
-                    panelTitleBar.BackColor = Color.FromArgb(107, 75, 139);
-                    BackColor = Color.FromArgb(107, 75, 139);
-                    button1.BackColor = Color.FromArgb(107, 75, 139);
+                    panelTitleBar.BackColor = Color.FromArgb(46, 189, 255);
+                    BackColor = Color.FromArgb(46, 189, 255);
+                    button1.BackColor = Color.FromArgb(46, 189, 255);
 
                     //Set Default Button
                     SetDefaultButton(defaultButton);
@@ -216,10 +216,10 @@ namespace AnnarComMICROSESV60.Forms
                     //    button2.BackColor = Color.FromArgb(124, 136, 224);
                     //}
 
-                    panelTitleBar.BackColor = Color.FromArgb(107, 75, 139);
-                    BackColor = Color.FromArgb(107, 75, 139);
-                    button1.BackColor = Color.FromArgb(199, 119, 122);
-                    button2.BackColor = Color.FromArgb(107, 75, 139);
+                    panelTitleBar.BackColor = Color.FromArgb(46, 189, 255);
+                    BackColor = Color.FromArgb(46, 189, 255);
+                    button1.BackColor = Color.FromArgb(46, 189, 255);
+                    button2.BackColor = Color.FromArgb(46, 189, 255);
 
                     //Yes Button
                     button1.Visible = true;

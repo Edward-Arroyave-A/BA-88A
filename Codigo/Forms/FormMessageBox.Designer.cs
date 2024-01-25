@@ -65,7 +65,7 @@
             this.labelCaption.Location = new System.Drawing.Point(10, 9);
             this.labelCaption.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(114, 19);
+            this.labelCaption.Size = new System.Drawing.Size(97, 17);
             this.labelCaption.TabIndex = 4;
             this.labelCaption.Text = "labelCaption";
             // 
@@ -171,7 +171,7 @@
             this.labelMessage.MaximumSize = new System.Drawing.Size(700, 0);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Padding = new System.Windows.Forms.Padding(6, 6, 12, 17);
-            this.labelMessage.Size = new System.Drawing.Size(143, 42);
+            this.labelMessage.Size = new System.Drawing.Size(122, 40);
             this.labelMessage.TabIndex = 1;
             this.labelMessage.Text = "labelMessage";
             this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,7 +190,7 @@
             // 
             // FormMessageBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(385, 150);
