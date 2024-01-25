@@ -37,11 +37,6 @@ namespace AnnarComMICROSESV60.Forms
             this.flpContenedorResul = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonDefault = new System.Windows.Forms.Button();
             this.flpCOM = new System.Windows.Forms.FlowLayoutPanel();
-            this.cmbPortName = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbBaudRate = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbParity = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbDataBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
-            this.cmbStopBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
             this.tlpResultados = new System.Windows.Forms.TableLayoutPanel();
             this.gbMode = new System.Windows.Forms.GroupBox();
             this.chkClearOnOpen = new System.Windows.Forms.CheckBox();
@@ -55,6 +50,11 @@ namespace AnnarComMICROSESV60.Forms
             this.rbHex = new System.Windows.Forms.RadioButton();
             this.lblSend = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbPortName = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
+            this.cmbBaudRate = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
+            this.cmbParity = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
+            this.cmbDataBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
+            this.cmbStopBits = new AnnarComMICROSESV60.RJControls.RJInputComboBoxControl();
             this.flpContenedorResul.SuspendLayout();
             this.flpCOM.SuspendLayout();
             this.tlpResultados.SuspendLayout();
@@ -126,81 +126,6 @@ namespace AnnarComMICROSESV60.Forms
             this.flpCOM.Size = new System.Drawing.Size(755, 181);
             this.flpCOM.TabIndex = 38;
             this.flpCOM.Visible = false;
-            // 
-            // cmbPortName
-            // 
-            this.cmbPortName.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_comport;
-            this.cmbPortName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmbPortName.BorderRadius = 5;
-            this.cmbPortName.ComboBoxSize = new System.Drawing.Size(180, 39);
-            this.cmbPortName.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.cmbPortName.LabelText = "COM PORT";
-            this.cmbPortName.Location = new System.Drawing.Point(3, 3);
-            this.cmbPortName.LocationImage = new System.Drawing.Point(3, 12);
-            this.cmbPortName.Name = "cmbPortName";
-            this.cmbPortName.Size = new System.Drawing.Size(250, 79);
-            this.cmbPortName.SizeImage = new System.Drawing.Size(59, 60);
-            this.cmbPortName.TabIndex = 31;
-            // 
-            // cmbBaudRate
-            // 
-            this.cmbBaudRate.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_baudrate;
-            this.cmbBaudRate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmbBaudRate.BorderRadius = 5;
-            this.cmbBaudRate.ComboBoxSize = new System.Drawing.Size(180, 39);
-            this.cmbBaudRate.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.cmbBaudRate.LabelText = "Baud Rate";
-            this.cmbBaudRate.Location = new System.Drawing.Point(259, 3);
-            this.cmbBaudRate.LocationImage = new System.Drawing.Point(3, 12);
-            this.cmbBaudRate.Name = "cmbBaudRate";
-            this.cmbBaudRate.Size = new System.Drawing.Size(246, 76);
-            this.cmbBaudRate.SizeImage = new System.Drawing.Size(59, 60);
-            this.cmbBaudRate.TabIndex = 32;
-            // 
-            // cmbParity
-            // 
-            this.cmbParity.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_parity;
-            this.cmbParity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmbParity.BorderRadius = 5;
-            this.cmbParity.ComboBoxSize = new System.Drawing.Size(180, 39);
-            this.cmbParity.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.cmbParity.LabelText = "Parity";
-            this.cmbParity.Location = new System.Drawing.Point(3, 88);
-            this.cmbParity.LocationImage = new System.Drawing.Point(3, 12);
-            this.cmbParity.Name = "cmbParity";
-            this.cmbParity.Size = new System.Drawing.Size(250, 76);
-            this.cmbParity.SizeImage = new System.Drawing.Size(59, 60);
-            this.cmbParity.TabIndex = 33;
-            // 
-            // cmbDataBits
-            // 
-            this.cmbDataBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_databits;
-            this.cmbDataBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmbDataBits.BorderRadius = 5;
-            this.cmbDataBits.ComboBoxSize = new System.Drawing.Size(180, 39);
-            this.cmbDataBits.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.cmbDataBits.LabelText = "Data Bits";
-            this.cmbDataBits.Location = new System.Drawing.Point(259, 88);
-            this.cmbDataBits.LocationImage = new System.Drawing.Point(3, 12);
-            this.cmbDataBits.Name = "cmbDataBits";
-            this.cmbDataBits.Size = new System.Drawing.Size(250, 79);
-            this.cmbDataBits.SizeImage = new System.Drawing.Size(59, 60);
-            this.cmbDataBits.TabIndex = 32;
-            // 
-            // cmbStopBits
-            // 
-            this.cmbStopBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_stopbits;
-            this.cmbStopBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmbStopBits.BorderRadius = 5;
-            this.cmbStopBits.ComboBoxSize = new System.Drawing.Size(180, 39);
-            this.cmbStopBits.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.cmbStopBits.LabelText = "Stop Bits";
-            this.cmbStopBits.Location = new System.Drawing.Point(3, 173);
-            this.cmbStopBits.LocationImage = new System.Drawing.Point(10, 15);
-            this.cmbStopBits.Name = "cmbStopBits";
-            this.cmbStopBits.Size = new System.Drawing.Size(249, 79);
-            this.cmbStopBits.SizeImage = new System.Drawing.Size(45, 45);
-            this.cmbStopBits.TabIndex = 33;
             // 
             // tlpResultados
             // 
@@ -348,6 +273,81 @@ namespace AnnarComMICROSESV60.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "&Line Signals";
             this.groupBox1.Visible = false;
+            // 
+            // cmbPortName
+            // 
+            this.cmbPortName.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_comport;
+            this.cmbPortName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmbPortName.BorderRadius = 5;
+            this.cmbPortName.ComboBoxSize = new System.Drawing.Size(180, 39);
+            this.cmbPortName.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.cmbPortName.LabelText = "COM PORT";
+            this.cmbPortName.Location = new System.Drawing.Point(3, 3);
+            this.cmbPortName.LocationImage = new System.Drawing.Point(3, 12);
+            this.cmbPortName.Name = "cmbPortName";
+            this.cmbPortName.Size = new System.Drawing.Size(250, 79);
+            this.cmbPortName.SizeImage = new System.Drawing.Size(59, 60);
+            this.cmbPortName.TabIndex = 31;
+            // 
+            // cmbBaudRate
+            // 
+            this.cmbBaudRate.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_baudrate;
+            this.cmbBaudRate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmbBaudRate.BorderRadius = 5;
+            this.cmbBaudRate.ComboBoxSize = new System.Drawing.Size(180, 39);
+            this.cmbBaudRate.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.cmbBaudRate.LabelText = "Baud Rate";
+            this.cmbBaudRate.Location = new System.Drawing.Point(259, 3);
+            this.cmbBaudRate.LocationImage = new System.Drawing.Point(3, 12);
+            this.cmbBaudRate.Name = "cmbBaudRate";
+            this.cmbBaudRate.Size = new System.Drawing.Size(246, 76);
+            this.cmbBaudRate.SizeImage = new System.Drawing.Size(59, 60);
+            this.cmbBaudRate.TabIndex = 32;
+            // 
+            // cmbParity
+            // 
+            this.cmbParity.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_parity;
+            this.cmbParity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmbParity.BorderRadius = 5;
+            this.cmbParity.ComboBoxSize = new System.Drawing.Size(180, 39);
+            this.cmbParity.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.cmbParity.LabelText = "Parity";
+            this.cmbParity.Location = new System.Drawing.Point(3, 88);
+            this.cmbParity.LocationImage = new System.Drawing.Point(3, 12);
+            this.cmbParity.Name = "cmbParity";
+            this.cmbParity.Size = new System.Drawing.Size(250, 76);
+            this.cmbParity.SizeImage = new System.Drawing.Size(59, 60);
+            this.cmbParity.TabIndex = 33;
+            // 
+            // cmbDataBits
+            // 
+            this.cmbDataBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_databits;
+            this.cmbDataBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmbDataBits.BorderRadius = 5;
+            this.cmbDataBits.ComboBoxSize = new System.Drawing.Size(180, 39);
+            this.cmbDataBits.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.cmbDataBits.LabelText = "Data Bits";
+            this.cmbDataBits.Location = new System.Drawing.Point(259, 88);
+            this.cmbDataBits.LocationImage = new System.Drawing.Point(3, 12);
+            this.cmbDataBits.Name = "cmbDataBits";
+            this.cmbDataBits.Size = new System.Drawing.Size(250, 79);
+            this.cmbDataBits.SizeImage = new System.Drawing.Size(59, 60);
+            this.cmbDataBits.TabIndex = 32;
+            // 
+            // cmbStopBits
+            // 
+            this.cmbStopBits.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Icono_stopbits;
+            this.cmbStopBits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmbStopBits.BorderRadius = 5;
+            this.cmbStopBits.ComboBoxSize = new System.Drawing.Size(180, 39);
+            this.cmbStopBits.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.cmbStopBits.LabelText = "Stop Bits";
+            this.cmbStopBits.Location = new System.Drawing.Point(3, 173);
+            this.cmbStopBits.LocationImage = new System.Drawing.Point(10, 15);
+            this.cmbStopBits.Name = "cmbStopBits";
+            this.cmbStopBits.Size = new System.Drawing.Size(249, 79);
+            this.cmbStopBits.SizeImage = new System.Drawing.Size(45, 45);
+            this.cmbStopBits.TabIndex = 33;
             // 
             // Resultados
             // 

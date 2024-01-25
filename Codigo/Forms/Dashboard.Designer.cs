@@ -72,7 +72,7 @@ namespace AnnarComMICROSESV60
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41532F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58468F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23
             this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -141,6 +141,7 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbTitulo.Name = "rjbTitulo";
             this.rjbTitulo.Size = new System.Drawing.Size(508, 69);
+            this.rjbTitulo.Size = new System.Drawing.Size(509, 69);
             this.rjbTitulo.TabIndex = 12;
             this.rjbTitulo.Text = "    Carga Resultados";
             this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

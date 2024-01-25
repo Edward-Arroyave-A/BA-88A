@@ -324,7 +324,7 @@ namespace AnnarComMICROSESV60.RJControls
                 if (textBox1.Size.Width >= 768)
                 {
 
-                    textBox1.Font = new Font("Open Sans", 20, FontStyle.Bold);
+                    textBox1.Font = new Font("Open Sans", 10, FontStyle.Bold);
 
                     //textBox1.Size = new Size(textBox1.Size.Width, );
                     //textBox1.Font
