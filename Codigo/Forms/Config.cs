@@ -28,8 +28,7 @@ namespace AnnarComMICROSESV60.Forms
 
             #region Cargar datos
             //Conexión
-            string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.config");
-            pathConfig = files[0];
+           
             //var datosConexion = conexion.Split(';');
        
           
@@ -77,7 +76,7 @@ namespace AnnarComMICROSESV60.Forms
             //Color
             btnConexion.ForeColor = Color.FromArgb(64, 81, 252);
 
-            btnConexion.Capture = true;
+            
 
 
             //panelConexion.BackColor = Color.FromArgb(64, 81, 252);
@@ -104,10 +103,10 @@ namespace AnnarComMICROSESV60.Forms
         private void Config_Load(object sender, EventArgs e)
         {
 
-            btnConexion.BackColor = Color.FromArgb(64, 81, 252);
+            btnConexion.BackColor = Color.SteelBlue;
             btnConexion.ForeColor = Color.White;
-
-                RedondearBordesSuperior(btnParametrizacion, 5);
+            btnConexion.Capture = true;
+            RedondearBordesSuperior(btnParametrizacion, 5);
             RedondearBordesSuperior(btnConexion, 5);
             RedondearBordesSuperior(btnRuta, 5);
             RedondearEsquinas(panelContenedor, 10);
@@ -333,16 +332,30 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsNombrelogs.Size = new Size(medio, heightInicial);
                 rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
-            if (panel7.Width <= 312)
+            if (medio <= 370)
             {
                 pictureBox3.Visible = false;
                 tableLayoutPanel3.ColumnCount = 1;
+                this.Invalidate();
             }
             else {
                 pictureBox3.Visible = true;
+              
                 tableLayoutPanel3.ColumnCount = 2;
+                this.Invalidate();
             }
-            
+
+            if (medio <= 370)
+            {
+                pictureBox2.Visible = false;
+                this.Invalidate();
+            }
+            else {
+                pictureBox2.Visible = true;
+                this.Invalidate();
+            }
+
+
 
 
             if (medio >= 655 && medio <= 768)

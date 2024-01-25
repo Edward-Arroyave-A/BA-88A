@@ -37,17 +37,17 @@ namespace AnnarComMICROSESV60
             this.pnlForm = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rjbCerrarSesion = new AnnarComMICROSESV60.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelNav = new System.Windows.Forms.Panel();
+            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rjbConectar = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbTitulo = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbCerrarSesion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbConfiguracion = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjbResultados = new AnnarComMICROSESV60.RJControls.RJButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,10 +60,10 @@ namespace AnnarComMICROSESV60
             // 
             this.pnlForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlForm.Location = new System.Drawing.Point(349, 121);
-            this.pnlForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlForm.Location = new System.Drawing.Point(262, 98);
+            this.pnlForm.Margin = new System.Windows.Forms.Padding(2);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1103, 657);
+            this.pnlForm.Size = new System.Drawing.Size(827, 534);
             this.pnlForm.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -72,97 +72,20 @@ namespace AnnarComMICROSESV60
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41532F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58468F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23));
             this.tableLayoutPanel1.Controls.Add(this.rjbConectar, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.rjbTitulo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(349, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(262, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27711F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.72289F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1103, 121);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(827, 98);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.rjbCerrarSesion);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 560);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 271);
-            this.panel1.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.by_it_health_blanco;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(80, 174);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 30);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelNav
-            // 
-            this.panelNav.AutoScroll = true;
-            this.panelNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.panelNav.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.FondoDashboard_2x;
-            this.panelNav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelNav.Controls.Add(this.panel1);
-            this.panelNav.Controls.Add(this.rjbConfiguracion);
-            this.panelNav.Controls.Add(this.rjbResultados);
-            this.panelNav.Controls.Add(this.panel3);
-            this.panelNav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelNav.Location = new System.Drawing.Point(0, 0);
-            this.panelNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(349, 831);
-            this.panelNav.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(349, 268);
-            this.panel3.TabIndex = 7;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(79, 76);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(203, 121);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.label1.Location = new System.Drawing.Point(349, 778);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1103, 53);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "2024 LIVE LIS. Todos los derechos reservados.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rjbConectar
             // 
@@ -181,11 +104,11 @@ namespace AnnarComMICROSESV60
             this.rjbConectar.FontSize = 14F;
             this.rjbConectar.ForeColor = System.Drawing.Color.White;
             this.rjbConectar.Image = global::AnnarComMICROSESV60.Properties.Resources.Conectar;
-            this.rjbConectar.Location = new System.Drawing.Point(690, 28);
-            this.rjbConectar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjbConectar.Location = new System.Drawing.Point(518, 23);
+            this.rjbConectar.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConectar.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbConectar.Name = "rjbConectar";
-            this.rjbConectar.Size = new System.Drawing.Size(371, 86);
+            this.rjbConectar.Size = new System.Drawing.Size(279, 69);
             this.rjbConectar.TabIndex = 11;
             this.rjbConectar.Text = "Conectar";
             this.rjbConectar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,11 +136,12 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.FontSize = 14F;
             this.rjbTitulo.ForeColor = System.Drawing.Color.White;
             this.rjbTitulo.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
-            this.rjbTitulo.Location = new System.Drawing.Point(8, 28);
-            this.rjbTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjbTitulo.Location = new System.Drawing.Point(6, 23);
+            this.rjbTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.rjbTitulo.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbTitulo.Name = "rjbTitulo";
-            this.rjbTitulo.Size = new System.Drawing.Size(676, 86);
+            this.rjbTitulo.Size = new System.Drawing.Size(508, 69);
+            this.rjbTitulo.Size = new System.Drawing.Size(509, 69);
             this.rjbTitulo.TabIndex = 12;
             this.rjbTitulo.Text = "    Carga Resultados";
             this.rjbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,6 +151,18 @@ namespace AnnarComMICROSESV60
             this.rjbTitulo.Click += new System.EventHandler(this.rjbTitulo_Click);
             this.rjbTitulo.MouseLeave += new System.EventHandler(this.rjbTitulo_MouseLeave);
             this.rjbTitulo.MouseHover += new System.EventHandler(this.rjbTitulo_MouseHover);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.rjbCerrarSesion);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 455);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(262, 220);
+            this.panel1.TabIndex = 8;
             // 
             // rjbCerrarSesion
             // 
@@ -244,18 +180,46 @@ namespace AnnarComMICROSESV60
             this.rjbCerrarSesion.FontSize = 18F;
             this.rjbCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.rjbCerrarSesion.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_cerrar_sesion;
-            this.rjbCerrarSesion.Location = new System.Drawing.Point(120, 16);
-            this.rjbCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjbCerrarSesion.Location = new System.Drawing.Point(90, 13);
+            this.rjbCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.rjbCerrarSesion.MouseOverBackColor = System.Drawing.Color.White;
             this.rjbCerrarSesion.Name = "rjbCerrarSesion";
-            this.rjbCerrarSesion.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rjbCerrarSesion.Size = new System.Drawing.Size(104, 97);
+            this.rjbCerrarSesion.Padding = new System.Windows.Forms.Padding(2);
+            this.rjbCerrarSesion.Size = new System.Drawing.Size(78, 79);
             this.rjbCerrarSesion.TabIndex = 8;
             this.rjbCerrarSesion.TextColor = System.Drawing.Color.White;
             this.rjbCerrarSesion.UseVisualStyleBackColor = false;
             this.rjbCerrarSesion.Click += new System.EventHandler(this.rjbCerrarSesion_Click);
             this.rjbCerrarSesion.MouseLeave += new System.EventHandler(this.rjbCerrarSesion_MouseLeave);
             this.rjbCerrarSesion.MouseHover += new System.EventHandler(this.rjbCerrarSesion_MouseHover);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.by_it_health_blanco;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(60, 141);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 24);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelNav
+            // 
+            this.panelNav.AutoScroll = true;
+            this.panelNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.panelNav.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.FondoDashboard_2x;
+            this.panelNav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelNav.Controls.Add(this.panel1);
+            this.panelNav.Controls.Add(this.rjbConfiguracion);
+            this.panelNav.Controls.Add(this.rjbResultados);
+            this.panelNav.Controls.Add(this.panel3);
+            this.panelNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNav.Location = new System.Drawing.Point(0, 0);
+            this.panelNav.Margin = new System.Windows.Forms.Padding(2);
+            this.panelNav.Name = "panelNav";
+            this.panelNav.Size = new System.Drawing.Size(262, 675);
+            this.panelNav.TabIndex = 0;
             // 
             // rjbConfiguracion
             // 
@@ -271,11 +235,11 @@ namespace AnnarComMICROSESV60
             this.rjbConfiguracion.FontSize = 12F;
             this.rjbConfiguracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.rjbConfiguracion.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_configuracion;
-            this.rjbConfiguracion.Location = new System.Drawing.Point(44, 420);
-            this.rjbConfiguracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjbConfiguracion.Location = new System.Drawing.Point(33, 341);
+            this.rjbConfiguracion.Margin = new System.Windows.Forms.Padding(2);
             this.rjbConfiguracion.MouseOverBackColor = System.Drawing.Color.Empty;
             this.rjbConfiguracion.Name = "rjbConfiguracion";
-            this.rjbConfiguracion.Size = new System.Drawing.Size(268, 71);
+            this.rjbConfiguracion.Size = new System.Drawing.Size(201, 58);
             this.rjbConfiguracion.TabIndex = 10;
             this.rjbConfiguracion.Text = "    Configuración";
             this.rjbConfiguracion.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
@@ -297,11 +261,11 @@ namespace AnnarComMICROSESV60
             this.rjbResultados.FontSize = 12F;
             this.rjbResultados.ForeColor = System.Drawing.Color.White;
             this.rjbResultados.Image = global::AnnarComMICROSESV60.Properties.Resources.btn_carga2;
-            this.rjbResultados.Location = new System.Drawing.Point(44, 309);
-            this.rjbResultados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjbResultados.Location = new System.Drawing.Point(33, 251);
+            this.rjbResultados.Margin = new System.Windows.Forms.Padding(2);
             this.rjbResultados.MouseOverBackColor = System.Drawing.Color.Empty;
             this.rjbResultados.Name = "rjbResultados";
-            this.rjbResultados.Size = new System.Drawing.Size(268, 74);
+            this.rjbResultados.Size = new System.Drawing.Size(201, 60);
             this.rjbResultados.TabIndex = 9;
             this.rjbResultados.Text = "    Carga \r\n    Resultados";
             this.rjbResultados.TextColor = System.Drawing.Color.White;
@@ -309,19 +273,57 @@ namespace AnnarComMICROSESV60
             this.rjbResultados.UseVisualStyleBackColor = false;
             this.rjbResultados.Click += new System.EventHandler(this.rjbResultados_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(262, 218);
+            this.panel3.TabIndex = 7;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::AnnarComMICROSESV60.Properties.Resources.Logo_Live_LIS;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(59, 62);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(152, 98);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label1.Location = new System.Drawing.Point(262, 632);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(827, 43);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "2024 LIVE LIS. Todos los derechos reservados.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1452, 831);
+            this.ClientSize = new System.Drawing.Size(1089, 675);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelNav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
