@@ -15,7 +15,8 @@ namespace AnnarComMICROSESV60.Services
 
         public ServicioLiveLis()
         {
-            client = new RestClient($"{InterfaceConfig.endPointBase}");
+            var options = new RestClientOptions(InterfaceConfig.endPointBase) { MaxTimeout = -1, };
+            client = new RestClient(options);
         }
 
         public void EnviarResultados(ResultadoAnalito resultado)

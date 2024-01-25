@@ -276,12 +276,12 @@ namespace AnnarComMICROSESV60.Forms
             // Establecer el nuevo tamaño para el panel
             panelContenedor.Size = new Size(nuevoAncho, nuevoAlto); ;
             RedondearEsquinas(panelContenedor, 10);
-
+         
             int medio = this.Width / 2;
             int medioPanel = 700;
 
            
-
+     
             panel3.Padding = new Padding(15, 15, 15, 15);
             panel7.Padding = new Padding(7, 7, 7, 7);
             panel8.Padding = new Padding(7, 7, 7, 7);
@@ -334,7 +334,17 @@ namespace AnnarComMICROSESV60.Forms
                 rjInputsNombrelogs.Size = new Size(medio, heightInicial);
                 rjInputsIntervalo.Size = new Size(medio, heightInicial);
             }
-        
+            if (panel7.Width <= 312)
+            {
+                pictureBox3.Visible = false;
+                tableLayoutPanel3.ColumnCount = 1;
+            }
+            else {
+                pictureBox3.Visible = true;
+                tableLayoutPanel3.ColumnCount = 2;
+            }
+            
+
 
             if (medio >= 655 && medio <= 768)
             {
@@ -359,6 +369,7 @@ namespace AnnarComMICROSESV60.Forms
 
             if (medio <= 467)
             {
+                
                 // Ajustes específicos para este rango
                
                 this.Invalidate();
@@ -611,6 +622,47 @@ namespace AnnarComMICROSESV60.Forms
             }
 
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+
+            if (
+                !string.IsNullOrEmpty(rjInputsNombreInterfaz.TextBoxText) &&
+                !string.IsNullOrEmpty(rjInputsNombrelogs.TextBoxText) &&
+                !string.IsNullOrEmpty(rjInputsIntervalo.TextBoxText)
+                )
+            {
+                try
+                {
+
+                    UpdateConfigKey("nombreEquipo", rjInputsNombreInterfaz.TextBoxText, 1);
+                    UpdateConfigKey("nombreLog", rjInputsNombrelogs.TextBoxText, 1);
+                    UpdateConfigKey("intervalo", rjInputsIntervalo.TextBoxText, 1);
+
+
+                    DialogResult result;
+                    using (var msFomr = new FormMessageBox("Datos de parametrización guardados correctamente. ", "OK", MessageBoxButtons.OK, MessageBoxIcon.None))
+                        result = msFomr.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result;
+                    using (var msFomr = new FormMessageBox($"No se pudo guardar correctamente. {ex}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error))
+                        result = msFomr.ShowDialog();
+                }
+            }
+            else
+            {
+                DialogResult result;
+                using (var msFomr = new FormMessageBox($"No puede enviar campos vacíos. ", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                    result = msFomr.ShowDialog();
+            }
         }
     }
 }

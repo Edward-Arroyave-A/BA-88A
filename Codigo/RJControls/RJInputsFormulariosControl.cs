@@ -162,7 +162,7 @@ namespace AnnarComMICROSESV60.RJControls
             {
 
                 label2.Padding = new Padding(0, 15, 0, 0);
-                rjTextBoxControl1.Size = new Size(rjTextBoxControl1.Size.Width, 40);
+                rjTextBoxControl1.Size = new Size(rjTextBoxControl1.Size.Width, 38);
                 cambio = true;
                 
             }
