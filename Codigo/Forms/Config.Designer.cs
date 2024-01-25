@@ -60,6 +60,13 @@
             this.btnParametrizacion = new System.Windows.Forms.Button();
             this.btnRuta = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new AnnarComMICROSESV60.RJControls.RJButton();
+            this.rjInputsDispositivoMedico = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjInputsReactivo = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjInputsUrlResultados = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjInputsContraseña = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjInputsUsuario = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
+            this.rjInputsCabecera = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjButton2 = new AnnarComMICROSESV60.RJControls.RJButton();
             this.rjToggleLog = new AnnarComMICROSESV60.RJControls.RJToggleButton();
             this.rjInputsIntervalo = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
@@ -71,15 +78,8 @@
             this.rjInputsFormulariosControl7 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl6 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsFormulariosControl5 = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjButton1 = new AnnarComMICROSESV60.RJControls.RJButton();
-            this.rjInputsDispositivoMedico = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsReactivo = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsBaseURL = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.rjInputsUrlToken = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsUrlResultados = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsContraseña = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsUsuario = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
-            this.rjInputsCabecera = new AnnarComMICROSESV60.RJControls.RJInputsFormulariosControl();
             this.panelConexion2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -143,7 +143,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.rjInputsDispositivoMedico);
             this.panel8.Controls.Add(this.rjInputsReactivo);
-            this.panel8.Controls.Add(this.rjInputsBaseURL);
+            this.panel8.Controls.Add(this.rjInputsUrlToken);
             this.panel8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(356, 3);
@@ -156,7 +156,7 @@
             // 
             this.panel9.Controls.Add(this.tableLayoutPanel3);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(15, 252);
+            this.panel9.Location = new System.Drawing.Point(15, 251);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(15);
             this.panel9.Size = new System.Drawing.Size(318, 142);
@@ -205,8 +205,8 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.rjInputsUrlToken);
             this.panel7.Controls.Add(this.rjInputsUrlResultados);
+            this.panel7.Controls.Add(this.rjInputsBaseURL);
             this.panel7.Controls.Add(this.rjInputsContraseña);
             this.panel7.Controls.Add(this.rjInputsUsuario);
             this.panel7.Controls.Add(this.rjInputsCabecera);
@@ -534,6 +534,168 @@
             this.panel2.Size = new System.Drawing.Size(767, 38);
             this.panel2.TabIndex = 14;
             // 
+            // rjButton1
+            // 
+            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.Transparent;
+            this.rjButton1.BorderRadius = 20;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold);
+            this.rjButton1.FontSize = 10F;
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(29, 17);
+            this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(79, 37);
+            this.rjButton1.TabIndex = 20;
+            this.rjButton1.Text = "Guardar";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click_1);
+            // 
+            // rjInputsDispositivoMedico
+            // 
+            this.rjInputsDispositivoMedico.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsDispositivoMedico.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsDispositivoMedico.BorderRadius = 5;
+            this.rjInputsDispositivoMedico.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsDispositivoMedico.Focuse = false;
+            this.rjInputsDispositivoMedico.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsDispositivoMedico.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsDispositivoMedico.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsDispositivoMedico.LabelText = "Dispositivo médico";
+            this.rjInputsDispositivoMedico.Location = new System.Drawing.Point(15, 171);
+            this.rjInputsDispositivoMedico.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsDispositivoMedico.Multiline = false;
+            this.rjInputsDispositivoMedico.Name = "rjInputsDispositivoMedico";
+            this.rjInputsDispositivoMedico.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsDispositivoMedico.SiseTextBox = new System.Drawing.Size(301, 36);
+            this.rjInputsDispositivoMedico.Size = new System.Drawing.Size(318, 80);
+            this.rjInputsDispositivoMedico.TabIndex = 20;
+            this.rjInputsDispositivoMedico.TextBoxSize = new System.Drawing.Size(301, 36);
+            this.rjInputsDispositivoMedico.TextBoxText = "";
+            // 
+            // rjInputsReactivo
+            // 
+            this.rjInputsReactivo.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsReactivo.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsReactivo.BorderRadius = 5;
+            this.rjInputsReactivo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsReactivo.Focuse = false;
+            this.rjInputsReactivo.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsReactivo.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsReactivo.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsReactivo.LabelText = "Reactivo";
+            this.rjInputsReactivo.Location = new System.Drawing.Point(15, 94);
+            this.rjInputsReactivo.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsReactivo.Multiline = false;
+            this.rjInputsReactivo.Name = "rjInputsReactivo";
+            this.rjInputsReactivo.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsReactivo.SiseTextBox = new System.Drawing.Size(301, 36);
+            this.rjInputsReactivo.Size = new System.Drawing.Size(318, 77);
+            this.rjInputsReactivo.TabIndex = 19;
+            this.rjInputsReactivo.TextBoxSize = new System.Drawing.Size(301, 36);
+            this.rjInputsReactivo.TextBoxText = "";
+            // 
+            // rjInputsUrlResultados
+            // 
+            this.rjInputsUrlResultados.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsUrlResultados.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsUrlResultados.BorderRadius = 5;
+            this.rjInputsUrlResultados.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.rjInputsUrlResultados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsUrlResultados.Focuse = false;
+            this.rjInputsUrlResultados.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsUrlResultados.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsUrlResultados.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsUrlResultados.LabelText = "URL Resultados";
+            this.rjInputsUrlResultados.Location = new System.Drawing.Point(15, 335);
+            this.rjInputsUrlResultados.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsUrlResultados.Multiline = false;
+            this.rjInputsUrlResultados.Name = "rjInputsUrlResultados";
+            this.rjInputsUrlResultados.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsUrlResultados.SiseTextBox = new System.Drawing.Size(300, 36);
+            this.rjInputsUrlResultados.Size = new System.Drawing.Size(317, 76);
+            this.rjInputsUrlResultados.TabIndex = 18;
+            this.rjInputsUrlResultados.TextBoxSize = new System.Drawing.Size(300, 36);
+            this.rjInputsUrlResultados.TextBoxText = "";
+            // 
+            // rjInputsContraseña
+            // 
+            this.rjInputsContraseña.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsContraseña.BorderRadius = 5;
+            this.rjInputsContraseña.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsContraseña.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsContraseña.Focuse = false;
+            this.rjInputsContraseña.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsContraseña.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsContraseña.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsContraseña.LabelText = "Contraseña";
+            this.rjInputsContraseña.Location = new System.Drawing.Point(15, 175);
+            this.rjInputsContraseña.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsContraseña.Multiline = false;
+            this.rjInputsContraseña.Name = "rjInputsContraseña";
+            this.rjInputsContraseña.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsContraseña.SiseTextBox = new System.Drawing.Size(300, 36);
+            this.rjInputsContraseña.Size = new System.Drawing.Size(317, 80);
+            this.rjInputsContraseña.TabIndex = 16;
+            this.rjInputsContraseña.TextBoxSize = new System.Drawing.Size(300, 36);
+            this.rjInputsContraseña.TextBoxText = "";
+            // 
+            // rjInputsUsuario
+            // 
+            this.rjInputsUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsUsuario.BorderRadius = 5;
+            this.rjInputsUsuario.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsUsuario.Focuse = false;
+            this.rjInputsUsuario.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsUsuario.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsUsuario.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsUsuario.LabelText = "Usuario";
+            this.rjInputsUsuario.Location = new System.Drawing.Point(15, 95);
+            this.rjInputsUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsUsuario.Multiline = false;
+            this.rjInputsUsuario.Name = "rjInputsUsuario";
+            this.rjInputsUsuario.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsUsuario.SiseTextBox = new System.Drawing.Size(300, 36);
+            this.rjInputsUsuario.Size = new System.Drawing.Size(317, 80);
+            this.rjInputsUsuario.TabIndex = 15;
+            this.rjInputsUsuario.TextBoxSize = new System.Drawing.Size(300, 36);
+            this.rjInputsUsuario.TextBoxText = "";
+            // 
+            // rjInputsCabecera
+            // 
+            this.rjInputsCabecera.BackColor = System.Drawing.SystemColors.Window;
+            this.rjInputsCabecera.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
+            this.rjInputsCabecera.BorderRadius = 5;
+            this.rjInputsCabecera.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rjInputsCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjInputsCabecera.Focuse = false;
+            this.rjInputsCabecera.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
+            this.rjInputsCabecera.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjInputsCabecera.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.rjInputsCabecera.LabelText = "Cabecera";
+            this.rjInputsCabecera.Location = new System.Drawing.Point(15, 15);
+            this.rjInputsCabecera.Margin = new System.Windows.Forms.Padding(0);
+            this.rjInputsCabecera.Multiline = false;
+            this.rjInputsCabecera.Name = "rjInputsCabecera";
+            this.rjInputsCabecera.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.rjInputsCabecera.SiseTextBox = new System.Drawing.Size(300, 36);
+            this.rjInputsCabecera.Size = new System.Drawing.Size(317, 80);
+            this.rjInputsCabecera.TabIndex = 17;
+            this.rjInputsCabecera.TextBoxSize = new System.Drawing.Size(300, 36);
+            this.rjInputsCabecera.TextBoxText = "";
+            // 
             // rjButton2
             // 
             this.rjButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -544,6 +706,7 @@
             this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton2.BorderRadius = 20;
             this.rjButton2.BorderSize = 0;
+            this.rjButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -768,76 +931,6 @@
             this.rjInputsFormulariosControl5.TextBoxSize = new System.Drawing.Size(396, 36);
             this.rjInputsFormulariosControl5.TextBoxText = "";
             // 
-            // rjButton1
-            // 
-            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderRadius = 20;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold);
-            this.rjButton1.FontSize = 10F;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(29, 17);
-            this.rjButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(79, 37);
-            this.rjButton1.TabIndex = 20;
-            this.rjButton1.Text = "Guardar";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click_1);
-            // 
-            // rjInputsDispositivoMedico
-            // 
-            this.rjInputsDispositivoMedico.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsDispositivoMedico.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsDispositivoMedico.BorderRadius = 5;
-            this.rjInputsDispositivoMedico.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsDispositivoMedico.Focuse = false;
-            this.rjInputsDispositivoMedico.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsDispositivoMedico.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsDispositivoMedico.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsDispositivoMedico.LabelText = "Dispositivo médico";
-            this.rjInputsDispositivoMedico.Location = new System.Drawing.Point(15, 172);
-            this.rjInputsDispositivoMedico.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsDispositivoMedico.Multiline = false;
-            this.rjInputsDispositivoMedico.Name = "rjInputsDispositivoMedico";
-            this.rjInputsDispositivoMedico.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsDispositivoMedico.SiseTextBox = new System.Drawing.Size(301, 36);
-            this.rjInputsDispositivoMedico.Size = new System.Drawing.Size(318, 80);
-            this.rjInputsDispositivoMedico.TabIndex = 20;
-            this.rjInputsDispositivoMedico.TextBoxSize = new System.Drawing.Size(301, 36);
-            this.rjInputsDispositivoMedico.TextBoxText = "";
-            // 
-            // rjInputsReactivo
-            // 
-            this.rjInputsReactivo.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsReactivo.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsReactivo.BorderRadius = 5;
-            this.rjInputsReactivo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsReactivo.Focuse = false;
-            this.rjInputsReactivo.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsReactivo.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsReactivo.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsReactivo.LabelText = "Reactivo";
-            this.rjInputsReactivo.Location = new System.Drawing.Point(15, 95);
-            this.rjInputsReactivo.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsReactivo.Multiline = false;
-            this.rjInputsReactivo.Name = "rjInputsReactivo";
-            this.rjInputsReactivo.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsReactivo.SiseTextBox = new System.Drawing.Size(301, 36);
-            this.rjInputsReactivo.Size = new System.Drawing.Size(318, 77);
-            this.rjInputsReactivo.TabIndex = 19;
-            this.rjInputsReactivo.TextBoxSize = new System.Drawing.Size(301, 36);
-            this.rjInputsReactivo.TextBoxText = "";
-            // 
             // rjInputsBaseURL
             // 
             this.rjInputsBaseURL.BackColor = System.Drawing.SystemColors.Window;
@@ -849,15 +942,15 @@
             this.rjInputsBaseURL.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjInputsBaseURL.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.rjInputsBaseURL.LabelText = "URL Base";
-            this.rjInputsBaseURL.Location = new System.Drawing.Point(15, 15);
+            this.rjInputsBaseURL.Location = new System.Drawing.Point(15, 255);
             this.rjInputsBaseURL.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsBaseURL.Multiline = false;
             this.rjInputsBaseURL.Name = "rjInputsBaseURL";
             this.rjInputsBaseURL.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsBaseURL.SiseTextBox = new System.Drawing.Size(301, 36);
-            this.rjInputsBaseURL.Size = new System.Drawing.Size(318, 80);
-            this.rjInputsBaseURL.TabIndex = 22;
-            this.rjInputsBaseURL.TextBoxSize = new System.Drawing.Size(301, 36);
+            this.rjInputsBaseURL.SiseTextBox = new System.Drawing.Size(300, 36);
+            this.rjInputsBaseURL.Size = new System.Drawing.Size(317, 80);
+            this.rjInputsBaseURL.TabIndex = 23;
+            this.rjInputsBaseURL.TextBoxSize = new System.Drawing.Size(300, 36);
             this.rjInputsBaseURL.TextBoxText = "";
             // 
             // rjInputsUrlToken
@@ -872,108 +965,16 @@
             this.rjInputsUrlToken.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjInputsUrlToken.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.rjInputsUrlToken.LabelText = "URL Token";
-            this.rjInputsUrlToken.Location = new System.Drawing.Point(15, 331);
+            this.rjInputsUrlToken.Location = new System.Drawing.Point(15, 15);
             this.rjInputsUrlToken.Margin = new System.Windows.Forms.Padding(0);
             this.rjInputsUrlToken.Multiline = false;
             this.rjInputsUrlToken.Name = "rjInputsUrlToken";
             this.rjInputsUrlToken.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsUrlToken.SiseTextBox = new System.Drawing.Size(300, 36);
-            this.rjInputsUrlToken.Size = new System.Drawing.Size(317, 79);
-            this.rjInputsUrlToken.TabIndex = 19;
-            this.rjInputsUrlToken.TextBoxSize = new System.Drawing.Size(300, 36);
+            this.rjInputsUrlToken.SiseTextBox = new System.Drawing.Size(301, 36);
+            this.rjInputsUrlToken.Size = new System.Drawing.Size(318, 79);
+            this.rjInputsUrlToken.TabIndex = 22;
+            this.rjInputsUrlToken.TextBoxSize = new System.Drawing.Size(301, 36);
             this.rjInputsUrlToken.TextBoxText = "";
-            // 
-            // rjInputsUrlResultados
-            // 
-            this.rjInputsUrlResultados.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsUrlResultados.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsUrlResultados.BorderRadius = 5;
-            this.rjInputsUrlResultados.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.rjInputsUrlResultados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsUrlResultados.Focuse = false;
-            this.rjInputsUrlResultados.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsUrlResultados.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsUrlResultados.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsUrlResultados.LabelText = "URL Resultados";
-            this.rjInputsUrlResultados.Location = new System.Drawing.Point(15, 255);
-            this.rjInputsUrlResultados.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsUrlResultados.Multiline = false;
-            this.rjInputsUrlResultados.Name = "rjInputsUrlResultados";
-            this.rjInputsUrlResultados.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsUrlResultados.SiseTextBox = new System.Drawing.Size(300, 36);
-            this.rjInputsUrlResultados.Size = new System.Drawing.Size(317, 76);
-            this.rjInputsUrlResultados.TabIndex = 18;
-            this.rjInputsUrlResultados.TextBoxSize = new System.Drawing.Size(300, 36);
-            this.rjInputsUrlResultados.TextBoxText = "";
-            // 
-            // rjInputsContraseña
-            // 
-            this.rjInputsContraseña.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsContraseña.BorderRadius = 5;
-            this.rjInputsContraseña.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rjInputsContraseña.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsContraseña.Focuse = false;
-            this.rjInputsContraseña.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsContraseña.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsContraseña.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsContraseña.LabelText = "Contraseña";
-            this.rjInputsContraseña.Location = new System.Drawing.Point(15, 175);
-            this.rjInputsContraseña.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsContraseña.Multiline = false;
-            this.rjInputsContraseña.Name = "rjInputsContraseña";
-            this.rjInputsContraseña.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsContraseña.SiseTextBox = new System.Drawing.Size(300, 36);
-            this.rjInputsContraseña.Size = new System.Drawing.Size(317, 80);
-            this.rjInputsContraseña.TabIndex = 16;
-            this.rjInputsContraseña.TextBoxSize = new System.Drawing.Size(300, 36);
-            this.rjInputsContraseña.TextBoxText = "";
-            // 
-            // rjInputsUsuario
-            // 
-            this.rjInputsUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsUsuario.BorderRadius = 5;
-            this.rjInputsUsuario.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rjInputsUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsUsuario.Focuse = false;
-            this.rjInputsUsuario.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsUsuario.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsUsuario.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsUsuario.LabelText = "Usuario";
-            this.rjInputsUsuario.Location = new System.Drawing.Point(15, 95);
-            this.rjInputsUsuario.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsUsuario.Multiline = false;
-            this.rjInputsUsuario.Name = "rjInputsUsuario";
-            this.rjInputsUsuario.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsUsuario.SiseTextBox = new System.Drawing.Size(300, 36);
-            this.rjInputsUsuario.Size = new System.Drawing.Size(317, 80);
-            this.rjInputsUsuario.TabIndex = 15;
-            this.rjInputsUsuario.TextBoxSize = new System.Drawing.Size(300, 36);
-            this.rjInputsUsuario.TextBoxText = "";
-            // 
-            // rjInputsCabecera
-            // 
-            this.rjInputsCabecera.BackColor = System.Drawing.SystemColors.Window;
-            this.rjInputsCabecera.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(206)))), ((int)(((byte)(247)))));
-            this.rjInputsCabecera.BorderRadius = 5;
-            this.rjInputsCabecera.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rjInputsCabecera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjInputsCabecera.Focuse = false;
-            this.rjInputsCabecera.Font = new System.Drawing.Font("Open Sans", 9.25F, System.Drawing.FontStyle.Bold);
-            this.rjInputsCabecera.FontTextBox = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjInputsCabecera.Label2TextPadding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.rjInputsCabecera.LabelText = "Cabecera";
-            this.rjInputsCabecera.Location = new System.Drawing.Point(15, 15);
-            this.rjInputsCabecera.Margin = new System.Windows.Forms.Padding(0);
-            this.rjInputsCabecera.Multiline = false;
-            this.rjInputsCabecera.Name = "rjInputsCabecera";
-            this.rjInputsCabecera.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.rjInputsCabecera.SiseTextBox = new System.Drawing.Size(300, 36);
-            this.rjInputsCabecera.Size = new System.Drawing.Size(317, 80);
-            this.rjInputsCabecera.TabIndex = 17;
-            this.rjInputsCabecera.TextBoxSize = new System.Drawing.Size(300, 36);
-            this.rjInputsCabecera.TextBoxText = "";
             // 
             // Config
             // 
@@ -1051,7 +1052,6 @@
         private RJControls.RJInputsFormulariosControl rjInputsUsuario;
         private RJControls.RJInputsFormulariosControl rjInputsContraseña;
         private RJControls.RJInputsFormulariosControl rjInputsUrlResultados;
-        private RJControls.RJInputsFormulariosControl rjInputsUrlToken;
         private System.Windows.Forms.Panel panel8;
         private RJControls.RJInputsFormulariosControl rjInputsDispositivoMedico;
         private RJControls.RJInputsFormulariosControl rjInputsReactivo;
@@ -1072,9 +1072,10 @@
         private RJControls.RJInputsFormulariosControl rjInputsNombrelogs;
         private RJControls.RJInputsFormulariosControl rjInputsNombreInterfaz;
         private RJControls.RJToggleButton rjToggleLog;
-        private RJControls.RJInputsFormulariosControl rjInputsBaseURL;
         private RJControls.RJButton rjButton2;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private RJControls.RJInputsFormulariosControl rjInputsUrlToken;
+        private RJControls.RJInputsFormulariosControl rjInputsBaseURL;
     }
 }
