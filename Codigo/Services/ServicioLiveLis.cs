@@ -4,14 +4,19 @@ using RestSharp;
 using System;
 using AnnarComMICROSESV60.Models;
 using AnnarComMICROSESV60.Utils;
+using AnnarComMICROSESV60.Forms;
+using static AnnarComMICROSESV60.Forms.Resultados;
+using System.Windows.Forms;
 
 namespace AnnarComMICROSESV60.Services
 {
     public class ServicioLiveLis
     {
-        private  RestClient client;
-        private  readonly RegistroLog log = new RegistroLog();
-        private  readonly string nombreLog = InterfaceConfig.nombreLog + "_JSON";
+
+        private static RestClient client;
+        private static readonly RegistroLog log = new RegistroLog();
+        private static readonly string nombreLog = InterfaceConfig.nombreLog + "_JSON";
+        private Resultados formResultados; 
 
         public ServicioLiveLis()
         {
@@ -26,6 +31,8 @@ namespace AnnarComMICROSESV60.Services
                 string token = ObtenerToken();
                 if (token != null)
                 {
+                    EjecutarMensajeEstadosTerminal("Enviando resultados...", EnumEstados.Process);
+
                     RestRequest request = new RestRequest($"{InterfaceConfig.endPointResultados}", Method.Post)
                                 .AddHeader("Authorization", $"Bearer {token}")
                                 .AddHeader("Content-Type", "application/json")
@@ -51,27 +58,36 @@ namespace AnnarComMICROSESV60.Services
                     log.RegistraEnLog($"------------------------- Respuesta Recibida ------------------------------", nombreLog);
                     if (response.IsSuccessful)
                     {
+                        EjecutarMensajeEstadosTerminal("Resultados enviados correctamente.", EnumEstados.Ok);
                         log.RegistraEnLog($"Resultados enviados correctamente.", nombreLog);
+
                         if (respuestaEnvio.ok)
                         {
+                            EjecutarMensajeEstadosTerminal($"Respuesta: {respuestaEnvio.message}", EnumEstados.Ok);
                             log.RegistraEnLog($"La respuesta del consumo fue positiva. Respuesta[{respuestaEnvio.message}]", nombreLog);
                             log.RegistraEnLog($"-------------------------------------------------------------------------- \n", nombreLog);
                         }
                         else
                         {
+                            EjecutarMensajeEstadosTerminal($"Respuesta: {respuestaEnvio.message}", EnumEstados.Warning);
                             log.RegistraEnLog($"La respuesta del consumo fue negativa. Respuesta[{respuestaEnvio.message}]", nombreLog);
                             log.RegistraEnLog($"-------------------------------------------------------------------------- \n", nombreLog);
                         }
                     }
                     else
                     {
+                        EjecutarMensajeEstadosTerminal($"Error enviando resultados. Status Code [{response.StatusCode}]", EnumEstados.Error);
                         ManejoExcepciones.ManejoErrores(response);
                     }
                 }
+
+                EjecutarMensajeEstadosTerminal($"", EnumEstados.Empty);
+
             }
             catch (Exception ex)
             {
                 // Manejar otras excepciones
+                EjecutarMensajeEstadosTerminal($"Error enviando resultados. Mensaje interno [{ex.Message}]", EnumEstados.Error);
                 log.RegistraEnLog($"Error en EnviarResultados: {ex.Message}", nombreLog);
             }
         }
@@ -79,6 +95,8 @@ namespace AnnarComMICROSESV60.Services
         {
             try
             {
+                EjecutarMensajeEstadosTerminal("Obteniendo token...", EnumEstados.Process);
+                
                 RestRequest request = new RestRequest($"{InterfaceConfig.endPointToken}", Method.Post)
                     .AddHeader("Content-Type", "application/json")
                     .AddHeader("Client", $"{InterfaceConfig.client}")
@@ -98,10 +116,12 @@ namespace AnnarComMICROSESV60.Services
                     RespuestaLoginToken respuestaLogin = JsonConvert.DeserializeObject<RespuestaLoginToken>(response.Content);
                     log.RegistraEnLog($"Token obtenido correctamente.", nombreLog);
                     log.RegistraEnLog($"-------------------------------------------------------------------------- \n", nombreLog);
+                    EjecutarMensajeEstadosTerminal("Token obtenido correctamente.", EnumEstados.Ok);
                     return respuestaLogin.data.token;
                 }
                 else
                 {
+                    EjecutarMensajeEstadosTerminal($"Error obteniendo token. Status Code [{response.StatusCode}]", EnumEstados.Error);
                     ManejoExcepciones.ManejoErrores(response);
                     return null;
                 }
@@ -109,8 +129,22 @@ namespace AnnarComMICROSESV60.Services
             catch (Exception ex)
             {
                 // Manejar otras excepciones
-                log.RegistraEnLog($"Error en ObtenerToken: {ex.Message}", nombreLog);
+                EjecutarMensajeEstadosTerminal($"Error obteniendo token. Mensaje interno [{ex.Message}]", EnumEstados.Error);
+                log.RegistraEnLog($"Error en Obtener Token: {ex.Message}", nombreLog);
                 return null;
+            }
+        }
+
+        private void EjecutarMensajeEstadosTerminal(string msg, EnumEstados enumEstados)
+        {
+            try
+            {
+                formResultados = (Resultados)Application.OpenForms[1];
+                formResultados.MensajesEstadosTerminal(msg, enumEstados);
+            }
+            catch (Exception)
+            {
+                using (var msFomr = new FormMessageBox("Interfaz Desconectada", "Advertencia")) { }
             }
         }
     }
