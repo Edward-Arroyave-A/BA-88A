@@ -95,8 +95,7 @@ namespace AnnarComMICROSESV60.Forms
             panelRuta2.Visible = false;
             #endregion
 
-             heightInicial = rjInputsFormulariosControl5.Size.Height;
-           
+             heightInicial = rjInputsFormulariosControl5.Size.Height;           
 
         }
 
